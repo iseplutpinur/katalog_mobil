@@ -1,3 +1,6 @@
+let global_dynamic = () => {
+
+}
 $(function () {
   function dynamic(date_start = null, date_end = null, admin = null) {
     let filter = null;
@@ -24,25 +27,30 @@ $(function () {
       "columns": [
         { "data": null },
         { "data": "title" },
+        { "data": "status_str" },
         {
           "data": "id", render(data, type, full, meta) {
             return `<div class="pull-right">
-                                <button class="btn btn-success btn-sm" onclick="Detail('${data}')">
-                                    <i class="fa fa-list"></i> Detail
-                                </button>
-              <a href="<?= base_url('stok/masuk/tambah') ?>?edit=${full.id}" class="btn btn-primary btn-sm">
-                <i class="fa fa-edit"></i> Ubah
-              </a>
-              <button class="btn btn-danger btn-sm" onclick="Hapus('${data}')">
-                <i class="fa fa-trash"></i> Hapus
-              </button>
-            </div>`
+                        <button class="btn btn-success btn-sm"
+                        data-id="${data}"
+                        data-foto="${full.foto}"
+                        data-title="${full.title}"
+                        onclick="view(this)">
+                            <i class="fa fa-eye"></i> Lihat
+                        </button>
+                      <button  class="btn btn-primary btn-sm" onclick="Detail('${data}')">
+                        <i class="fa fa-edit"></i> Ubah
+                      </button>
+                      <button class="btn btn-danger btn-sm" onclick="Hapus('${data}')">
+                        <i class="fa fa-trash"></i> Hapus
+                      </button>
+                  </div>`
           }
         }
       ],
       columnDefs: [{
         orderable: false,
-        targets: [0]
+        targets: [0, 3]
       }],
       order: [
         [1, 'asc']
@@ -59,5 +67,22 @@ $(function () {
     });
   }
   dynamic();
-  console.log("tes");
+  global_dynamic = dynamic;
 })
+
+function remove(id) {
+
+}
+
+function edit(id) {
+
+}
+
+function view(datas) {
+  const data = datas.dataset;
+  $("#modalViewImage").attr('src', `<?= base_url() ?>files/home/${data.foto}`);
+  $("#modalViewImage").attr('alt', data.title);
+  $("#modalViewLabel").text(data.title);
+  $("#modalView").modal("toggle");
+
+}
