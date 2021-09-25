@@ -15,7 +15,7 @@ $(function () {
     table_html.dataTable().fnDestroy()
     var tableUser = table_html.DataTable({
       "ajax": {
-        "url": "<?= base_url()?>admin/slider/datatable",
+        "url": "<?= base_url()?>admin/produk/datatable",
         "data": filter,
         "type": 'POST'
       },
