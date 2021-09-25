@@ -8,7 +8,7 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		if (!empty($this->session->userdata('email')) && $this->session->userdata('role_id') == 1) {
-			$this->Flasher_model->flashdata('You login with <a href="' . base_url('administrator') . '">Administrator</a> Or <a href="' . base_url('auth/logout') . '">Logout</a>', 'Warning', 'warning');
+			$this->Flasher_model->flashdata('You login with <a href="' . base_url('admin/Dashboard') . '">Administrator</a> Or <a href="' . base_url('auth/logout') . '">Logout</a>', 'Warning', 'warning');
 		} elseif (!empty($this->session->userdata('email')) && $this->session->userdata('role_id') == 2) {
 			$this->Flasher_model->flashdata('You login with <a href="' . base_url('user') . '">User</a> Or <a href="' . base_url('auth/logout') . '">Logout</a>', 'Warning', 'warning');
 		}

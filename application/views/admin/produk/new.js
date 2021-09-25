@@ -591,7 +591,7 @@ $(document).ready(() => {
   $("#delete-foto").click(() => {
     $.ajax({
       method: 'get',
-      url: `<?= base_url() ?>admin/slider/${formnow}/` + $("#foto-id-delete").val(),
+      url: `<?= base_url() ?>admin/${formnow}/delete/` + $("#foto-id-delete").val(),
       data: null,
     }).done((data) => {
       alert("Foto berhasil dihapus");
