@@ -90,61 +90,6 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider mt-3">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                User </div>
-
-            <!-- meniapkan sub-sub menu-->
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>user">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>My Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>user/edit">
-                    <i class="fas fa-fw fa-user-edit"></i>
-                    <span>Edit Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>user/changepassword">
-                    <i class="fas fa-fw fa-key"></i>
-                    <span>Change password</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider mt-3">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Menu </div>
-
-            <!-- meniapkan sub-sub menu-->
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>menu">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Menu Management</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>menu/submenu">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>Submenu Management</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url() ?>menu/usermanagement">
-                    <i class="fas fa-fw fa-user-edit"></i>
-                    <span>User Management</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider mt-3">
-
             <!-- Nav Item - My Profile -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">

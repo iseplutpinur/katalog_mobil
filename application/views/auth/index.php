@@ -35,12 +35,6 @@
                 <button type="submit" id="btnLogin" name="btnLogin" class="btn btn-primary btn-user btn-block">Login</button>
               </form>
               <hr>
-              <div class="text-center">
-                <a class="small" href="<?= base_url('auth/forgot_password'); ?>">Forgot Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="<?= base_url('auth/registrasion'); ?>">Create an Account!</a>
-              </div>
             </div>
           </div>
         </div>
