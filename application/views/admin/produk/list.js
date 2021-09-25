@@ -118,11 +118,15 @@ $(function () {
 })
 
 function remove(id) {
+  alert('Maaf, Fitur dalam masa pengembangan');
+  return;
   $("#id-delete").val(id);
   $("#modalremove").modal('toggle');
 }
 
 function edit(datas) {
+  alert('Maaf, Fitur dalam masa pengembangan');
+  return;
   const data = datas.dataset;
   $("#id").val(data.id);
   $("#title").val(data.title);
@@ -133,6 +137,8 @@ function edit(datas) {
 }
 
 function view(datas) {
+  alert('Maaf, Fitur dalam masa pengembangan');
+  return;
   const data = datas.dataset;
   $("#modalViewImage").attr('src', `<?= base_url() ?>files/home/${data.foto}`);
   $("#modalViewImage").attr('alt', data.title);
