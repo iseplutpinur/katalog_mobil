@@ -71,16 +71,22 @@
             <hr class="sidebar-divider">
 
             <!-- meniapkan sub-sub menu-->
-            <li class="nav-item active">
+            <li class="nav-item" id="nav-dashboard">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/Dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="nav-slider">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/Slider">
                     <i class="fas fa-fw fa-copy"></i>
                     <span>Slider</span>
+                </a>
+            </li>
+            <li class="nav-item" id="nav-produk">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/produk">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Produk</span>
                 </a>
             </li>
 

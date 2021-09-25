@@ -67,6 +67,8 @@
                 $this->load->view("$javascript.js");
             }
         } ?>
+
+        $('#<?= isset($nav_select) ? $nav_select : 'nav-dashboard' ?>').addClass('active');
     </script>
     </body>
 

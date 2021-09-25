@@ -5,6 +5,30 @@ class Produk extends CI_Controller
 {
   public function index()
   {
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title_page'] = "List Produk";
+    $data['plugins'] = ['datatable'];
+    $data['nav_select'] = 'nav-produk';
+    $data['javascript'] = "admin/produk/list";
+    $this->load->view('admin/sitemain/header', $data);
+    $this->load->view('admin/produk/list', $data);
+    $this->load->view('admin/sitemain/footer');
+  }
+
+  public function new()
+  {
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['title_page'] = "New Produk";
+    $data['plugins'] = ['datatable'];
+    $data['nav_select'] = 'nav-produk';
+    $data['javascript'] = "admin/produk/new";
+    $this->load->view('admin/sitemain/header', $data);
+    $this->load->view('admin/produk/new', $data);
+    $this->load->view('admin/sitemain/footer');
+  }
+
+  public function edit($id = null)
+  {
   }
 
   public function insert()
