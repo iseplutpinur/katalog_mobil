@@ -45,7 +45,7 @@ class GaleriModel extends CI_Model
       ];
       $res_foto = true;
       // cek apakah ada foto yang dikirim
-      if (!empty($_FILES)) {
+      if ($_FILES['file']['name'] != '') {
         // simpan foto
         $save_file = $this->saveFile();
         // delete foto

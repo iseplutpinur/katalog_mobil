@@ -131,11 +131,12 @@ const table_eksterior = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
-                      data-title_nav="Edit Eksterior"
+                      data-url="eksterior"
+                      data-title_nav="Edit Foto Eksterior"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -407,7 +408,7 @@ const table_video = () => {
   });
 }
 
-
+let formnow = '';
 
 $(document).ready(() => {
   // intial table
@@ -552,7 +553,57 @@ $(document).ready(() => {
   });
 
   // foto tambah
+  // eksterior
+  $("#btn-table-eksterior").click(() => {
+    $("#foto-title").val('');
+    $("#foto-id").val('');
+    $("#foto-status").val(1);
+    $("#foto-file").val('');
+    $("#formFotoLabel").text('Tambah Foto Eksterior');
+    $("#formFoto").modal('toggle');
+    formnow = 'eksterior';
+  })
 
+  $("#formFotoAction").submit(function (ev) {
+    ev.preventDefault();
+    const form = new FormData(this);
+    $.ajax({
+      method: 'post',
+      url: `<?= base_url() ?>admin/${formnow}/` + ($("#foto-id").val() == "" ? 'insert' : 'update'),
+      data: form,
+      cache: false,
+      contentType: false,
+      processData: false,
+    }).done((data) => {
+      alert("Data berhasil disimpan");
+    }).fail(($xhr) => {
+      alert('Data gagal disimpan');
+    }).always(() => {
+      $("#formFoto").modal('toggle');
+      if (formnow == 'eksterior') {
+        table_eksterior();
+      }
+    })
+  })
+
+
+  // delete
+  $("#delete-foto").click(() => {
+    $.ajax({
+      method: 'get',
+      url: `<?= base_url() ?>admin/slider/${formnow}/` + $("#foto-id-delete").val(),
+      data: null,
+    }).done((data) => {
+      alert("Foto berhasil dihapus");
+      if (formnow == 'eksterior') {
+        table_eksterior();
+      }
+    }).fail(($xhr) => {
+      alert('Foto gagal dihapus');
+    }).always(() => {
+      $('#fotoModalRemove').modal('toggle');
+    })
+  });
 });
 
 // daftar harga
@@ -600,7 +651,14 @@ function edit(datas) {
   $("#foto-id").val(data.id);
   $("#foto-title").val(data.title);
   $("#foto-status").val(data.status);
-  $("#file").val('');
+  $("#foto-file").val('');
   $("#formFoto").modal('toggle');
   $("#formFotoLabel").text(data.title_nav);
+  formnow = data.url;
+}
+
+function remove(id, url) {
+  $("#foto-id-delete").val(id);
+  $("#fotoModalRemove").modal('toggle');
+  formnow = url;
 }

@@ -15,7 +15,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="file">Jumbotron Foto</label>
-                <input type="file" class="form-control" id="file" name="file" required>
+                <input type="file" class="form-control" foto- name="file" required>
               </div>
             </div>
             <div class="col-md-6">
@@ -113,15 +113,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Harga</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -144,14 +135,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -174,14 +157,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -204,14 +179,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -233,14 +200,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -263,14 +222,6 @@
                 <th style="max-width: 230px;">Action</th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
             <tbody>
 
             </tbody>
@@ -284,7 +235,6 @@
     </div>
   </div>
 </div>
-<input type="text" name="id_produk" class="form-control" value="<?= $produk['id'] ?>" hidden="hidden">
 
 <!-- form Modal -->
 <div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
@@ -317,14 +267,15 @@
       </div>
       <div class="modal-body">
         <form id="formFotoAction" action="" method="post">
-          <input type="text" name="id" id="id" class="form-control" value="" hidden="hidden">
+          <input type="text" name="id_produk" class="form-control" value="<?= $produk['id'] ?>" hidden="hidden">
+          <input type="text" name="id" id="foto-id" class="form-control" value="" hidden="hidden">
           <div class="form-group">
             <label for="foto-title">Title</label>
             <input type="text" name="title" id="foto-title" class="form-control" required="" placeholder="Title">
           </div>
           <div class="form-group">
             <label for="file">Foto</label>
-            <input type="file" name="file" id="file" class="form-control" placeholder="">
+            <input type="file" name="file" id="foto-file" class="form-control" placeholder="">
           </div>
           <div class="form-group">
             <label for="foto-status">Status</label>
@@ -336,7 +287,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" form="formModalAction">Submit</button>
+        <button type="submit" class="btn btn-primary" form="formFotoAction">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" required="">Close</button>
       </div>
     </div>
@@ -347,17 +298,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="fotoModalRemoveLabel">Delete Slider</h5>
+        <h5 class="modal-title" id="fotoModalRemoveLabel">Delete Foto</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin akan menghapus slider ini .?</p>
-        <input type="hidden" id="id-delete">
+        <p>Apakah anda yakin akan menghapus foto ini .?</p>
+        <input type="hidden" id="foto-id-delete">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" type="button" id="delete-slider" data-dismiss="modal">Delete</button>
+        <button class="btn btn-danger" type="button" id="delete-foto" data-dismiss="modal">Delete</button>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
       </div>
     </div>
@@ -376,7 +327,7 @@
       </div>
       <div class="modal-body">
         <form id="formDaftarHargaAction" action="" method="post">
-
+          <input type="text" name="id_produk" class="form-control" value="<?= $produk['id'] ?>" hidden="hidden">
           <input type="text" name="id" id="daftar_harga-id" class="form-control" value="" hidden="hidden">
           <div class="form-group">
             <label for="title">Nama</label>
