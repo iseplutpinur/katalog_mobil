@@ -3,19 +3,18 @@ let global_dynamic = () => {
 }
 $(function () {
   function dynamic(date_start = null, date_end = null, admin = null) {
-    let filter = null;
+    let filter = new Object();
+    filter.not_status_produk = 2;
     if (date_start != null && date_end != null && admin != null) {
-      filter = {
-        admin: admin,
-        date_start: date_start,
-        date_end: date_end,
-      }
+      filter.admin = admin;
+      filter.date_start = date_start;
+      filter.date_end = date_end;
     }
     const table_html = $('#dataTable');
     table_html.dataTable().fnDestroy()
     var tableUser = table_html.DataTable({
       "ajax": {
-        "url": "<?= base_url()?>admin/slider/datatable",
+        "url": "<?= base_url()?>admin/daftarHarga/datatable",
         "data": filter,
         "type": 'POST'
       },
@@ -26,22 +25,18 @@ $(function () {
       "autoWidth": false,
       "columns": [
         { "data": null },
+        { "data": "nama_produk" },
         { "data": "title" },
+        { "data": "harga" },
         { "data": "status_str" },
         {
           "data": "id", render(data, type, full, meta) {
-            return `<div class="pull-right">
-                        <button class="btn btn-success btn-sm"
-                        data-id="${data}"
-                        data-foto="${full.foto}"
-                        data-title="${full.title}"
-                        onclick="view(this)">
-                            <i class="fa fa-eye"></i> View
-                        </button>
-                      <button  class="btn btn-primary btn-sm"
+            return `<button  class="btn btn-primary btn-sm"
                         data-id="${data}"
                         data-title="${full.title}"
+                        data-harga="${full.harga}"
                         data-status="${full.status}"
+                        data-id_produk="${full.id_produk}"
                         onclick="edit(this)">
                         <i class="fa fa-edit"></i> Edit
                       </button>
@@ -54,7 +49,7 @@ $(function () {
       ],
       columnDefs: [{
         orderable: false,
-        targets: [0, 3]
+        targets: [0, 5]
       }],
       order: [
         [1, 'asc']
@@ -78,7 +73,7 @@ $(function () {
     const form = new FormData(this);
     $.ajax({
       method: 'post',
-      url: '<?= base_url() ?>admin/slider/' + ($("#id").val() == "" ? 'insert' : 'update'),
+      url: '<?= base_url() ?>admin/daftarHarga/' + ($("#id").val() == "" ? 'insert' : 'update'),
       data: form,
       cache: false,
       contentType: false,
@@ -106,18 +101,18 @@ $(function () {
     })
   })
 
-  $("#addNewSlider").click(() => {
+  $("#addNewharga").click(() => {
     $("#title").val('');
     $("#id").val('');
     $("#status").val(1);
     $("#file").val('');
-    $("#formModalLabel").text('Add New Slider');
+    $("#formModalLabel").text('Add New harga');
   })
 
-  $("#delete-slider").click(() => {
+  $("#delete-harga").click(() => {
     $.ajax({
       method: 'get',
-      url: '<?= base_url() ?>admin/slider/delete/' + $("#id-delete").val(),
+      url: '<?= base_url() ?>admin/daftarHarga/delete/' + $("#id-delete").val(),
       data: null,
     }).done((data) => {
       if (data.status) {
@@ -153,15 +148,8 @@ function edit(datas) {
   $("#id").val(data.id);
   $("#title").val(data.title);
   $("#status").val(data.status);
-  $("#file").val('');
+  $("#harga").val(data.harga);
+  $("#id_produk").val(data.id_produk);
   $("#formModal").modal('toggle');
-  $("#formModalLabel").text('Edit Slider');
-}
-
-function view(datas) {
-  const data = datas.dataset;
-  $("#modalViewImage").attr('src', `<?= base_url() ?>files/home/${data.foto}`);
-  $("#modalViewImage").attr('alt', data.title);
-  $("#modalViewLabel").text(data.title);
-  $("#modalView").modal("toggle");
+  $("#formModalLabel").text('Edit harga');
 }

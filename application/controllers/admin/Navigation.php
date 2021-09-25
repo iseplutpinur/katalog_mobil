@@ -5,6 +5,13 @@ class Navigation extends CI_Controller
 {
   public function index()
   {
+    $data['title_page'] = "List Slider";
+    $data['plugins'] = ['datatable'];
+    $data['nav_select'] = 'nav-slider';
+    $data['javascript'] = "admin/slider/list";
+    $this->load->view('admin/sitemain/header', $data);
+    $this->load->view('admin/slider/list', $data);
+    $this->load->view('admin/sitemain/footer');
   }
 
   public function insert()

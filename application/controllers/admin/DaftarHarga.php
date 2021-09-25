@@ -5,13 +5,13 @@ class DaftarHarga extends CI_Controller
 {
   public function index()
   {
-    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title_page'] = "My Profile";
-    $this->load->view('templates/sitemain/header', $data);
-    $this->load->view('templates/sitemain/sidebar', $data);
-    $this->load->view('templates/sitemain/topbar', $data);
-    $this->load->view('user/page/profile', $data);
-    $this->load->view('templates/sitemain/footer');
+    $data['title_page'] = "List Slider";
+    $data['plugins'] = ['datatable'];
+    $data['nav_select'] = 'nav-daftarHarga';
+    $data['javascript'] = "admin/daftarHarga/list";
+    $this->load->view('admin/sitemain/header', $data);
+    $this->load->view('admin/daftarHarga/list', $data);
+    $this->load->view('admin/sitemain/footer');
   }
 
   public function datatable()
@@ -29,6 +29,7 @@ class DaftarHarga extends CI_Controller
     $sales = $this->input->post('sales');
     $status = $this->input->post('status');
     $id_produk = $this->input->post('id_produk');
+    $not_status_produk = $this->input->post('not_status_produk');
 
     $filter = [
       'date' => [
@@ -38,7 +39,8 @@ class DaftarHarga extends CI_Controller
       'admin' => $admin,
       'sales' => $sales,
       'status' => $status,
-      'id_produk' => $id_produk
+      'id_produk' => $id_produk,
+      'not_status_produk' => $not_status_produk,
     ];
 
     if (isset($cari['value'])) {

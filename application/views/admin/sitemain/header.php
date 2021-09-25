@@ -69,9 +69,6 @@
                 <div class="sidebar-brand-text mx-3">KATALOG MOBIL</div>
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- meniapkan sub-sub menu-->
             <li class="nav-item" id="nav-dashboard">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/Dashboard">
@@ -91,6 +88,90 @@
                     <span>Produk</span>
                 </a>
             </li>
+            <li class="nav-item" id="nav-sales">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/sales">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Sales</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider mt-3">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Master Data </div>
+
+            <li class="nav-item" id="nav-testimoni">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/testimoni">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Testimoni</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-daftarHarga">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/daftarHarga">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Daftar Harga</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-eksterior">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/eksterior">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Eksterior</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-interior">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/interior">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Interior</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-warna">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/warna">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Warna</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-galeri">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/galeri">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Galeri</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-video">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/video">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Video</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider mt-3">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Pengaturan </div>
+
+            <li class="nav-item" id="nav-aplikasi">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/aplikasi">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Aplikasi</span>
+                </a>
+            </li>
+
+            <li class="nav-item" id="nav-navigasi">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/navigasi">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Navigasi</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider mb-0 mt-2">
 
             <!-- Nav Item - My Profile -->
             <li class="nav-item">
@@ -126,23 +207,6 @@
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <h5><span id="clockTopbar"></span></h5>
                     </div>
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
-                                <!-- <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>"> -->
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
                 </nav>
                 <!-- End of Topbar -->
 
