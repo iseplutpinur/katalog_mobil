@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-flex justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary"><?= $title_page; ?></h6>
-    <a href="<?= base_url() ?>/admin/produk/new" class="btn-sm btn-primary" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Product</a>
+    <a href="<?= base_url() ?>admin/produk/new" class="btn-sm btn-primary" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Product</a>
   </div>
   <div class="card-body">
     <div class="table-responsive">

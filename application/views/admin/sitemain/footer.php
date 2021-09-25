@@ -58,6 +58,10 @@
                     <script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
                     <script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
                 <?php endif ?>
+                <?php if ($plugin == 'ckeditor') : ?>
+                    <!-- Page level plugins -->
+                    <script src="<?= base_url(); ?>assets/vendor/ckeditor5-build-classic/ckeditor.js"></script>
+                <?php endif ?>
             <?php endforeach ?>
         <?php endif ?>
     <?php endif ?>

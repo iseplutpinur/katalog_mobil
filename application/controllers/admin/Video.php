@@ -7,12 +7,55 @@ class Video extends CI_Controller
   {
   }
 
+
+  public function datatable()
+  {
+    $order = ['order' => $this->input->post('order'), 'columns' => $this->input->post('columns')];
+    $start = $this->input->post('start');
+    $draw = $this->input->post('draw');
+    $draw = $draw == null ? 1 : $draw;
+    $length = $this->input->post('length');
+    $cari = $this->input->post('search');
+
+    $date_start = $this->input->post('date_start');
+    $date_end = $this->input->post('date_end');
+    $admin = $this->input->post('admin');
+    $sales = $this->input->post('sales');
+    $status = $this->input->post('status');
+    $id_produk = $this->input->post('id_produk');
+
+    $filter = [
+      'date' => [
+        'start' => $date_start,
+        'end' => $date_end,
+      ],
+      'admin' => $admin,
+      'sales' => $sales,
+      'status' => $status,
+      'id_produk' => $id_produk
+    ];
+
+    if (isset($cari['value'])) {
+      $_cari = $cari['value'];
+    } else {
+      $_cari = null;
+    }
+
+    $data = $this->model->getAllData($draw, $length, $start, $_cari, $order, $filter)->result_array();
+    $count = $this->model->getAllData(null, null,    null,   $_cari, $order, $filter)->num_rows();
+
+    echo json_encode(['recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data]);
+    header('Content-Type: application/json; charset=utf-8');
+  }
+
+
   public function insert()
   {
     $this->load->library('form_validation');
     $this->form_validation->set_error_delimiters('', '');
     $this->form_validation->set_rules('id_produk', 'Id Produk', 'trim|required|numeric');
     $this->form_validation->set_rules('url', 'url', 'trim|required');
+    $this->form_validation->set_rules('title', 'title', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
     if ($this->form_validation->run() == FALSE) {
       echo json_encode([
@@ -25,7 +68,8 @@ class Video extends CI_Controller
       $id_produk = $this->input->post('id_produk');
       $status = $this->input->post('status');
       $url = $this->input->post('url');
-      $return =  $this->model->insert($id_produk, $status, $url);
+      $title = $this->input->post('title');
+      $return =  $this->model->insert($id_produk, $status, $url, $title);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],
@@ -41,6 +85,7 @@ class Video extends CI_Controller
     $this->load->library('form_validation');
     $this->form_validation->set_rules('id_produk', 'Id Produk', 'trim|required|numeric');
     $this->form_validation->set_rules('url', 'url', 'trim|required');
+    $this->form_validation->set_rules('title', 'title', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
     $this->form_validation->set_rules('id', 'id', 'trim|required|numeric');
     if ($this->form_validation->run() == FALSE) {
@@ -55,7 +100,8 @@ class Video extends CI_Controller
       $id_produk = $this->input->post('id_produk');
       $status = $this->input->post('status');
       $url = $this->input->post('url');
-      $return =  $this->model->update($id, $id_produk,  $status,  $url);
+      $title = $this->input->post('title');
+      $return =  $this->model->update($id, $id_produk,  $status,  $url, $title);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],

@@ -3,9 +3,68 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class DaftarHargaModel extends CI_Model
 {
+
+  public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
+  {
+    // select tabel
+    $this->db->select("id, title, harga, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
+    $this->db->from("ktm_daftar_harga");
+    // $this->db->where("status <> 0");
+
+    // order by
+    if ($order['order'] != null) {
+      $columns = $order['columns'];
+      $dir = $order['order'][0]['dir'];
+      $order = $order['order'][0]['column'];
+      $columns = $columns[$order];
+
+      $order_colum = $columns['data'];
+      $this->db->order_by($order_colum, $dir);
+    }
+
+    // initial data table
+    if ($draw == 1) {
+      $this->db->limit(10, 0);
+    }
+
+    // filter
+    if ($filter != null) {
+      // filter date
+      if ($filter['date']['start'] != null && $filter['date']['end'] != null) {
+        $this->db->where("(a.created_at >= '{$filter['date']['start']} 00:00:00' and a.created_at <= '{$filter['date']['end']} 23:59:59')");
+      }
+
+      // filter admin
+      if ($filter['admin'] != '') {
+        $this->db->where("a.id_penanggung_jawab", $filter['admin']);
+      }
+
+      if ($filter['id_produk'] != '') {
+        $this->db->where("id_produk", $filter['id_produk']);
+      }
+    }
+
+    // pencarian
+    if ($cari != null) {
+      $this->db->where("(
+                  id LIKE '%$cari%' or
+                  title LIKE '%$cari%' or
+                  IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) LIKE '%$cari%' or
+                  harga LIKE '%$cari%'
+              )");
+    }
+
+    // pagination
+    if ($show != null && $start != null) {
+      $this->db->limit($show, $start);
+    }
+
+    $result = $this->db->get();
+    return $result;
+  }
+
   public function insert($id_produk, $title, $status, $harga)
   {
-    // insert foto
     $return = $this->db->insert('ktm_daftar_harga', [
       'id_produk' => $id_produk,
       'title' => $title,

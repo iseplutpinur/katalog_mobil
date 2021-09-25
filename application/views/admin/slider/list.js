@@ -138,5 +138,4 @@ function view(datas) {
   $("#modalViewImage").attr('alt', data.title);
   $("#modalViewLabel").text(data.title);
   $("#modalView").modal("toggle");
-
 }

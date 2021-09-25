@@ -6,6 +6,18 @@ class ProdukModel extends CI_Model
   private $foto_path = './files/produk/';
   private $cache_name = 'produk';
 
+  public function newProduk()
+  {
+    $check = $this->db->select("*")->from("ktm_produk")->where('status', 2)->get();
+    if ($check->num_rows() > 0) {
+      return $check->row_array();
+    } else {
+      $this->db->insert('ktm_produk', ['status' => 2]);
+      $new_produk = $this->db->insert_id();
+      return $this->db->select("*")->from("ktm_produk")->where('id', $new_produk)->get()->row_array();
+    }
+  }
+
   public function insert(
     $title,
     $jumbotron_title,

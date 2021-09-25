@@ -63,7 +63,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <i class="fas fa-code"></i>
+                <!-- <i class="fas fa-code"></i> -->
                 <div class="sidebar-brand-text mx-3">KATALOG MOBIL</div>
             </a>
 

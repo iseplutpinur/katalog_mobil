@@ -19,9 +19,10 @@ class Produk extends CI_Controller
   {
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['title_page'] = "New Produk";
-    $data['plugins'] = ['datatable'];
+    $data['plugins'] = ['datatable', 'ckeditor'];
     $data['nav_select'] = 'nav-produk';
     $data['javascript'] = "admin/produk/new";
+    $data['produk'] = $this->model->newProduk();
     $this->load->view('admin/sitemain/header', $data);
     $this->load->view('admin/produk/new', $data);
     $this->load->view('admin/sitemain/footer');
