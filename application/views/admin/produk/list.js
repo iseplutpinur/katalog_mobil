@@ -38,13 +38,9 @@ $(function () {
                         onclick="view(this)">
                             <i class="fa fa-eye"></i> View
                         </button>
-                      <button  class="btn btn-primary btn-sm"
-                        data-id="${data}"
-                        data-title="${full.title}"
-                        data-status="${full.status}"
-                        onclick="edit(this)">
+                      <a href="<?= base_url() ?>admin/produk/new/${data}" class="btn btn-primary btn-sm" >
                         <i class="fa fa-edit"></i> Edit
-                      </button>
+                      </a>
                       <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
                         <i class="fa fa-trash"></i> Delete
                       </button>
@@ -84,9 +80,22 @@ $(function () {
       contentType: false,
       processData: false,
     }).done((data) => {
-      alert("Data berhasil disimpan");
+      if (data.status) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil disimpan'
+        })
+      } else {
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal disimpan'
+        })
+      }
     }).fail(($xhr) => {
-      alert('Data gagal disimpan');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal disimpan'
+      })
     }).always(() => {
       $('#formModal').modal('toggle');
       dynamic();
@@ -104,13 +113,26 @@ $(function () {
   $("#delete-slider").click(() => {
     $.ajax({
       method: 'get',
-      url: '<?= base_url() ?>admin/slider/delete/' + $("#id-delete").val(),
+      url: '<?= base_url() ?>admin/produk/delete/' + $("#id-delete").val(),
       data: null,
     }).done((data) => {
-      alert("Data berhasil dihapus");
+      if (data.status) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil dihapus'
+        })
+      } else {
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal dihapus'
+        })
+      }
       dynamic();
     }).fail(($xhr) => {
-      alert('Data gagal dihapus');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal dihapus'
+      })
     }).always(() => {
       $('#modalremove').modal('toggle');
     })
@@ -118,22 +140,8 @@ $(function () {
 })
 
 function remove(id) {
-  alert('Maaf, Fitur dalam masa pengembangan');
-  return;
   $("#id-delete").val(id);
   $("#modalremove").modal('toggle');
-}
-
-function edit(datas) {
-  alert('Maaf, Fitur dalam masa pengembangan');
-  return;
-  const data = datas.dataset;
-  $("#id").val(data.id);
-  $("#title").val(data.title);
-  $("#status").val(data.status);
-  $("#file").val('');
-  $("#formModal").modal('toggle');
-  $("#formModalLabel").text('Edit Slider');
 }
 
 function view(datas) {

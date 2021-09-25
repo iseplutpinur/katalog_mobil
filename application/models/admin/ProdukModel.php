@@ -60,8 +60,16 @@ class ProdukModel extends CI_Model
     return $result;
   }
 
-  public function newProduk()
+  public function newProduk($id = null)
   {
+    if ($id != null) {
+      return $this->db
+        ->select("*")
+        ->from("ktm_produk")
+        ->where('id', $id)
+        ->get()->row_array();
+    }
+
     $check = $this->db->select("*")->from("ktm_produk")->where('status', 2)->get();
     if ($check->num_rows() > 0) {
       return $check->row_array();
@@ -159,11 +167,11 @@ class ProdukModel extends CI_Model
 
       $res_foto = true;
       // cek apakah ada foto yang dikirim
-      if (!empty($_FILES)) {
+      if ($_FILES['file']['name'] != '') {
         // simpan foto
         $save_file = $this->saveFile();
         // delete foto
-        if ($return['jumbotron_foto'] != null) {
+        if ($return['jumbotron_foto'] != '' && $return['jumbotron_foto'] != null) {
           $res_foto = $this->deleteFile($this->foto_path . $return['jumbotron_foto']);
         }
         $data['jumbotron_foto'] = $save_file['data'];

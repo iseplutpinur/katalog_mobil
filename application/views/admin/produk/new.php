@@ -14,8 +14,12 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="file">Jumbotron Foto</label>
-                <input type="file" class="form-control" foto- name="file" required>
+                <label for="file">Jumbotron Foto
+                  <?php if ($is_edit) : ?>
+                    <a href="#" data-title="<?= $produk['jumbotron_title'] ?>" data-foto="produk/<?= $produk['jumbotron_foto'] ?>" onclick="view(this)">Lihat</a>
+                  <?php endif; ?>
+                </label>
+                <input type="file" class="form-control" name="file" <?= ($is_edit) ? '' : 'required'; ?>>
               </div>
             </div>
             <div class="col-md-6">

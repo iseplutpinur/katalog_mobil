@@ -97,7 +97,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin akan menghapus slider ini .?</p>
+        <p>Dengan menghapus produk ini semua atribut yang bersangtuan akan ikut terhapus seprti foto, list dan data lainnya.
+          Apakah anda yakin akan menghapus produk ini.?</p>
         <input type="hidden" id="id-delete">
       </div>
       <div class="modal-footer">

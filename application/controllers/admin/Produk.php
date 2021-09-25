@@ -15,14 +15,19 @@ class Produk extends CI_Controller
     $this->load->view('admin/sitemain/footer');
   }
 
-  public function new()
+  public function new($id = null)
   {
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-    $data['title_page'] = "New Produk";
+    $data['title_page'] = $id == null ? "New Produk" : "Edit Produk";
     $data['plugins'] = ['datatable', 'ckeditor'];
     $data['nav_select'] = 'nav-produk';
     $data['javascript'] = "admin/produk/new";
-    $data['produk'] = $this->model->newProduk();
+    $data['is_edit'] = $id != null;
+    $data['produk'] = $this->model->newProduk($id);
+    if ($data['produk'] == null) {
+      redirect('admin/produk');
+      return;
+    }
     $this->load->view('admin/sitemain/header', $data);
     $this->load->view('admin/produk/new', $data);
     $this->load->view('admin/sitemain/footer');
@@ -64,10 +69,6 @@ class Produk extends CI_Controller
 
     echo json_encode(['recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data]);
     header('Content-Type: application/json; charset=utf-8');
-  }
-
-  public function edit($id = null)
-  {
   }
 
   public function insert()
@@ -201,7 +202,34 @@ class Produk extends CI_Controller
 
   public function delete($id = false)
   {
+
+    if (!$id) {
+      return false;
+    }
+    $list_eksterior = $this->db->select('foto')->from('ktm_eksterior')->where('id_produk', $id)->get()->result_array();
+    $list_galeri = $this->db->select('foto')->from('ktm_galeri')->where('id_produk', $id)->get()->result_array();
+    $list_interior = $this->db->select('foto')->from('ktm_interior')->where('id_produk', $id)->get()->result_array();
+    $list_warna = $this->db->select('foto')->from('ktm_warna')->where('id_produk', $id)->get()->result_array();
+    $this->db->trans_start();
     $return =  $this->model->delete($id);
+
+    // hapus semua file
+    if ($return == true) {
+      foreach ($list_eksterior as $eksterior) {
+        $this->deleteFile("./files/eksterior/{$eksterior['foto']}");
+      }
+      foreach ($list_galeri as $galeri) {
+        $this->deleteFile("./files/galeri/{$galeri['foto']}");
+      }
+      foreach ($list_interior as $interior) {
+        $this->deleteFile("./files/interior/{$interior['foto']}");
+      }
+      foreach ($list_warna as $warna) {
+        $this->deleteFile("./files/warna/{$warna['foto']}");
+      }
+    }
+    $this->db->trans_complete();
+
     echo json_encode([
       'status' => $return,
       'data' => null,
@@ -209,6 +237,15 @@ class Produk extends CI_Controller
       'code' => $return ? 200 : 400
     ]);
     header('Content-Type: application/json; charset=utf-8');
+  }
+
+  private function deleteFile($path)
+  {
+    $res_foto = true;
+    if (file_exists($path)) {
+      $res_foto = unlink($path);
+    }
+    return $res_foto;
   }
 
   public function get_list()
