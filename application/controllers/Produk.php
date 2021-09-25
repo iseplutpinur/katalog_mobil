@@ -12,7 +12,7 @@ class Produk extends CI_Controller
     {
         $data['title_page'] = "Produk";
         $this->load->view('front/temp/header', $data);
-        $this->load->view('front/home', $data);
+        $this->load->view('front/produkDetail', $data);
         $this->load->view('front/temp/footer', $data);
     }
 
