@@ -143,6 +143,7 @@ class Slider extends CI_Controller
   function __construct()
   {
     parent::__construct();
+    is_logged_in();
     $this->load->model("admin/SliderModel", 'model');
   }
 }

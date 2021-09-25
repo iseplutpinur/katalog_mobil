@@ -1,0 +1,102 @@
+Status:
+  0 Dibuat
+  1 Disimpan
+  2 Diedit Belum Selesai
+
+Halaman:
+  Home:
+    Jumbotron:
+      Slider
+      Title
+      Detail
+    Katalog:
+      Title
+      Detail
+    Video dan Galeri Foto
+    Lokasi Dealer
+
+  Produk:
+    Jumbotron
+    Tabel Daftar harga<Tipe, Harga>
+    Warna
+    Interior
+    Eksterior
+    Galeri
+    Video
+    Informasi Spesifikasi
+    Keterangan Pembelian
+    Mobil Baru Lainnya
+
+  Katalog Promo:
+    List Produk:
+      Title
+      Detail
+      List:
+        Foto
+        Nama[link]
+        Harga Mulai
+        Kredit Mulai
+
+  Daftar harga:
+    List Produk:
+      Title
+      Detail
+      Search
+      Data table group:
+    Katalog
+
+Buat slider[clear]
+Buat Jumbotron[clear]
+  Produk:
+  Jumbotron
+    Header:
+      foto
+    Body:
+      Title
+      detail
+      Table Promo:
+        Title
+        Harga Kredit
+        Paket Kredit
+        Tenor Kredit
+        detail
+
+  Daftar Harga <Tipe, Harga>
+
+  Eksterior <List Foto>
+
+  Interior <List Foto>
+
+  Warna <List Foto>
+
+  Galeri <List Foto>
+
+  Video Yoututbe <List Video>
+
+  Informasi Spesifikasi:
+    detail
+    status
+
+  Keterangan Pembelian:
+    detail
+    status
+
+Navigation
+  By Kategori
+    id
+    produk
+
+
+jumbotron
+
+validasi keseluaruhan
+Pengaturan pake cache
+navigation pake cache
+Pengaturan
+  footer
+  Title
+  frontend
+
+  perbaikan meta meta
+
+navigasi layar kecil error

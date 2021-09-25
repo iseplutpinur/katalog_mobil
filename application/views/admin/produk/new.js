@@ -445,16 +445,31 @@ $(document).ready(() => {
     }).done((data) => {
       if (data.status) {
         if (data.status) {
-          alert("Data berhasil disimpan");
-          window.location.reload();
+          Toast.fire({
+            icon: 'success',
+            title: 'Data berhasil disimpan'
+          })
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 300)
         } else {
-          alert("Data gagal disimpan");
+          Toast.fire({
+            icon: 'error',
+            title: 'Data gagal disimpan'
+          })
         }
       } else {
-        alert('Data gagal disimpan: ' + data.message);
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal disimpan: ' + data.message
+        })
       }
     }).fail(($xhr) => {
-      alert('Data gagal disimpan');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal disimpan'
+      })
     })
   })
 
@@ -480,12 +495,21 @@ $(document).ready(() => {
       processData: false,
     }).done((data) => {
       if (data.status) {
-        alert("Data berhasil disimpan");
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil disimpan'
+        })
       } else {
-        alert("Data gagal disimpan");
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal disimpan'
+        })
       }
     }).fail(($xhr) => {
-      alert('Data gagal disimpan');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal disimpan'
+      })
     }).always(() => {
       $('#formDaftarHarga').modal('toggle');
       table_daftar_harga();
@@ -499,13 +523,22 @@ $(document).ready(() => {
       data: null,
     }).done((data) => {
       if (data.status) {
-        alert("Data berhasil dihapus");
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil dihapus'
+        })
       } else {
-        alert("Data gagal dihapus");
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal dihapus'
+        })
       }
       table_daftar_harga();
     }).fail(($xhr) => {
-      alert('Data gagal dihapus');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal dihapus'
+      })
     }).always(() => {
       $('#modalremove').modal('toggle');
     })
@@ -533,12 +566,21 @@ $(document).ready(() => {
       processData: false,
     }).done((data) => {
       if (data.status) {
-        alert("Data berhasil disimpan");
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil disimpan'
+        })
       } else {
-        alert("Data gagal disimpan");
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal disimpan'
+        })
       }
     }).fail(($xhr) => {
-      alert('Data gagal disimpan');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal disimpan'
+      })
     }).always(() => {
       $('#formVideo').modal('toggle');
       table_video();
@@ -552,13 +594,22 @@ $(document).ready(() => {
       data: null,
     }).done((data) => {
       if (data.status) {
-        alert("Data berhasil dihapus");
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil dihapus'
+        })
       } else {
-        alert("Data gagal dihapus");
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal dihapus'
+        })
       }
       table_video();
     }).fail(($xhr) => {
-      alert('Data gagal dihapus');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal dihapus'
+      })
     }).always(() => {
       $('#modalremove').modal('toggle');
     })
@@ -620,11 +671,24 @@ $(document).ready(() => {
       contentType: false,
       processData: false,
     }).done((data) => {
-      alert("Data berhasil disimpan");
-    }).fail(($xhr) => {
-      alert('Data gagal disimpan');
-    }).always(() => {
+      if (data.status) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil disimpan'
+        })
+      } else {
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal disimpan'
+        })
+      }
       $("#formFoto").modal('toggle');
+    }).fail(($xhr) => {
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal disimpan'
+      })
+    }).always(() => {
       if (formnow == 'eksterior') {
         table_eksterior();
       } else if (formnow == 'interior') {
@@ -645,7 +709,17 @@ $(document).ready(() => {
       url: `<?= base_url() ?>admin/${formnow}/delete/` + $("#foto-id-delete").val(),
       data: null,
     }).done((data) => {
-      alert("Foto berhasil dihapus");
+      if (data.status) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Data berhasil dihapus'
+        })
+      } else {
+        Toast.fire({
+          icon: 'error',
+          title: 'Data gagal dihapus'
+        })
+      }
       if (formnow == 'eksterior') {
         table_eksterior();
       } else if (formnow == 'interior') {
@@ -656,7 +730,10 @@ $(document).ready(() => {
         table_galeri();
       }
     }).fail(($xhr) => {
-      alert('Foto gagal dihapus');
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal dihapus'
+      })
     }).always(() => {
       $('#fotoModalRemove').modal('toggle');
     })

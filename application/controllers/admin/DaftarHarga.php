@@ -152,5 +152,6 @@ class DaftarHarga extends CI_Controller
   {
     parent::__construct();
     $this->load->model("admin/DaftarHargaModel", 'model');
+    is_logged_in();
   }
 }

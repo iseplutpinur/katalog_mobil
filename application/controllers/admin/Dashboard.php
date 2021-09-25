@@ -14,4 +14,10 @@ class Dashboard extends CI_Controller
     $this->load->view('admin/dashboard/index', $data);
     $this->load->view('admin/sitemain/footer');
   }
+
+  public function __construct()
+  {
+    parent::__construct();
+    is_logged_in();
+  }
 }

@@ -231,13 +231,13 @@
       </div>
     </div>
     <div class="d-flex justify-content-between my-2">
-      <button class="btn btn-secondary" id="table-daftar-harga">Kembali</button>
+      <a href="<?= base_url() ?>admin/produk" class="btn btn-secondary" id="table-daftar-harga">Kembali</a>
       <button type="submit" class="btn btn-info" form="form-produk">Simpan</button>
     </div>
   </div>
 </div>
 
-<!-- form Modal -->
+<!-- Modal foto -->
 <div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -389,7 +389,7 @@
       <div class="modal-body">
         <form id="formVideoAction" action="" method="post">
           <input type="text" name="url" id="url" class="form-control" value="" hidden="hidden">
-
+          <input type="text" name="id_produk" class="form-control" value="<?= $produk['id'] ?>" hidden="hidden">
           <input type="text" name="id" id="video-id" class="form-control" value="" hidden="hidden">
           <div class="form-group">
             <label for="title">Nama</label>

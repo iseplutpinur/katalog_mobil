@@ -41,6 +41,8 @@
     <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- sweetalert -->
+    <link href="<?= base_url(); ?>assets/vendor/sweetalert2/bootstrap-4.min.css" rel="stylesheet">
 
     <?php if (isset($plugins)) : ?>
         <?php if (is_array($plugins)) : ?>

@@ -50,6 +50,16 @@
     <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
     <script src="<?= base_url(); ?>assets/js/clock.js"></script>
     <!-- Custom scripts for all pages-->
+    <!-- sweetalert -->
+    <script src="<?= base_url(); ?>assets/vendor/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
     <?php if (isset($plugins)) : ?>
         <?php if (is_array($plugins)) : ?>
             <?php foreach ($plugins as $plugin) : ?>
