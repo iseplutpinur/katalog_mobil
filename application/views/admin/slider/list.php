@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-flex justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary"><?= $title_page; ?></h6>
-    <button class="btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewMenu">Add New Slider</button>
+    <button class="btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Slider</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -63,17 +63,46 @@
         <form id="formModalAction" action="" method="post">
           <input type="text" name="id" id="id" class="form-control" value="" hidden="hidden">
           <div class="form-group">
-            <input type="number" name="id" hidden="hidden">
-            <input type="text" name="name" class="form-control" required="" id="formModalInput" placeholder="Menu Name">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control" required="" placeholder="Slider Title">
           </div>
           <div class="form-group">
-            <input type="file" name="name" class="form-control" required="" id="formModalInput" placeholder="Menu Name">
+            <label for="file">Foto</label>
+            <input type="file" name="file" id="file" class="form-control" placeholder="">
           </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="status" class="form-control">
+              <option value="1">Active</option>
+              <option value="0">Nonactive</option>
+            </select>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" form="formModalAction">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" required="">Close</button>
-        <button hidden="hidden" type="submit" class="btn btn-primary" id="formModalBtn"></button>
-        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalremove" tabindex="-1" role="dialog" aria-labelledby="modalremoveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalremoveLabel">Delete Slider</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin akan menghapus slider ini .?</p>
+        <input type="hidden" id="id-delete">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type="button" id="delete-slider" data-dismiss="modal">Delete</button>
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
       </div>
     </div>
   </div>

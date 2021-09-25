@@ -9,9 +9,9 @@ class SliderModel extends CI_Model
   public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
   {
     // select tabel
-    $this->db->select("id, title, foto, IF(status = '0' , 'Tidak Aktif', IF(status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str");
+    $this->db->select("id, title, foto, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
     $this->db->from("ktm_slider");
-    $this->db->where("status <> 0");
+    // $this->db->where("status <> 0");
 
     // order by
     if ($order['order'] != null) {
@@ -47,6 +47,7 @@ class SliderModel extends CI_Model
       $this->db->where("(
                   id LIKE '%$cari%' or
                   title LIKE '%$cari%' or
+                  IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) LIKE '%$cari%' or
                   foto LIKE '%$cari%'
               )");
     }
@@ -92,9 +93,7 @@ class SliderModel extends CI_Model
   public function update($id, $title, $status)
   {
     $return = $this->db->select('foto')->from('ktm_slider')->where('id', $id)->get()->row_array();
-    $return = $return ?? ['foto' => null];
-
-    if ($return['foto'] != null) {
+    if ($return != null) {
       $data = [
         'title' => $title,
         'status' => $status,
@@ -102,11 +101,13 @@ class SliderModel extends CI_Model
       ];
       $res_foto = true;
       // cek apakah ada foto yang dikirim
-      if (!empty($_FILES)) {
+      if ($_FILES['file']['name'] != '') {
         // simpan foto
         $save_file = $this->saveFile();
         // delete foto
-        $res_foto = $this->deleteFile($this->foto_path . $return['foto']);
+        if ($return['foto'] != '' && $return['foto'] != null) {
+          $res_foto = $this->deleteFile($this->foto_path . $return['foto']);
+        }
         $data['foto'] = $save_file['data'];
       }
 
@@ -136,13 +137,14 @@ class SliderModel extends CI_Model
   public function delete($id)
   {
     $return = $this->db->select('foto')->from('ktm_slider')->where('id', $id)->get()->row_array();
-    $return = $return ?? ['foto' => null];
-    if ($return['foto'] != false) {
+    if ($return != null) {
       // delete foto
       $res_foto = $this->deleteFile($this->foto_path . $return['foto']);
 
       // from database foto
-      $res_data = $this->db->delete('ktm_slider', ['id' => $id]);
+      if ($return['foto'] != '' && $return['foto'] != null) {
+        $res_data = $this->db->delete('ktm_slider', ['id' => $id]);
+      }
       $this->cache->delete($this->cache_name);
       $this->cache->delete($this->cache_name . "_" . $id);
       return $res_foto == $res_data;
