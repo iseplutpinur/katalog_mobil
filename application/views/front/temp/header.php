@@ -90,8 +90,8 @@
                 <div class="row">
                     <div class="col-xl-2 col-lg-3 col-8">
                         <div class="logo">
-                            <a class="logo-text-white" href="index.html"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-orange.png" alt=""></a>
-                            <a class="logo-text-black" href="index.html"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-text-black.png" alt=""></a>
+                            <a class="logo-text-white" href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-orange.png" alt=""></a>
+                            <a class="logo-text-black" href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-text-black.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-9 col-4">
@@ -99,12 +99,12 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="<?= base_url() ?>home">Home</a></li>
                                         <li><a href="new_xpander.html">NEW XPANDER</a></li>
                                         <li><a href="new_xpander.html">NEW PAJERO SPORT</a></li>
                                         <li><a href="new_xpander.html">XPANDER CROSS</a></li>
                                         <li><a href="new_xpander.html">ECLIPSE CROSS</a></li>
-                                        <li><a href="katalog.html">KATALOG PROMO</a></li>
+                                        <li><a href="<?= base_url() ?>katalog">KATALOG PROMO</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -140,7 +140,7 @@
             <div class="side-info-content">
                 <div class="offset-widget offset-logo mb-30 pb-20">
                     <div class="row align-items-center">
-                        <div class="col-9"><a href="index.html"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo.png" alt="Logo"></a>
+                        <div class="col-9"><a href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo.png" alt="Logo"></a>
                         </div>
                         <div class="col-3 text-end"><button class="side-info-close"><i class="fal fa-times"></i></button>
                         </div>
