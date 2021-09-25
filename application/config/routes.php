@@ -53,3 +53,4 @@ $route['default_controller'] = 'home';
 $route['404_override'] = 'NotFound';
 $route['translate_uri_dashes'] = FALSE;
 $route['mobil/(:num)'] = 'mobil/index/$1';
+$route['admin'] = 'admin/Dashboard';
