@@ -99,6 +99,7 @@ const table_daftar_harga = () => {
 }
 
 const table_eksterior = () => {
+  const jenis_foto = 'eksterior';
   const table_html = $('#table-eksterior');
   table_html.dataTable().fnDestroy()
   var tableUser = table_html.DataTable({
@@ -122,7 +123,7 @@ const table_eksterior = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="/eksterior/${full.foto}"
+          data-foto="/${jenis_foto}/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -131,12 +132,12 @@ const table_eksterior = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
-                      data-url="eksterior"
-                      data-title_nav="Edit Foto Eksterior"
+                      data-url="${jenis_foto}"
+                      data-title_nav="Edit Foto ${jenis_foto}"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', '${jenis_foto}')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -163,6 +164,7 @@ const table_eksterior = () => {
 }
 
 const table_interior = () => {
+  const jenis_foto = 'interior';
   const table_html = $('#table-interior');
   table_html.dataTable().fnDestroy()
   var tableUser = table_html.DataTable({
@@ -186,7 +188,7 @@ const table_interior = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="/eksterior/${full.foto}"
+          data-foto="/${jenis_foto}/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -195,12 +197,12 @@ const table_interior = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
-                      data-url="eksterior"
-                      data-title_nav="Edit Foto Eksterior"
+                      data-url="${jenis_foto}"
+                      data-title_nav="Edit Foto ${jenis_foto}"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', '${jenis_foto}')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -209,7 +211,7 @@ const table_interior = () => {
     ],
     columnDefs: [{
       orderable: false,
-      targets: [0, 4]
+      targets: [0, 3]
     }],
     order: [
       [1, 'asc']
@@ -227,6 +229,7 @@ const table_interior = () => {
 }
 
 const table_warna = () => {
+  const jenis_foto = 'warna';
   const table_html = $('#table-warna');
   table_html.dataTable().fnDestroy()
   var tableUser = table_html.DataTable({
@@ -250,7 +253,7 @@ const table_warna = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="/eksterior/${full.foto}"
+          data-foto="/${jenis_foto}/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -259,12 +262,12 @@ const table_warna = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
-                      data-url="eksterior"
-                      data-title_nav="Edit Foto Eksterior"
+                      data-url="${jenis_foto}"
+                      data-title_nav="Edit Foto ${jenis_foto}"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', '${jenis_foto}')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -273,7 +276,7 @@ const table_warna = () => {
     ],
     columnDefs: [{
       orderable: false,
-      targets: [0, 4]
+      targets: [0, 3]
     }],
     order: [
       [1, 'asc']
@@ -291,6 +294,7 @@ const table_warna = () => {
 }
 
 const table_galeri = () => {
+  const jenis_foto = 'galeri';
   const table_html = $('#table-galeri');
   table_html.dataTable().fnDestroy()
   var tableUser = table_html.DataTable({
@@ -314,7 +318,7 @@ const table_galeri = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="/eksterior/${full.foto}"
+          data-foto="/${jenis_foto}/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -323,12 +327,12 @@ const table_galeri = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
-                      data-url="eksterior"
-                      data-title_nav="Edit Foto Eksterior"
+                      data-url="${jenis_foto}"
+                      data-title_nav="Edit Foto ${jenis_foto}"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', '${jenis_foto}')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -337,7 +341,7 @@ const table_galeri = () => {
     ],
     columnDefs: [{
       orderable: false,
-      targets: [0, 4]
+      targets: [0, 3]
     }],
     order: [
       [1, 'asc']
@@ -420,6 +424,9 @@ $(document).ready(() => {
   table_daftar_harga();
   table_video();
   table_eksterior();
+  table_interior();
+  table_warna();
+  table_galeri();
 
   $("#form-produk").submit(function (ev) {
     ev.preventDefault();
@@ -569,6 +576,39 @@ $(document).ready(() => {
     formnow = 'eksterior';
   })
 
+  // interior
+  $("#btn-table-interior").click(() => {
+    $("#foto-title").val('');
+    $("#foto-id").val('');
+    $("#foto-status").val(1);
+    $("#foto-file").val('');
+    $("#formFotoLabel").text('Tambah Foto Interior');
+    $("#formFoto").modal('toggle');
+    formnow = 'interior';
+  })
+
+  // interior
+  $("#btn-table-warna").click(() => {
+    $("#foto-title").val('');
+    $("#foto-id").val('');
+    $("#foto-status").val(1);
+    $("#foto-file").val('');
+    $("#formFotoLabel").text('Tambah Foto Warna');
+    $("#formFoto").modal('toggle');
+    formnow = 'warna';
+  })
+
+  // interior
+  $("#btn-table-galeri").click(() => {
+    $("#foto-title").val('');
+    $("#foto-id").val('');
+    $("#foto-status").val(1);
+    $("#foto-file").val('');
+    $("#formFotoLabel").text('Tambah Foto Galeri');
+    $("#formFoto").modal('toggle');
+    formnow = 'galeri';
+  })
+
   $("#formFotoAction").submit(function (ev) {
     ev.preventDefault();
     const form = new FormData(this);
@@ -587,6 +627,12 @@ $(document).ready(() => {
       $("#formFoto").modal('toggle');
       if (formnow == 'eksterior') {
         table_eksterior();
+      } else if (formnow == 'interior') {
+        table_interior();
+      } else if (formnow == 'warna') {
+        table_warna();
+      } else if (formnow == 'galeri') {
+        table_galeri();
       }
     })
   })
@@ -602,6 +648,12 @@ $(document).ready(() => {
       alert("Foto berhasil dihapus");
       if (formnow == 'eksterior') {
         table_eksterior();
+      } else if (formnow == 'interior') {
+        table_interior();
+      } else if (formnow == 'warna') {
+        table_warna();
+      } else if (formnow == 'galeri') {
+        table_galeri();
       }
     }).fail(($xhr) => {
       alert('Foto gagal dihapus');

@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-flex justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary"><?= $title_page; ?></h6>
-    <button class="btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Slider</button>
+    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Slider</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">

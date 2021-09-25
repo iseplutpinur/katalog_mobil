@@ -106,7 +106,7 @@
           <table class="table table-bordered" id="table-daftar-harga" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th>Harga</th>
                 <th style="max-width: 100px;">Status</th>
@@ -129,7 +129,7 @@
           <table class="table table-bordered" id="table-eksterior" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th style="max-width: 100px;">Status</th>
                 <th style="max-width: 230px;">Action</th>
@@ -151,7 +151,7 @@
           <table class="table table-bordered" id="table-interior" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th style="max-width: 100px;">Status</th>
                 <th style="max-width: 230px;">Action</th>
@@ -173,7 +173,7 @@
           <table class="table table-bordered" id="table-warna" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th style="max-width: 100px;">Status</th>
                 <th style="max-width: 230px;">Action</th>
@@ -185,6 +185,7 @@
           </table>
         </div>
         <hr>
+
         <!-- galeri -->
         <div class="d-flex justify-content-between my-2">
           <label for="btn-table-galeri">Foto galeri</label>
@@ -194,7 +195,7 @@
           <table class="table table-bordered" id="table-galeri" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th style="max-width: 100px;">Status</th>
                 <th style="max-width: 230px;">Action</th>
@@ -216,7 +217,7 @@
           <table class="table table-bordered" id="table-video" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th style="max-width: 50px;">No</th>
+                <th style="max-width: 30px;">No</th>
                 <th>Title</th>
                 <th style="max-width: 100px;">Status</th>
                 <th style="max-width: 230px;">Action</th>
@@ -335,7 +336,7 @@
           </div>
           <div class="form-group">
             <label for="harga">Harga</label>
-            <input type="harga" name="harga" id="daftar_harga-harga" class="form-control" placeholder="Harga">
+            <input type="harga" name="harga" id="daftar_harga-harga" class="form-control" placeholder="Harga" required>
           </div>
           <div class="form-group">
             <label for="status">Status</label>

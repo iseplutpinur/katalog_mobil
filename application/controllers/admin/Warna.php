@@ -7,6 +7,46 @@ class Warna extends CI_Controller
   {
   }
 
+  public function datatable()
+  {
+    $order = ['order' => $this->input->post('order'), 'columns' => $this->input->post('columns')];
+    $start = $this->input->post('start');
+    $draw = $this->input->post('draw');
+    $draw = $draw == null ? 1 : $draw;
+    $length = $this->input->post('length');
+    $cari = $this->input->post('search');
+
+    $date_start = $this->input->post('date_start');
+    $date_end = $this->input->post('date_end');
+    $admin = $this->input->post('admin');
+    $sales = $this->input->post('sales');
+    $status = $this->input->post('status');
+    $id_produk = $this->input->post('id_produk');
+
+    $filter = [
+      'date' => [
+        'start' => $date_start,
+        'end' => $date_end,
+      ],
+      'admin' => $admin,
+      'sales' => $sales,
+      'status' => $status,
+      'id_produk' => $id_produk
+    ];
+
+    if (isset($cari['value'])) {
+      $_cari = $cari['value'];
+    } else {
+      $_cari = null;
+    }
+
+    $data = $this->model->getAllData($draw, $length, $start, $_cari, $order, $filter)->result_array();
+    $count = $this->model->getAllData(null, null,    null,   $_cari, $order, $filter)->num_rows();
+
+    echo json_encode(['recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data]);
+    header('Content-Type: application/json; charset=utf-8');
+  }
+
   public function insert()
   {
     $this->load->library('form_validation');
