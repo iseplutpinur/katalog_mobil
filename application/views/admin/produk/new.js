@@ -186,7 +186,7 @@ const table_interior = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="${full.foto}"
+          data-foto="/eksterior/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -195,10 +195,12 @@ const table_interior = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
+                      data-url="eksterior"
+                      data-title_nav="Edit Foto Eksterior"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -248,7 +250,7 @@ const table_warna = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="${full.foto}"
+          data-foto="/eksterior/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -257,10 +259,12 @@ const table_warna = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
+                      data-url="eksterior"
+                      data-title_nav="Edit Foto Eksterior"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -310,7 +314,7 @@ const table_galeri = () => {
         "data": "id", render(data, type, full, meta) {
           return `<button class="btn btn-success btn-sm"
           data-id="${data}"
-          data-foto="${full.foto}"
+          data-foto="/eksterior/${full.foto}"
           data-title="${full.title}"
           onclick="view(this)">
               <i class="fa fa-eye"></i> View
@@ -319,10 +323,12 @@ const table_galeri = () => {
                       data-id="${data}"
                       data-title="${full.title}"
                       data-status="${full.status}"
+                      data-url="eksterior"
+                      data-title_nav="Edit Foto Eksterior"
                       onclick="edit(this)">
                       <i class="fa fa-edit"></i> Edit
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
+                    <button class="btn btn-danger btn-sm" onclick="remove('${data}', 'eksterior')">
                       <i class="fa fa-trash"></i> Delete
                     </button>
                 </div>`
@@ -351,7 +357,6 @@ const table_galeri = () => {
 const table_video = () => {
   const table_html = $('#table-video');
   table_html.dataTable().fnDestroy()
-
   var tableUser = table_html.DataTable({
     "ajax": {
       "url": "<?= base_url() ?>admin/video/datatable",

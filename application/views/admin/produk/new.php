@@ -144,8 +144,8 @@
 
         <!-- interior -->
         <div class="d-flex justify-content-between my-2">
-          <label for="table-interior">Foto interior</label>
-          <button class="btn btn-sm btn-primary" id="table-interior">Add New</button>
+          <label for="btn-table-interior">Foto interior</label>
+          <button class="btn btn-sm btn-primary" id="btn-table-interior">Add New</button>
         </div>
         <div class="table-responsive">
           <table class="table table-bordered" id="table-interior" width="100%" cellspacing="0">
@@ -166,8 +166,8 @@
 
         <!-- warna -->
         <div class="d-flex justify-content-between my-2">
-          <label for="table-warna">Foto warna</label>
-          <button class="btn btn-sm btn-primary" id="table-warna">Add New</button>
+          <label for="btn-table-warna">Foto warna</label>
+          <button class="btn btn-sm btn-primary" id="btn-table-warna">Add New</button>
         </div>
         <div class="table-responsive">
           <table class="table table-bordered" id="table-warna" width="100%" cellspacing="0">
@@ -187,8 +187,8 @@
         <hr>
         <!-- galeri -->
         <div class="d-flex justify-content-between my-2">
-          <label for="table-galeri">Foto galeri</label>
-          <button class="btn btn-sm btn-primary" id="table-galeri">Add New</button>
+          <label for="btn-table-galeri">Foto galeri</label>
+          <button class="btn btn-sm btn-primary" id="btn-table-galeri">Add New</button>
         </div>
         <div class="table-responsive">
           <table class="table table-bordered" id="table-galeri" width="100%" cellspacing="0">
