@@ -1,3 +1,12 @@
+let detail;
+ClassicEditor
+  .create(document.querySelector('#detail'))
+  .then(editor => {
+    detail = editor;
+  })
+  .catch(error => {
+    console.error(error);
+  });
 let global_dynamic = () => {
 
 }
@@ -15,7 +24,7 @@ $(function () {
     table_html.dataTable().fnDestroy()
     var tableUser = table_html.DataTable({
       "ajax": {
-        "url": "<?= base_url()?>admin/slider/datatable",
+        "url": "<?= base_url()?>admin/jumbotron/datatable",
         "data": filter,
         "type": 'POST'
       },
@@ -39,12 +48,7 @@ $(function () {
                             <i class="fa fa-eye"></i> View
                         </button>
                       <button  class="btn btn-primary btn-sm"
-                        data-id="${data}"
-                        data-title="${full.title}"
-                        data-status="${full.status}"
-                        data-detail="${full.detail}"
-                        data-sub_detail="${full.sub_detail}"
-                        onclick="edit(this)">
+                        onclick="edit('${data}')">
                         <i class="fa fa-edit"></i> Edit
                       </button>
                       <button class="btn btn-danger btn-sm" onclick="remove('${data}')">
@@ -78,9 +82,10 @@ $(function () {
   $("#formModalAction").submit(function (ev) {
     ev.preventDefault();
     const form = new FormData(this);
+    form.set('detail', detail.getData());
     $.ajax({
       method: 'post',
-      url: '<?= base_url() ?>admin/slider/' + ($("#id").val() == "" ? 'insert' : 'update'),
+      url: '<?= base_url() ?>admin/jumbotron/' + ($("#id").val() == "" ? 'insert' : 'update'),
       data: form,
       cache: false,
       contentType: false,
@@ -108,20 +113,19 @@ $(function () {
     })
   })
 
-  $("#addNewSlider").click(() => {
+  $("#addNew").click(() => {
     $("#title").val('');
     $("#id").val('');
     $("#status").val(1);
     $("#file").val('');
-    $("#detail").val('');
-    $("#sub_detail").val('');
-    $("#formModalLabel").text('Add New Slider');
+    detail.setData('');
+    $("#formModalLabel").text('Add New');
   })
 
-  $("#delete-slider").click(() => {
+  $("#delete").click(() => {
     $.ajax({
       method: 'get',
-      url: '<?= base_url() ?>admin/slider/delete/' + $("#id-delete").val(),
+      url: '<?= base_url() ?>admin/jumbotron/delete/' + $("#id-delete").val(),
       data: null,
     }).done((data) => {
       if (data.status) {
@@ -152,16 +156,35 @@ function remove(id) {
   $("#modalremove").modal('toggle');
 }
 
-function edit(datas) {
-  const data = datas.dataset;
-  $("#id").val(data.id);
-  $("#title").val(data.title);
-  $("#status").val(data.status);
-  $("#detail").val(data.detail);
-  $("#sub_detail").val(data.sub_detail);
-  $("#file").val('');
-  $("#formModal").modal('toggle');
-  $("#formModalLabel").text('Edit Slider');
+function edit(id) {
+  $.ajax({
+    method: 'post',
+    url: '<?= base_url() ?>admin/jumbotron/get/',
+    data: {
+      id: id
+    },
+  }).done((datas) => {
+    if (datas.status) {
+      const data = datas.data;
+      $("#id").val(data.id);
+      $("#title").val(data.title);
+      $("#status").val(data.status);
+      $("#file").val('');
+      detail.setData((data.detail == null) ? '' : data.detail);
+      $("#formModal").modal('toggle');
+      $("#formModalLabel").text('Edit data');
+    } else {
+      Toast.fire({
+        icon: 'error',
+        title: 'Gagal Mendapatkan data'
+      })
+    }
+  }).fail(($xhr) => {
+    Toast.fire({
+      icon: 'error',
+      title: 'Gagal Mendapatkan data'
+    })
+  })
 }
 
 function view(datas) {

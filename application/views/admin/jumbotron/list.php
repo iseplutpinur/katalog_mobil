@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-flex justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary"><?= $title_page; ?></h6>
-    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewSlider">Add New Slider</button>
+    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNew">Add New</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -54,7 +54,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="formModalLabel">Add New Slider</h5>
+        <h5 class="modal-title" id="formModalLabel">Add New</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -66,7 +66,7 @@
             <div class="col-lg-4">
               <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" class="form-control" required="" placeholder="Title Foto">
+                <input type="text" name="title" id="title" class="form-control" required="" placeholder=" Title">
               </div>
             </div>
             <div class="col-lg-4">
@@ -84,18 +84,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="detail">Judul</label>
-                <input type="text" name="detail" id="detail" class="form-control" placeholder="Judul">
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="sub_detail">Sub Judul</label>
-                <input type="text" name="sub_detail" id="sub_detail" class="form-control" placeholder="Sub Judul">
-              </div>
-            </div>
+          </div>
+          <div class="form-group">
+            <label for="detail">Detail</label>
+            <textarea type="text" class="form-control" id="detail" name="detail" placeholder="Detail"></textarea>
           </div>
         </form>
       </div>
@@ -111,17 +103,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalremoveLabel">Delete Slider</h5>
+        <h5 class="modal-title" id="modalremoveLabel">Delete data</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin akan menghapus slider ini .?</p>
+        <p>Apakah anda yakin akan menghapus data ini .?</p>
         <input type="hidden" id="id-delete">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" type="button" id="delete-slider" data-dismiss="modal">Delete</button>
+        <button class="btn btn-danger" type="button" id="delete" data-dismiss="modal">Delete</button>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
       </div>
     </div>

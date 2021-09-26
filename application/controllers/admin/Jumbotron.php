@@ -5,13 +5,51 @@ class Jumbotron extends CI_Controller
 {
   public function index()
   {
-    $data['title_page'] = "List Slider";
-    $data['plugins'] = ['datatable'];
-    $data['nav_select'] = 'nav-slider';
-    $data['javascript'] = "admin/slider/list";
+    $data['title_page'] = "List Jumbotron";
+    $data['plugins'] = ['datatable', 'ckeditor'];
+    $data['nav_select'] = 'nav-jumbotron';
+    $data['javascript'] = "admin/jumbotron/list";
     $this->load->view('admin/sitemain/header', $data);
-    $this->load->view('admin/slider/list', $data);
+    $this->load->view('admin/jumbotron/list', $data);
     $this->load->view('admin/sitemain/footer');
+  }
+
+  public function datatable()
+  {
+    $order = ['order' => $this->input->post('order'), 'columns' => $this->input->post('columns')];
+    $start = $this->input->post('start');
+    $draw = $this->input->post('draw');
+    $draw = $draw == null ? 1 : $draw;
+    $length = $this->input->post('length');
+    $cari = $this->input->post('search');
+
+    $date_start = $this->input->post('date_start');
+    $date_end = $this->input->post('date_end');
+    $admin = $this->input->post('admin');
+    $sales = $this->input->post('sales');
+    $status = $this->input->post('status');
+
+    $filter = [
+      'date' => [
+        'start' => $date_start,
+        'end' => $date_end,
+      ],
+      'admin' => $admin,
+      'sales' => $sales,
+      'status' => $status,
+    ];
+
+    if (isset($cari['value'])) {
+      $_cari = $cari['value'];
+    } else {
+      $_cari = null;
+    }
+
+    $data = $this->model->getAllData($draw, $length, $start, $_cari, $order, $filter)->result_array();
+    $count = $this->model->getAllData(null, null,    null,   $_cari, $order, $filter)->num_rows();
+
+    echo json_encode(['recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data]);
+    header('Content-Type: application/json; charset=utf-8');
   }
 
   public function insert()
@@ -61,8 +99,8 @@ class Jumbotron extends CI_Controller
     } else {
       $id = $this->input->post('id');
       $title = $this->input->post('title');
-      $detail = $this->input->post('detail');
       $status = $this->input->post('status');
+      $detail = $this->input->post('detail');
       $return =  $this->model->update($id, $title, $status, $detail);
       echo json_encode([
         'status' => $return['status'],
@@ -102,6 +140,37 @@ class Jumbotron extends CI_Controller
       'length' => $data['length'],
       'data' => $data['data']
     ], $code);
+    header('Content-Type: application/json; charset=utf-8');
+  }
+
+  public function get()
+  {
+    $this->load->library('form_validation');
+    $this->form_validation->set_error_delimiters('', '');
+    $this->form_validation->set_rules('id', 'id', 'trim|required|numeric');
+    if ($this->form_validation->run() == FALSE) {
+      echo json_encode([
+        'status' => false,
+        'message' => validation_errors(),
+        'data' => null,
+        'code' => 400
+      ]);
+    } else {
+      $id = $this->input->post('id');
+      $data = $this->model->get($id);
+      $count = $data == null ? 0 : 1;
+      $code = $data == null ?
+        404
+        : 200;
+      $status = $data != null;
+
+      // send response
+      echo json_encode([
+        'status' => $status,
+        'length' =>  $count,
+        'data' => $data
+      ], $code);
+    }
     header('Content-Type: application/json; charset=utf-8');
   }
 

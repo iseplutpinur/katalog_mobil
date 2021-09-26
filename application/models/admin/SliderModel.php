@@ -9,7 +9,7 @@ class SliderModel extends CI_Model
   public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
   {
     // select tabel
-    $this->db->select("id, title, foto, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
+    $this->db->select("id, title, foto, detail, sub_detail, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
     $this->db->from("ktm_slider");
     // $this->db->where("status <> 0");
 
@@ -47,6 +47,8 @@ class SliderModel extends CI_Model
       $this->db->where("(
                   id LIKE '%$cari%' or
                   title LIKE '%$cari%' or
+                  detail LIKE '%$cari%' or
+                  sub_detail LIKE '%$cari%' or
                   IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) LIKE '%$cari%' or
                   foto LIKE '%$cari%'
               )");
@@ -61,7 +63,7 @@ class SliderModel extends CI_Model
     return $result;
   }
 
-  public function insert($title, $status)
+  public function insert($title, $status, $detail, $sub_detail)
   {
     // insert foto
     $save_file = $this->saveFile();
@@ -70,6 +72,8 @@ class SliderModel extends CI_Model
       $this->db->insert('ktm_slider', [
         'title' => $title,
         'status' => $status,
+        'detail' => $detail,
+        'sub_detail' => $sub_detail,
         'foto' => $save_file['data']
       ]);
 
@@ -90,13 +94,15 @@ class SliderModel extends CI_Model
     }
   }
 
-  public function update($id, $title, $status)
+  public function update($id, $title, $status, $detail, $sub_detail)
   {
     $return = $this->db->select('foto')->from('ktm_slider')->where('id', $id)->get()->row_array();
     if ($return != null) {
       $data = [
         'title' => $title,
         'status' => $status,
+        'detail' => $detail,
+        'sub_detail' => $sub_detail,
         'updated_at' => Date('Y-m-d H:i:s')
       ];
       $res_foto = true;

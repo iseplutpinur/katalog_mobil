@@ -87,6 +87,12 @@
                     <span>Slider</span>
                 </a>
             </li>
+            <li class="nav-item" id="nav-jumbotron">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/jumbotron">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Jumbotron</span>
+                </a>
+            </li>
             <li class="nav-item" id="nav-produk">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/produk">
                     <i class="fas fa-fw fa-copy"></i>

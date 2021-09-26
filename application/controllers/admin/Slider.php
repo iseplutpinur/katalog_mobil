@@ -57,6 +57,8 @@ class Slider extends CI_Controller
     $this->load->library('form_validation');
     $this->form_validation->set_error_delimiters('', '');
     $this->form_validation->set_rules('title', 'Title', 'trim|required');
+    $this->form_validation->set_rules('detail', 'detail', 'trim|required');
+    $this->form_validation->set_rules('sub_detail', 'sub_detail', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
     if ($this->form_validation->run() == FALSE) {
       echo json_encode([
@@ -68,7 +70,9 @@ class Slider extends CI_Controller
     } else {
       $title = $this->input->post('title');
       $status = $this->input->post('status');
-      $return =  $this->model->insert($title, $status);
+      $detail = $this->input->post('detail');
+      $sub_detail = $this->input->post('sub_detail');
+      $return =  $this->model->insert($title, $status, $detail, $sub_detail);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],
@@ -85,6 +89,8 @@ class Slider extends CI_Controller
     $this->form_validation->set_error_delimiters('', '');
     $this->form_validation->set_rules('title', 'Title', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
+    $this->form_validation->set_rules('detail', 'detail', 'trim|required');
+    $this->form_validation->set_rules('sub_detail', 'sub_detail', 'trim|required');
     $this->form_validation->set_rules('id', 'id', 'trim|required|numeric');
     if ($this->form_validation->run() == FALSE) {
       echo json_encode([
@@ -97,7 +103,9 @@ class Slider extends CI_Controller
       $id = $this->input->post('id');
       $title = $this->input->post('title');
       $status = $this->input->post('status');
-      $return =  $this->model->update($id, $title, $status);
+      $detail = $this->input->post('detail');
+      $sub_detail = $this->input->post('sub_detail');
+      $return =  $this->model->update($id, $title, $status, $detail, $sub_detail);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],
