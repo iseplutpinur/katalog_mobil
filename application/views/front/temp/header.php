@@ -127,8 +127,8 @@
                                         <span><i class="fas fa-phone-alt"></i></span>
                                     </div>
                                     <div class="cta__content">
-                                        <p>Call For Estimate</p>
-                                        <span><a href="">0812-3505-5522</a></span>
+                                        <p><?= $attr['call_title']; ?></p>
+                                        <span><a target="_blank" href="https://api.whatsapp.com/send?phone=<?= $attr['call_value']; ?>"><?= $attr['call_value']; ?></a></span>
                                     </div>
                                 </li>
                             </ul>

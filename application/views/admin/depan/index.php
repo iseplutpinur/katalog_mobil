@@ -288,6 +288,62 @@
         </div>
       </div>
 
+      <!-- galeri -->
+      <div class="grid-item col-lg-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header py-3 d-flex justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Galeri</h6>
+          </div>
+          <div class="card-body">
+            <form action="" id="form-galeri">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="galeri-value">Title</label>
+                    <input type="text" name="title" id="galeri-value" class="form-control" value="<?= $depan['galeri_title'] ?>" required="" placeholder="Title">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="detail-value">Detail</label>
+                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['galeri_value'] ?>" placeholder="Detail">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Simpan</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- video -->
+      <div class="grid-item col-lg-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header py-3 d-flex justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Video</h6>
+          </div>
+          <div class="card-body">
+            <form action="" id="form-video">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="video-value">Title</label>
+                    <input type="text" name="title" id="video-value" class="form-control" value="<?= $depan['video_title'] ?>" required="" placeholder="Title">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="detail-value">Detail</label>
+                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['video_value'] ?>" placeholder="Detail">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Simpan</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- katalog -->
       <div class="grid-item col-lg-6">
         <div class="card shadow-sm mb-4">

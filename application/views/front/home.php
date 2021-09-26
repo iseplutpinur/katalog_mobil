@@ -136,9 +136,9 @@ function getBgColor()
                     <div class="portfolio-left">
                         <div class="section-title mb-55">
                             <div class="border-left">
-                                <p>Galeri Foto</p>
+                                <p><?= $attr['galeri_title']; ?></p>
                             </div>
-                            <h3>Informasi Foto Presentasi Terbaru</h3>
+                            <h3><?= $attr['galeri_value']; ?></h3>
                         </div>
                     </div>
                 </div>
@@ -180,9 +180,9 @@ function getBgColor()
                     <div class="portfolio-left">
                         <div class="section-title mb-55">
                             <div class="border-left">
-                                <p>Video</p>
+                                <p><?= $attr['video_title']; ?></p>
                             </div>
-                            <h3>Informasi Video Presentasi Terbaru</h3>
+                            <h3><?= $attr['video_value']; ?></h3>
                         </div>
                     </div>
                 </div>

@@ -84,6 +84,26 @@ class DepanModel extends CI_Model
     return $return;
   }
 
+  public function insert_galeri($title, $value)
+  {
+    $this->db->where('id', 1);
+    $return = $this->db->update('ktm_pengaturan_depan', [
+      'galeri_title' => $title,
+      'galeri_value' => $value,
+    ]);
+    return $return;
+  }
+
+  public function insert_video($title, $value)
+  {
+    $this->db->where('id', 1);
+    $return = $this->db->update('ktm_pengaturan_depan', [
+      'video_title' => $title,
+      'video_value' => $value,
+    ]);
+    return $return;
+  }
+
   public function insert_katalog($title, $value)
   {
     $this->db->where('id', 1);

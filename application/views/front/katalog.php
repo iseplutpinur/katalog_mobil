@@ -31,9 +31,9 @@ function getBgColor()
                     <div class="portfolio-left">
                         <div class="section-title mb-55">
                             <div class="border-left">
-                                <p>Katalog Promo</p>
+                                <p><?= $attr['katalog_title']; ?></p>
                             </div>
-                            <h3>Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi</h3>
+                            <h3><?= $attr['katalog_value']; ?></h3>
                         </div>
                     </div>
                 </div>

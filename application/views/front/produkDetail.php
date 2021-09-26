@@ -260,7 +260,7 @@ function getBgColor()
                             <div class="border-left">
                                 <p>Galeri Foto <?= $mobil['produk']['title']; ?></p>
                             </div>
-                            <h3>Informasi Video Presentasi Terbaru serta Galeri Foto Mobil Baru Mitsubishi</h3>
+                            <h3><?= $attr['galeri_value']; ?></h3>
                         </div>
                     </div>
                 </div>
@@ -304,7 +304,7 @@ function getBgColor()
                             <div class="border-left">
                                 <p>video <?= $mobil['produk']['title']; ?></p>
                             </div>
-                            <h3>Informasi Video Presentasi Terbaru serta video Foto Mobil Baru Mitsubishi</h3>
+                            <h3><?= $attr['video_value']; ?></h3>
                         </div>
                     </div>
                 </div>

@@ -92,6 +92,24 @@ class Depan extends CI_Controller
     echo json_encode($return);
   }
 
+  public function insert_galeri()
+  {
+    $title = $this->input->post('title');
+    $value = $this->input->post('value');
+    $return = $this->model->insert_galeri($title, $value);
+
+    echo json_encode($return);
+  }
+
+  public function insert_video()
+  {
+    $title = $this->input->post('title');
+    $value = $this->input->post('value');
+    $return = $this->model->insert_video($title, $value);
+
+    echo json_encode($return);
+  }
+
   public function insert_katalog()
   {
     $title = $this->input->post('title');
