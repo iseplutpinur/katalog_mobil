@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 07:59 PM
+-- Generation Time: Sep 26, 2021 at 08:54 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -133,11 +133,21 @@ CREATE TABLE `ktm_interior` (
 CREATE TABLE `ktm_jumbotron` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `foto` varchar(100) DEFAULT NULL,
+  `sub_judul` varchar(255) NOT NULL,
+  `sub_detail` varchar(255) NOT NULL,
   `detail` text NOT NULL,
   `status` int(1) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ktm_jumbotron`
+--
+
+INSERT INTO `ktm_jumbotron` (`id`, `title`, `foto`, `sub_judul`, `sub_detail`, `detail`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Dealer Mitsubishi Malang', '694591bf07b4146080398332d0cf67db.jpg', 'Dapatkan Semua Informasi Lengkap Mobil Baru Mitsubishi Disini:', 'Proses Pembelian Bisa Dilakukan Dirumah Tanpa Keluar Rumah, Diproses Cepat, Mudah                                 dan Aman<', '                        <ul>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>01</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Pembelian Tunai atau Kredit</h5>\n                                </div>\n                            </li>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>02</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Program Promo Dealer</h5>\n                                </div>\n                            </li>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>03</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Simulasi/Perhitungan Paket Kredit Murah</h5>\n                                </div>\n                            </li>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>04</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Daftar Harga Terbaik</h5>\n                                </div>\n                            </li>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>05</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Test Drive</h5>\n                                </div>\n                            </li>\n                            <li>\n                                <div class=\"choosing__number\">\n                                    <span>06</span>\n                                </div>\n                                <div class=\"choosing__text\">\n                                    <h5>Tukar Tambah</h5>\n                                </div>\n                            </li>\n                        </ul>', 1, '2021-09-27 01:07:58', '2021-09-26 20:45:27');
 
 -- --------------------------------------------------------
 
@@ -262,8 +272,8 @@ CREATE TABLE `ktm_slider` (
 --
 
 INSERT INTO `ktm_slider` (`id`, `title`, `detail`, `sub_detail`, `foto`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'Xpander Cross', NULL, NULL, '0a19f3e0b4233f4e6831633f4d413781.jpg', 1, '2021-09-25 17:39:41', '2021-09-26 03:08:26'),
-(9, 'Xpander Cross 2', NULL, NULL, '56f8a3b35ffdcc1c2bac8a4072d50cc6.jpg', 1, '2021-09-25 17:40:09', '2021-09-26 03:08:36');
+(8, 'Xpander Cross', 'Cin', 'd', '0a19f3e0b4233f4e6831633f4d413781.jpg', 1, '2021-09-25 17:39:41', '2021-09-26 20:30:05'),
+(9, 'Xpander Cross 2', '123', '123', '56f8a3b35ffdcc1c2bac8a4072d50cc6.jpg', 1, '2021-09-25 17:40:09', '2021-09-26 20:30:15');
 
 -- --------------------------------------------------------
 
@@ -637,7 +647,7 @@ ALTER TABLE `ktm_interior`
 -- AUTO_INCREMENT for table `ktm_jumbotron`
 --
 ALTER TABLE `ktm_jumbotron`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ktm_kategori`

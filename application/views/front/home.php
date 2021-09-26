@@ -51,87 +51,41 @@ function getBgColor()
 <?php endif; ?>
 <!-- hero area end -->
 <!-- choosing area start  -->
-<div class="choosing-fl-area">
-    <div class="container-fluid choosing-container-2">
-        <div class="row wow fadeInUp align-items-center">
-            <div class="col-lg-6">
-                <div class="choosing-fl-img p-relative text-center">
-                    <img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang052niioiaDm192114gef9cee8.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="choosing-fl-right mt-40 mb-40">
-                    <div class="section-title mb-30">
-                        <div class="border-left st-3">
-                            <p>Dealer Mitsubishi Malang</p>
+<?php if ($jumbotrons != null) : ?>
+    <?php foreach ($jumbotrons as $jumbotron) : ?>
+        <div class="choosing-fl-area">
+            <div class="container-fluid choosing-container-2">
+                <div class="row wow fadeInUp align-items-center">
+                    <div class="col-lg-6">
+                        <div class="choosing-fl-img p-relative text-center">
+                            <img src="<?= base_url("files/jumbotron/{$jumbotron['url']}") ?>" alt="<?= $jumbotron['text'] ?>">
                         </div>
-                        <h4 class="white-color">Dapatkan Semua Informasi Lengkap Mobil Baru Mitsubishi Disini:
-                        </h4>
                     </div>
-                    <div class="choosing__information st-2">
-                        <ul>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>01</span>
+                    <div class="col-lg-6">
+                        <div class="choosing-fl-right mt-40 mb-40">
+                            <div class="section-title mb-30">
+                                <div class="border-left st-3">
+                                    <p><?= $jumbotron['text'] ?></p>
                                 </div>
-                                <div class="choosing__text">
-                                    <h5>Pembelian Tunai atau Kredit</h5>
+                                <h4 class="white-color"><?= $jumbotron['sub_judul'] ?>
+                                </h4>
+                            </div>
+                            <div class="choosing__information st-2">
+                                <?= $jumbotron['detail'] ?>
+                            </div>
+                            <br>
+                            <div class="section-title mb-30">
+                                <div class="border-left st-3">
+                                    <p><?= $jumbotron['sub_detail'] ?></p>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>02</span>
-                                </div>
-                                <div class="choosing__text">
-                                    <h5>Program Promo Dealer</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>03</span>
-                                </div>
-                                <div class="choosing__text">
-                                    <h5>Simulasi/Perhitungan Paket Kredit Murah</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>04</span>
-                                </div>
-                                <div class="choosing__text">
-                                    <h5>Daftar Harga Terbaik</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>05</span>
-                                </div>
-                                <div class="choosing__text">
-                                    <h5>Test Drive</h5>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="choosing__number">
-                                    <span>06</span>
-                                </div>
-                                <div class="choosing__text">
-                                    <h5>Tukar Tambah</h5>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="section-title mb-30">
-                        <div class="border-left st-3">
-                            <p>Proses Pembelian Bisa Dilakukan Dirumah Tanpa Keluar Rumah, Diproses Cepat, Mudah
-                                dan Aman</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    <?php endforeach; ?>
+<?php endif; ?>
 <!-- choosing area end -->
 
 <!-- blog area start  -->

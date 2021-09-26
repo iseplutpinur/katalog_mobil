@@ -53,7 +53,7 @@ class MobilModel extends CI_Model
     ];
   }
 
-  public function getNavigation(): array
+  public function getNavigation(): ?array
   {
     $return = $this->db->select('a.id, a.title as text')
       ->from('ktm_navigation b')
@@ -62,17 +62,27 @@ class MobilModel extends CI_Model
       ->where('b.status', 1)
       ->order_by('b.sort')
       ->get()->result_array();
-    return $return ?? [];
+    return $return;
   }
 
-  public function getSlider(): array
+  public function getSlider(): ?array
   {
     $return = $this->db->select('a.id, a.title as text, a.foto as url, a.detail, a.sub_detail')
       ->from('ktm_slider a')
       ->where('a.status', 1)
       ->order_by('a.id')
       ->get()->result_array();
-    return $return ?? [];
+    return $return;
+  }
+
+  public function getJubmotron(): ?array
+  {
+    $return = $this->db->select('a.id, a.title as text, a.foto as url, a.detail, a.sub_detail, a.sub_judul')
+      ->from('ktm_jumbotron a')
+      ->where('a.status', 1)
+      ->order_by('a.id')
+      ->get()->result_array();
+    return $return;
   }
 
   public function getListRecentProduct(?int $limit = null): ?array

@@ -63,16 +63,28 @@
         <form id="formModalAction" action="" method="post">
           <input type="text" name="id" id="id" class="form-control" value="" hidden="hidden">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" class="form-control" required="" placeholder=" Title">
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <div class="form-group">
                 <label for="file">Foto</label>
                 <input type="file" name="file" id="file" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label for="sub_judul">Sub Judul</label>
+                <input type="text" name="sub_judul" id="sub_judul" class="form-control" placeholder="Sub Judul">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label for="sub_detail">Sub Detail</label>
+                <input type="text" name="sub_detail" id="sub_detail" class="form-control" placeholder="Sub Detail">
               </div>
             </div>
             <div class="col-lg-4">

@@ -3,13 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class JumbotronModel extends CI_Model
 {
-  private $foto_path = './files/home/';
+  private $foto_path = './files/jumbotron/';
   private $cache_name = 'jumbotron';
 
   public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
   {
     // select tabel
-    $this->db->select("id, title, foto, detail, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
+    $this->db->select("id, title, foto, detail, sub_judul, sub_detail, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
     $this->db->from("ktm_jumbotron");
     // $this->db->where("status <> 0");
 
@@ -61,7 +61,7 @@ class JumbotronModel extends CI_Model
     return $result;
   }
 
-  public function insert($title, $status, $detail)
+  public function insert($title, $status, $detail, $sub_judul, $sub_detail)
   {
     // insert foto
     $save_file = $this->saveFile();
@@ -71,6 +71,8 @@ class JumbotronModel extends CI_Model
         'title' => $title,
         'status' => $status,
         'detail' => $detail,
+        'sub_judul' => $sub_judul,
+        'sub_detail' => $sub_detail,
         'foto' => $save_file['data']
       ]);
 
@@ -91,7 +93,7 @@ class JumbotronModel extends CI_Model
     }
   }
 
-  public function update($id, $title, $status, $detail)
+  public function update($id, $title, $status, $detail, $sub_judul, $sub_detail)
   {
     $return = $this->db->select('foto')->from('ktm_jumbotron')->where('id', $id)->get()->row_array();
     if ($return != null) {
@@ -99,6 +101,8 @@ class JumbotronModel extends CI_Model
         'title' => $title,
         'status' => $status,
         'detail' => $detail,
+        'sub_judul' => $sub_judul,
+        'sub_detail' => $sub_detail,
         'updated_at' => Date('Y-m-d H:i:s')
       ];
       $res_foto = true;
@@ -168,7 +172,7 @@ class JumbotronModel extends CI_Model
   {
     $config['upload_path']          = $this->foto_path;
     $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|PNG|JPEG';
-    $config['file_name']            = md5(uniqid("ktm_home", true));
+    $config['file_name']            = md5(uniqid("ktm_jumbotron", true));
     $config['overwrite']            = true;
     $config['max_size']             = 8024;
     $this->load->library('upload', $config);

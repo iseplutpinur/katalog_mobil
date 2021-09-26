@@ -58,6 +58,8 @@ class Jumbotron extends CI_Controller
     $this->form_validation->set_error_delimiters('', '');
     $this->form_validation->set_rules('title', 'Title', 'trim|required');
     $this->form_validation->set_rules('detail', 'Detail', 'trim|required');
+    $this->form_validation->set_rules('sub_judul', 'Sub Judul', 'trim|required');
+    $this->form_validation->set_rules('sub_detail', 'Sub Detail', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
     if ($this->form_validation->run() == FALSE) {
       echo json_encode([
@@ -70,7 +72,9 @@ class Jumbotron extends CI_Controller
       $title = $this->input->post('title');
       $status = $this->input->post('status');
       $detail = $this->input->post('detail');
-      $return =  $this->model->insert($title, $status, $detail);
+      $sub_judul = $this->input->post('sub_judul');
+      $sub_detail = $this->input->post('sub_detail');
+      $return =  $this->model->insert($title, $status, $detail, $sub_judul, $sub_detail);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],
@@ -89,6 +93,8 @@ class Jumbotron extends CI_Controller
     $this->form_validation->set_rules('detail', 'Detail', 'trim|required');
     $this->form_validation->set_rules('status', 'status', 'trim|required|numeric');
     $this->form_validation->set_rules('id', 'id', 'trim|required|numeric');
+    $this->form_validation->set_rules('sub_judul', 'Sub Judul', 'trim|required');
+    $this->form_validation->set_rules('sub_detail', 'Sub Detail', 'trim|required');
     if ($this->form_validation->run() == FALSE) {
       echo json_encode([
         'status' => false,
@@ -101,7 +107,9 @@ class Jumbotron extends CI_Controller
       $title = $this->input->post('title');
       $status = $this->input->post('status');
       $detail = $this->input->post('detail');
-      $return =  $this->model->update($id, $title, $status, $detail);
+      $sub_judul = $this->input->post('sub_judul');
+      $sub_detail = $this->input->post('sub_detail');
+      $return =  $this->model->update($id, $title, $status, $detail, $sub_judul, $sub_detail);
       echo json_encode([
         'status' => $return['status'],
         'data' => $return['data'],

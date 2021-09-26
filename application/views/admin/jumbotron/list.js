@@ -118,6 +118,8 @@ $(function () {
     $("#id").val('');
     $("#status").val(1);
     $("#file").val('');
+    $("#sub_judul").val('');
+    $("#sub_detail").val('');
     detail.setData('');
     $("#formModalLabel").text('Add New');
   })
@@ -170,6 +172,8 @@ function edit(id) {
       $("#title").val(data.title);
       $("#status").val(data.status);
       $("#file").val('');
+      $("#sub_judul").val(data.sub_judul);
+      $("#sub_detail").val(data.sub_detail);
       detail.setData((data.detail == null) ? '' : data.detail);
       $("#formModal").modal('toggle');
       $("#formModalLabel").text('Edit data');
@@ -189,7 +193,7 @@ function edit(id) {
 
 function view(datas) {
   const data = datas.dataset;
-  $("#modalViewImage").attr('src', `<?= base_url() ?>files/home/${data.foto}`);
+  $("#modalViewImage").attr('src', `<?= base_url() ?>files/jumbotron/${data.foto}`);
   $("#modalViewImage").attr('alt', data.title);
   $("#modalViewLabel").text(data.title);
   $("#modalView").modal("toggle");

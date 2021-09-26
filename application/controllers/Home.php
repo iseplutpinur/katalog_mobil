@@ -14,6 +14,7 @@ class Home extends CI_Controller
         $data['title_page'] = "Home";
         $data['navs'] = $this->model->getNavigation();
         $data['sliders'] = $this->model->getSlider();
+        $data['jumbotrons'] = $this->model->getJubmotron();
         $get = $this->model->dataFooter();
         $data = array_merge($data, $get);
         // var_dump($data);
