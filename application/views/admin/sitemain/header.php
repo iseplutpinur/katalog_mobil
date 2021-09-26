@@ -100,11 +100,6 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider mt-3">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Master Data </div>
 
             <li class="nav-item" id="nav-testimoni">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/testimoni">
@@ -112,6 +107,12 @@
                     <span>Testimoni</span>
                 </a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider mt-3">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Master Data </div>
 
             <li class="nav-item" id="nav-daftarHarga">
                 <a class="nav-link pb-0" href="<?= base_url() ?>admin/daftarHarga">
@@ -169,7 +170,7 @@
             </li>
 
             <li class="nav-item" id="nav-navigasi">
-                <a class="nav-link pb-0" href="<?= base_url() ?>admin/navigasi">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/navigation">
                     <i class="fas fa-fw fa-copy"></i>
                     <span>Navigasi</span>
                 </a>

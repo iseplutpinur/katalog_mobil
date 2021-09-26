@@ -10,41 +10,42 @@ class DashboardModel extends CI_Model
         'title' => 'Jumlah slider',
         'data' => $this->jumlah_slider(),
         'satuan' => 'Foto'
-      ],
-      [
+      ], [
         'title' => 'Jumlah Produk',
         'data' => $this->jumlah_produk(),
         'satuan' => 'Produk'
-      ],
-      [
+      ], [
         'title' => 'Jumlah daftar harga',
         'data' => $this->jumlah_daftar_harga(),
         'satuan' => 'Tipe'
-      ],
-      [
+      ], [
         'title' => 'Jumlah galeri',
         'data' => $this->jumlah_galeri(),
         'satuan' => 'Foto'
-      ],
-      [
+      ], [
         'title' => 'Jumlah interior',
         'data' => $this->jumlah_interior(),
         'satuan' => 'Foto'
-      ],
-      [
+      ], [
         'title' => 'Jumlah eksterior',
         'data' => $this->jumlah_eksterior(),
         'satuan' => 'Foto'
-      ],
-      [
+      ], [
         'title' => 'Jumlah warna',
         'data' => $this->jumlah_warna(),
         'satuan' => 'Foto'
-      ],
-      [
+      ], [
         'title' => 'Jumlah video',
         'data' => $this->jumlah_video(),
-        'satuan' => 'Video'
+        'satuan' => 'video'
+      ], [
+        'title' => 'Jumlah sales',
+        'data' => $this->jumlah_sales(),
+        'satuan' => 'Sales'
+      ], [
+        'title' => 'Jumlah testimoni',
+        'data' => $this->jumlah_testimoni(),
+        'satuan' => 'Testimoni'
       ],
     ];
   }
@@ -64,6 +65,24 @@ class DashboardModel extends CI_Model
     $return = $this->db
       ->select('count(*) as jumlah')
       ->from('ktm_slider')
+      ->get()->row_array();
+    return $return['jumlah'];
+  }
+
+  private function jumlah_sales(): int
+  {
+    $return = $this->db
+      ->select('count(*) as jumlah')
+      ->from('ktm_sales')
+      ->get()->row_array();
+    return $return['jumlah'];
+  }
+
+  private function jumlah_testimoni(): int
+  {
+    $return = $this->db
+      ->select('count(*) as jumlah')
+      ->from('ktm_testimoni')
       ->get()->row_array();
     return $return['jumlah'];
   }

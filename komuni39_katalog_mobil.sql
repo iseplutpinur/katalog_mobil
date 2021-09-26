@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 04:31 AM
+-- Generation Time: Sep 26, 2021 at 10:02 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -75,7 +75,10 @@ INSERT INTO `ktm_eksterior` (`id`, `id_produk`, `title`, `foto`, `status`, `crea
 (11, 5, 'Samping Depan', '5d9fd26c4736ec236f356cea2cc148e2.jpg', 1, '2021-09-25 20:51:26', '2021-09-25 17:00:57'),
 (12, 5, 'Samping', 'f9cfc4d75605e27a02be7dc3d4ea0ed1.jpg', 1, '2021-09-25 20:51:36', '2021-09-25 17:00:42'),
 (13, 5, 'Samping Belakang', '4b7b8d324da2db2273d7ee09aa06bba7.jpg', 1, '2021-09-25 20:51:49', '2021-09-25 17:00:48'),
-(14, 5, 'Samping Belakang 1', '2c0bfdcc3c43c1d23ac12920666a0709.jpg', 1, '2021-09-25 20:52:02', '2021-09-25 17:00:53');
+(14, 5, 'Samping Belakang 1', '2c0bfdcc3c43c1d23ac12920666a0709.jpg', 1, '2021-09-25 20:52:02', '2021-09-25 17:00:53'),
+(17, 5, '123', '22fa5eb85a71aae67df23d0c880c6676.jpg', 1, '2021-09-26 10:01:50', '2021-09-26 05:02:56'),
+(18, 9, 'Testing 123', 'eaad736c6a08a773be296ad7db54d377.jpg', 1, '2021-09-26 10:08:01', NULL),
+(19, 10, 'All New', '39522880b3cd5f07048971c4a5b457c0.jpg', 1, '2021-09-26 10:14:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,7 +101,7 @@ CREATE TABLE `ktm_galeri` (
 --
 
 INSERT INTO `ktm_galeri` (`id`, `id_produk`, `title`, `foto`, `status`, `created_at`, `updated_at`) VALUES
-(4, 5, '1', '73a22777e1ac0a5e7bf63c6b9b50d385.jpg', 1, '2021-09-25 21:23:24', '2021-09-25 17:01:40'),
+(4, 5, '1', '73a22777e1ac0a5e7bf63c6b9b50d385.jpg', 1, '2021-09-25 21:23:24', '2021-09-26 05:21:40'),
 (5, 5, '2', '52046783fe6fe029ac8bf64741d7f2ef.jpg', 1, '2021-09-25 21:23:31', '2021-09-25 17:01:45'),
 (6, 5, '3', '50da32adfd29e2c94f76f8a2337177cd.jpg', 1, '2021-09-25 21:23:37', '2021-09-25 17:01:50'),
 (7, 5, '4', '35869793d73465fe93983ee36f6708e4.jpg', 1, '2021-09-25 21:23:44', '2021-09-25 17:01:55'),
@@ -204,6 +207,33 @@ INSERT INTO `ktm_produk` (`id`, `title`, `jumbotron_foto`, `jumbotron_title`, `j
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ktm_sales`
+--
+
+CREATE TABLE `ktm_sales` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `foto` varchar(50) NOT NULL,
+  `alamat` text DEFAULT NULL,
+  `no_wa` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `lainnya` text DEFAULT NULL,
+  `status` int(1) NOT NULL COMMENT '1 active | 0 nonactive',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ktm_sales`
+--
+
+INSERT INTO `ktm_sales` (`id`, `title`, `foto`, `alamat`, `no_wa`, `email`, `lainnya`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Testing 123as', '915e1db618c932d79f758f155a99c0d2.jpg', '<p>alamaat 123</p>', '123', '', '<ol><li>lainnya</li><li>wkwkw</li></ol>', 1, '2021-09-26 13:27:31', '2021-09-26 09:35:19'),
+(3, 'Testing 12311', '0b6ab08fbb67e6d783b6951a3ee18a82.jpg', '<ul><li>alamat</li></ul>', '085798132505', 'administrator@gmail.com', '<ol><li>Lainnya</li></ol>', 1, '2021-09-26 14:46:34', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ktm_slider`
 --
 
@@ -223,6 +253,32 @@ CREATE TABLE `ktm_slider` (
 INSERT INTO `ktm_slider` (`id`, `title`, `foto`, `status`, `created_at`, `updated_at`) VALUES
 (8, 'Xpander Cross', '0a19f3e0b4233f4e6831633f4d413781.jpg', 1, '2021-09-25 17:39:41', '2021-09-26 03:08:26'),
 (9, 'Xpander Cross 2', '56f8a3b35ffdcc1c2bac8a4072d50cc6.jpg', 1, '2021-09-25 17:40:09', '2021-09-26 03:08:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ktm_testimoni`
+--
+
+CREATE TABLE `ktm_testimoni` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `foto` varchar(50) NOT NULL,
+  `details` text DEFAULT NULL,
+  `lainnya` text DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `nilai` int(11) DEFAULT NULL,
+  `status` int(1) NOT NULL COMMENT '1 active | 0 nonactive',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ktm_testimoni`
+--
+
+INSERT INTO `ktm_testimoni` (`id`, `title`, `foto`, `details`, `lainnya`, `tanggal`, `nilai`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'Testing 123', '2aa62bdec2a0d218132988d1ee6f7767.jpg', NULL, NULL, NULL, NULL, 1, '2021-09-26 14:49:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -247,7 +303,8 @@ CREATE TABLE `ktm_video` (
 INSERT INTO `ktm_video` (`id`, `id_produk`, `title`, `url`, `status`, `created_at`, `updated_at`) VALUES
 (5, 5, 'video 1', 'https://youtu.be/9k-BjDxYEjQ', 1, '2021-09-25 20:55:16', NULL),
 (6, 5, 'video 2', 'https://youtu.be/MxiqLi_roG8', 1, '2021-09-25 20:55:44', NULL),
-(7, 5, 'video 3', 'https://youtu.be/bRg3x8_JIvs', 1, '2021-09-25 20:56:04', NULL);
+(7, 5, 'video 3', 'https://youtu.be/bRg3x8_JIvs', 1, '2021-09-25 20:56:04', NULL),
+(8, 9, 'Testing 123', 'https://demo.sikk-learning.infinit.id/', 1, '2021-09-26 10:25:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -468,9 +525,21 @@ ALTER TABLE `ktm_produk`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ktm_sales`
+--
+ALTER TABLE `ktm_sales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ktm_slider`
 --
 ALTER TABLE `ktm_slider`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ktm_testimoni`
+--
+ALTER TABLE `ktm_testimoni`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -538,7 +607,7 @@ ALTER TABLE `ktm_daftar_harga`
 -- AUTO_INCREMENT for table `ktm_eksterior`
 --
 ALTER TABLE `ktm_eksterior`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `ktm_galeri`
@@ -577,16 +646,28 @@ ALTER TABLE `ktm_produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `ktm_sales`
+--
+ALTER TABLE `ktm_sales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `ktm_slider`
 --
 ALTER TABLE `ktm_slider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `ktm_testimoni`
+--
+ALTER TABLE `ktm_testimoni`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `ktm_video`
 --
 ALTER TABLE `ktm_video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `ktm_warna`
