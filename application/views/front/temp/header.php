@@ -100,10 +100,9 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li><a href="<?= base_url() ?>home">Home</a></li>
-                                        <li><a href="<?= base_url() ?>produk">NEW XPANDER</a></li>
-                                        <li><a href="<?= base_url() ?>produk">NEW PAJERO SPORT</a></li>
-                                        <li><a href="<?= base_url() ?>produk">XPANDER CROSS</a></li>
-                                        <li><a href="<?= base_url() ?>produk">ECLIPSE CROSS</a></li>
+                                        <?php foreach ($navs as $nav) : ?>
+                                            <li><a href="<?= base_url("mobil/{$nav['id']}") ?>"><?= $nav['text']; ?></a></li>
+                                        <?php endforeach; ?>
                                         <li><a href="<?= base_url() ?>katalog">KATALOG PROMO</a></li>
                                     </ul>
                                 </nav>

@@ -35,6 +35,7 @@ $(function () {
             return `<button  class="btn btn-primary btn-sm"
                         data-id="${data}"
                         data-id_produk="${full.id_produk}"
+                        data-sort="${full.sort}"
                         data-status="${full.status}"
                         onclick="edit(this)">
                         <i class="fa fa-edit"></i> Edit
@@ -144,7 +145,7 @@ function remove(id) {
 function edit(datas) {
   const data = datas.dataset;
   $("#id").val(data.id);
-  $("#title").val(data.title);
+  $("#sort").val(data.sort);
   $("#status").val(data.status);
   $("#id_produk").val(data.id_produk).trigger('change');
   $("#formModal").modal('toggle');

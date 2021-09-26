@@ -31,13 +31,9 @@ $(function () {
         {
           "data": "id", render(data, type, full, meta) {
             return `<div class="pull-right">
-                        <button class="btn btn-success btn-sm"
-                        data-id="${data}"
-                        data-foto="${full.foto}"
-                        data-title="${full.title}"
-                        onclick="view(this)">
+                        <a class="btn btn-success btn-sm" href="<?= base_url() ?>mobil/${data}?view=1" target="_blank">
                             <i class="fa fa-eye"></i> View
-                        </button>
+                        </a>
                       <a href="<?= base_url() ?>admin/produk/new/${data}" class="btn btn-primary btn-sm" >
                         <i class="fa fa-edit"></i> Edit
                       </a>

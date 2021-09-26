@@ -25,12 +25,7 @@ class NavigationModel extends CI_Model
       $columns = $columns[$order];
 
       $order_colum = $columns['data'];
-      if ($order_colum != 'nama_produk') {
-        $this->db->order_by('b.title', 'asc');
-      }
       $this->db->order_by($order_colum, $dir);
-    } else {
-      $this->db->order_by('b.title', 'asc');
     }
 
     // initial data table

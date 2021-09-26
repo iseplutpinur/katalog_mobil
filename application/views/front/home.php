@@ -2,69 +2,25 @@
 <section class="hero-area p-relative">
     <div class="slider-active swiper-container">
         <div class="swiper-wrapper">
-            <div class="single-slider slider-height st-2 swiper-slide slider-overlay" data-swiper-autoplay="5000">
-                <div class="slide-bg" data-background="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02u6Me4aR9nm040755g3a8929d.jpg"></div>
-                <div class="banner3-shape">
-                    <img src="<?= base_url() ?>assets/growbiz/img/shape/banner3-shape.png" alt="">
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9">
-                            <div class="hero-content text-center">
-                                <p data-animation="fadeInUp" data-delay=".3s">Dealer Mitsubishi Malang</p>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">SUN STAR MOTOR MALANG</h1>
-                                <!-- <div class="hero-content-btn st-2" data-animation="fadeInUp" data-delay=".7s">
-                                            <a href="contact.html" class="grb-btn">Get Started</a>
-                                        </div> -->
+            <?php foreach ($sliders as $slider) : ?>
+                <div class="single-slider slider-height st-2 swiper-slide slider-overlay" data-swiper-autoplay="5000">
+                    <div class="slide-bg" data-background="<?= base_url("files/home/{$slider['url']}") ?>"></div>
+                    <div class="banner3-shape">
+                        <img src="<?= base_url() ?>" alt="">
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="hero-content text-center">
+                                    <p data-animation="fadeInUp" data-delay=".3s"><?= $slider['detail']; ?></p>
+                                    <h1 data-animation="fadeInUp" data-delay=".5s"><?= $slider['sub_detail']; ?></h1>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="single-slider slider-height st-2 swiper-slide slider-overlay" data-swiper-autoplay="5000">
-                <div class="slide-bg" data-background="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02uniiCt06om171954g7ce0e17.jpg"></div>
-                <div class="banner3-shape">
-                    <img src="<?= base_url() ?>assets/growbiz/img/shape/banner3-shape.png" alt="">
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9">
-                            <div class="hero-content text-center">
-                                <p data-animation="fadeInUp" data-delay=".3s">Dealer Mitsubishi Malang</p>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">SUN STAR MOTOR MALANG</h1>
-                                <!-- <div class="hero-content-btn st-2" data-animation="fadeInUp" data-delay=".7s">
-                                            <a href="contact.html" class="grb-btn">Get Started</a>
-                                        </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-slider slider-height st-2 swiper-slide slider-overlay" data-swiper-autoplay="5000">
-                <div class="slide-bg" data-background="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02uoPt5w748m040640g6383097.jpg"></div>
-                <div class="banner3-shape">
-                    <img src="<?= base_url() ?>assets/growbiz/img/shape/banner3-shape.png" alt="">
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9">
-                            <div class="hero-content text-center">
-                                <p data-animation="fadeInUp" data-delay=".3s">Dealer Mitsubishi Malang</p>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">SUN STAR MOTOR MALANG</h1>
-                                <!-- <div class="hero-content-btn st-2" data-animation="fadeInUp" data-delay=".7s">
-                                            <a href="contact.html" class="grb-btn">Get Started</a>
-                                        </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
-        <!-- If we need navigation buttons -->
-        <!-- <div class="slider-nav">
-                    <div class="swiper-button-prev"><i class="far fa-arrow-left"></i></div>
-                    <div class="swiper-button-next"><i class="far fa-arrow-right"></i></div>
-                </div> -->
     </div>
 </section>
 <!-- hero area end -->
