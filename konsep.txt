@@ -1,11 +1,11 @@
 // urgent
 sales
   frontend [clear]
-  sebagai
+  sebagai [clear]
 
 Testimoni
   frontend  [clear]
-  sebagai
+  sebagai [clear]
 
 Status:
   0 Dibuat
@@ -13,7 +13,7 @@ Status:
   2 Diedit Belum Selesai
 
 Halaman:
-  Home:
+  Home: [clear]
     Jumbotron:
       Slider
       Title
@@ -24,7 +24,7 @@ Halaman:
     Video dan Galeri Foto
     Lokasi Dealer
 
-  Produk:
+  Produk:[clear]
     Jumbotron
     Tabel Daftar harga<Tipe, Harga>
     Warna
@@ -36,7 +36,7 @@ Halaman:
     Keterangan Pembelian
     Mobil Baru Lainnya
 
-  Katalog Promo:
+  Katalog Promo: [clear]
     List Produk:
       Title
       Detail
@@ -56,7 +56,7 @@ Halaman:
 
 Buat slider[clear]
 Buat Jumbotron[clear]
-  Produk:
+  Produk: [clear]
   Jumbotron
     Header:
       foto
@@ -70,33 +70,33 @@ Buat Jumbotron[clear]
         Tenor Kredit
         detail
 
-  Daftar Harga <Tipe, Harga>
+  Daftar Harga <Tipe, Harga> [clear]
 
-  Eksterior <List Foto>
+  Eksterior <List Foto>[clear]
 
-  Interior <List Foto>
+  Interior <List Foto>[clear]
 
-  Warna <List Foto>
+  Warna <List Foto>[clear]
 
-  Galeri <List Foto>
+  Galeri <List Foto>[clear]
 
-  Video Yoututbe <List Video>
+  Video Yoututbe <List Video>[clear]
 
-  Informasi Spesifikasi:
+  Informasi Spesifikasi:[clear]
     detail
     status
 
-  Keterangan Pembelian:
+  Keterangan Pembelian:[clear]
     detail
     status
 
-Navigation
+Navigation[clear]
   By Kategori
     id
     produk
 
 
-jumbotron
+jumbotron[clear]
 
 validasi keseluaruhan
 Pengaturan pake cache
@@ -109,3 +109,47 @@ Pengaturan
   perbaikan meta meta
 
 navigasi layar kecil error
+
+
+Pengaturan frontend
+header:
+  logo
+    logo dark
+    logo white
+  email:
+    icon
+    title
+    value
+    status
+  service:
+    icon
+    title
+    value
+    status
+  call:
+    icon
+    title
+    value
+    status
+footer:
+  copyright:
+    value
+    status
+  no_telepon:
+    value
+    status
+  email:
+    value
+    status
+
+Pengaturan Backend
+  User:
+    email
+    password
+  Display:
+    nav_logo
+    nav_logo_status
+    logo_title
+    time_visible
+    copyright
+

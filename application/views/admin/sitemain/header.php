@@ -168,10 +168,10 @@
             <div class="sidebar-heading">
                 Pengaturan </div>
 
-            <li class="nav-item" id="nav-aplikasi">
-                <a class="nav-link pb-0" href="<?= base_url() ?>admin/aplikasi">
+            <li class="nav-item" id="nav-depan">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/depan">
                     <i class="fas fa-fw fa-copy"></i>
-                    <span>Aplikasi</span>
+                    <span>Halaman Depan</span>
                 </a>
             </li>
 
@@ -182,10 +182,10 @@
                 </a>
             </li>
 
-            <li class="nav-item" id="nav-depan">
-                <a class="nav-link pb-0" href="<?= base_url() ?>admin/depan">
+            <li class="nav-item" id="nav-aplikasi">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/aplikasi">
                     <i class="fas fa-fw fa-copy"></i>
-                    <span>Halaman Depan</span>
+                    <span>Aplikasi</span>
                 </a>
             </li>
 

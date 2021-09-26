@@ -13,6 +13,7 @@ class Katalog extends CI_Controller
     {
         $data['navs'] = $this->model->getNavigation();
         $data['title_page'] = "Katalog Harga";
+        $data['products'] = $this->model->getListRecentProduct();
         $this->load->view('front/temp/header', $data);
         $this->load->view('front/katalog', $data);
         $this->load->view('front/temp/footer', $data);

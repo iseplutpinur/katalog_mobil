@@ -6,13 +6,13 @@ class Aplikasi extends CI_Controller
   public function index()
   {
     $data['title_page'] = "Pengaturan Aplikasi";
-    $data['plugins'] = ['datatable'];
+    $data['plugins'] = ['datatable', 'mansonry'];
     $data['nav_select'] = 'nav-aplikasi';
     $data['javascript'] = "admin/aplikasi/index";
     $data['navigation'] = "admin/aplikasi/index";
     $this->load->view('admin/sitemain/header', $data);
     $this->load->view('admin/aplikasi/index', $data);
-    $this->load->view('admin/sitemain/footer');
+    $this->load->view('admin/sitemain/footer', $data);
   }
 
   public function __construct()

@@ -76,6 +76,10 @@
                     <!-- Page level plugins -->
                     <script src="<?= base_url(); ?>assets/vendor/select2/js/select2.full.min.js"></script>
                 <?php endif ?>
+                <?php if ($plugin == 'mansonry') : ?>
+                    <!-- Page level plugins -->
+                    <script src="<?= base_url(); ?>assets/vendor/mansonry/mansonry.js"></script>
+                <?php endif ?>
             <?php endforeach ?>
         <?php endif ?>
     <?php endif ?>
