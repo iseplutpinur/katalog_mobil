@@ -35,36 +35,36 @@
                     <div class="col-lg-9 col-md-8">
                         <div class="grb__cta f-right header-cta st-2">
                             <ul>
-                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                <?php if ($attr['call_status'] == 1) : ?>
                                     <li class="d-none">
                                         <div class="cta__icon">
-                                            <span><i class="fas fa-phone-alt"></i></span>
+                                            <span><i class="<?= $attr['call_icon']; ?>"></i></span>
                                         </div>
                                         <div class="cta__content">
-                                            <p>Call Us:</p>
-                                            <span><a href="tel:(555)674890556">(555) 674 890 556</a></span>
+                                            <p><?= $attr['call_title']; ?></p>
+                                            <span><a href="tel:<?= $attr['call_value']; ?>"><?= $attr['call_value']; ?></a></span>
                                         </div>
                                     </li>
                                 <?php endif ?>
-                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                <?php if ($attr['email_status'] == 1) : ?>
                                     <li>
                                         <div class="cta__icon">
-                                            <span><i class="fas fa-envelope"></i></span>
+                                            <span><i class="<?= $attr['email_icon']; ?>"></i></span>
                                         </div>
                                         <div class="cta__content">
-                                            <p>Mail Us:</p>
-                                            <span><a href="mailto:someone@growbiz.com">someone@growbiz.com</a></span>
+                                            <p><?= $attr['email_title']; ?></p>
+                                            <span><a href="mailto:<?= $attr['email_value']; ?>"><?= $attr['email_value']; ?></a></span>
                                         </div>
                                     </li>
                                 <?php endif ?>
-                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                <?php if ($attr['service_status'] == 1) : ?>
                                     <li>
                                         <div class="cta__icon">
-                                            <span><i class="fas fa-clock"></i></span>
+                                            <span><i class="<?= $attr['service_icon']; ?>"></i></span>
                                         </div>
                                         <div class="cta__content">
-                                            <p>Service Hours</p>
-                                            <span>9:30 AM - 6:30 PM</span>
+                                            <p><?= $attr['service_title']; ?></p>
+                                            <span><?= $attr['service_value']; ?></span>
                                         </div>
                                     </li>
                                 <?php endif ?>
