@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2021 at 12:24 AM
+-- Generation Time: Sep 27, 2021 at 01:48 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -232,6 +232,12 @@ CREATE TABLE `ktm_pengaturan_depan` (
   `foot_email_status` int(1) DEFAULT NULL,
   `alamat_value` varchar(100) DEFAULT NULL,
   `alamat_status` int(1) DEFAULT NULL,
+  `galeri_title` varchar(100) DEFAULT NULL,
+  `galeri_value` varchar(100) DEFAULT NULL,
+  `galeri_status` int(1) DEFAULT NULL,
+  `video_title` varchar(100) DEFAULT NULL,
+  `video_value` varchar(100) DEFAULT NULL,
+  `video_status` int(1) DEFAULT NULL,
   `testimoni_title` varchar(100) DEFAULT NULL,
   `testimoni_value` varchar(100) DEFAULT NULL,
   `testimoni_status` int(1) DEFAULT NULL,
@@ -247,8 +253,8 @@ CREATE TABLE `ktm_pengaturan_depan` (
 -- Dumping data for table `ktm_pengaturan_depan`
 --
 
-INSERT INTO `ktm_pengaturan_depan` (`id`, `logo_white`, `logo_dark`, `email_icon`, `email_title`, `email_value`, `email_status`, `service_icon`, `service_title`, `service_value`, `service_status`, `call_icon`, `call_title`, `call_value`, `call_status`, `copyright_value`, `copyright_status`, `no_telp_value`, `no_telp_status`, `foot_email_value`, `foot_email_status`, `alamat_value`, `alamat_status`, `testimoni_title`, `testimoni_value`, `testimoni_status`, `kontak_title`, `kontak_value`, `kontak_status`, `katalog_title`, `katalog_value`, `katalog_status`) VALUES
-(1, NULL, NULL, 'fas fa-envelope', 'Mail Us:', 'iseplutpinur7@gmail.com', 1, 'fas fa-clock', 'Service Hours', '9:30 AM - 6:30 PM', 1, 'fas fa-phone-alt', 'Call For Estimate', '0812-3505-5522', 1, 'Copyrighted by <a href=\"#\">@Bdevs</a> | All Right Reserved', 1, '0812-3505-5522', 1, 'info@domain.com', 1, 'Jl. Letjend S. Parman No 104A Malang, Jawa\n                                Timur 65122', 1, 'TESTIMONIAL', 'Beberapa tanggapan dari klien kami', 1, 'KONTAK KAMI', NULL, 1, 'KATALOG PROMO', 'Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi', 1);
+INSERT INTO `ktm_pengaturan_depan` (`id`, `logo_white`, `logo_dark`, `email_icon`, `email_title`, `email_value`, `email_status`, `service_icon`, `service_title`, `service_value`, `service_status`, `call_icon`, `call_title`, `call_value`, `call_status`, `copyright_value`, `copyright_status`, `no_telp_value`, `no_telp_status`, `foot_email_value`, `foot_email_status`, `alamat_value`, `alamat_status`, `galeri_title`, `galeri_value`, `galeri_status`, `video_title`, `video_value`, `video_status`, `testimoni_title`, `testimoni_value`, `testimoni_status`, `kontak_title`, `kontak_value`, `kontak_status`, `katalog_title`, `katalog_value`, `katalog_status`) VALUES
+(1, NULL, NULL, 'fas fa-envelope', 'Mail Us:', 'iseplutpinur7@gmail.com', 1, 'fas fa-clock', 'Service Hours', '9:30 AM - 6:30 PM', 1, 'fas fa-phone-alt', 'Call For Estimate', '0857-9813-2505', 1, 'Copyrighted by <a href=\"#\">@Bdevs</a> | All Right Reserved', 1, '0812-3505-5522q', 1, 'info@domain.com1', 1, 'Jl. Letjend S. Parman No 104A Malang, Jawa            Timur 65122a', 1, 'FOTO GALERI', 'Informasi Foto Presentasi Terbaru', 1, 'Videoa', 'Informasi Video Presentasi Terbarus', NULL, 'TESTIMONIAL', 'Beberapa tanggapan dari klien kami', 1, '<p></p>', 'KONTAK KAMI', 1, 'KATALOG PROMO', 'Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi', 1);
 
 -- --------------------------------------------------------
 
