@@ -401,9 +401,9 @@ function getBgColor()
                     <div class="portfolio-left">
                         <div class="section-title mb-55">
                             <div class="border-left">
-                                <p>Katalog Promo</p>
+                                <p><?= $attr['katalog_title']; ?></p>
                             </div>
-                            <h3>Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi</h3>
+                            <h3><?= $attr['katalog_value']; ?></h3>
                         </div>
                     </div>
                 </div>
@@ -437,11 +437,11 @@ function getBgColor()
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-md-8">
-                    <div class="section-title mb-55 ">
-                        <div class="border-left st-3">
-                            <p>Testimonial</p>
+                    <div class="section-title mb-55">
+                        <div class="border-left">
+                            <p><?= $attr['testimoni_title']; ?></p>
                         </div>
-                        <h3>Beberapa tanggapan dari klien kami</h3>
+                        <h3><?= $attr['testimoni_value']; ?></h3>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -491,10 +491,15 @@ function getBgColor()
 <?php if ($sales != null) : ?>
     <section class="team-area pt-110 pb-90 <?= getBgColor() ?>">
         <div class="container">
-            <div class="row wow fadeInUp">
-                <div class="col-lg-12">
-                    <div class="section-title mb-55 text-center">
-                        <h2>Kontak Kami</h2>
+            <div class="row wow fadeInUp align-items-center counter-head">
+                <div class="col-md-12">
+                    <div class="portfolio-left">
+                        <div class="section-title mb-55">
+                            <div class="border-left">
+                                <p><?= $attr['kontak_title']; ?></p>
+                            </div>
+                            <h3><?= $attr['kontak_value']; ?></h3>
+                        </div>
                     </div>
                 </div>
             </div>
