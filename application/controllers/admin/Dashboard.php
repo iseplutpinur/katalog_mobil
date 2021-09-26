@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller
     $data['plugins'] = ['datatable'];
     $data['javascript'] = "admin/dashboard/index";
     $data['navigation'] = "admin/dashboard/index";
+    $data['datas'] = $this->model->getDataDashboard();
     $this->load->view('admin/sitemain/header', $data);
     $this->load->view('admin/dashboard/index', $data);
     $this->load->view('admin/sitemain/footer');
@@ -17,6 +18,7 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model("admin/DashboardModel", 'model');
     is_logged_in();
   }
 }
