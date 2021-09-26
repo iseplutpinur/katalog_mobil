@@ -14,7 +14,8 @@ class DaftarHargaModel extends CI_Model
     b.title as nama_produk,
     a.harga,
     IF(a.status = '0' ,'Nonactive', IF(a.status = '1' , 'Active', 'Unknown')) as status_str,
-    a.status");
+    a.status,
+    ifnull(a.updated_at, a.created_at) as tanggal");
     $this->db->from("ktm_daftar_harga a");
     $this->db->join('ktm_produk b', 'b.id = a.id_produk');
 

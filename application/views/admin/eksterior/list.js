@@ -12,12 +12,11 @@ $(function () {
       filter.date_start = date_start;
       filter.date_end = date_end;
     }
-
     const table_html = $('#dataTable');
     table_html.dataTable().fnDestroy()
     var tableUser = table_html.DataTable({
       "ajax": {
-        "url": "<?= base_url()?>admin/daftarHarga/datatable",
+        "url": "<?= base_url()?>admin/eksterior/datatable",
         "data": filter,
         "type": 'POST'
       },
@@ -30,14 +29,20 @@ $(function () {
         { "data": "foto_produk" },
         { "data": "nama_produk" },
         { "data": "title" },
-        { "data": "harga" },
         { "data": "status_str" },
         {
           "data": "id", render(data, type, full, meta) {
-            return `<button  class="btn btn-primary btn-sm"
+            return `<div class="pull-right">
+                        <button class="btn btn-success btn-sm"
+                        data-id="${data}"
+                        data-foto="${full.foto}"
+                        data-title="${full.title}"
+                        onclick="view(this)">
+                            <i class="fa fa-eye"></i> View
+                        </button>
+                      <button  class="btn btn-primary btn-sm"
                         data-id="${data}"
                         data-title="${full.title}"
-                        data-harga="${full.harga}"
                         data-status="${full.status}"
                         data-id_produk="${full.id_produk}"
                         onclick="edit(this)">
@@ -59,9 +64,9 @@ $(function () {
           if (last !== group) {
             const foto = api.column(0).data()[i];
             $(rows).eq(i).before(
-              `<tr class="group"><td colspan="4">${group}</td><td>
+              `<tr class="group"><td colspan="3">${group}</td><td>
               <button class="btn btn-success btn-sm"
-              data-foto="${foto}"
+              data-foto="../produk/${foto}"
               data-title="${group}"
               onclick="view(this)">
                   <i class="fa fa-eye"></i> View
@@ -75,7 +80,7 @@ $(function () {
       },
       columnDefs: [{
         orderable: false,
-        targets: [0, 5]
+        targets: [0, 4]
       },
       { "visible": false, "targets": groupColumn }],
       order: [
@@ -106,6 +111,8 @@ $(function () {
       }
     });
   }
+
+
   dynamic();
   global_dynamic = dynamic;
 
@@ -114,7 +121,7 @@ $(function () {
     const form = new FormData(this);
     $.ajax({
       method: 'post',
-      url: '<?= base_url() ?>admin/daftarHarga/' + ($("#id").val() == "" ? 'insert' : 'update'),
+      url: '<?= base_url() ?>admin/eksterior/' + ($("#id").val() == "" ? 'insert' : 'update'),
       data: form,
       cache: false,
       contentType: false,
@@ -142,19 +149,20 @@ $(function () {
     })
   })
 
-  $("#addNewharga").click(() => {
+  $("#addNew").click(() => {
     $("#title").val('');
     $("#id").val('');
     $("#status").val(1);
-    $("#harga").val('');
+    $("#file").val('');
+    $("#file").attr('required', '');
     $("#id_produk").val('').trigger('change');
-    $("#formModalLabel").text('Add New harga');
+    $("#formModalLabel").text('Add New');
   })
 
-  $("#delete-harga").click(() => {
+  $("#delete").click(() => {
     $.ajax({
       method: 'get',
-      url: '<?= base_url() ?>admin/daftarHarga/delete/' + $("#id-delete").val(),
+      url: '<?= base_url() ?>admin/eksterior/delete/' + $("#id-delete").val(),
       data: null,
     }).done((data) => {
       if (data.status) {
@@ -190,15 +198,16 @@ function edit(datas) {
   $("#id").val(data.id);
   $("#title").val(data.title);
   $("#status").val(data.status);
-  $("#harga").val(data.harga);
+  $("#file").val('');
   $("#id_produk").val(data.id_produk).trigger('change');
   $("#formModal").modal('toggle');
-  $("#formModalLabel").text('Edit harga');
+  $("#formModalLabel").text('Edit Foto');
+  $("#file").removeAttr('required');
 }
 
 function view(datas) {
   const data = datas.dataset;
-  $("#modalViewImage").attr('src', `<?= base_url() ?>files/produk/${data.foto}`);
+  $("#modalViewImage").attr('src', `<?= base_url() ?>files/eksterior/${data.foto}`);
   $("#modalViewImage").attr('alt', data.title);
   $("#modalViewLabel").text(data.title);
   $("#modalView").modal("toggle");
