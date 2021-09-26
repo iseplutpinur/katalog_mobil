@@ -5,12 +5,13 @@ class Galeri extends CI_Controller
 {
   public function index()
   {
-    $data['title_page'] = "List Slider";
-    $data['plugins'] = ['datatable'];
-    $data['nav_select'] = 'nav-slider';
-    $data['javascript'] = "admin/slider/list";
+    $data['title_page'] = "List Galeri";
+    $data['plugins'] = ['datatable', 'select2'];
+    $data['products'] = $this->db->select('id, title as text')->from('ktm_produk')->where('status <> 2')->get()->result_array();
+    $data['nav_select'] = 'nav-galeri';
+    $data['javascript'] = "admin/galeri/list";
     $this->load->view('admin/sitemain/header', $data);
-    $this->load->view('admin/slider/list', $data);
+    $this->load->view('admin/galeri/list', $data);
     $this->load->view('admin/sitemain/footer');
   }
 
@@ -23,12 +24,14 @@ class Galeri extends CI_Controller
     $length = $this->input->post('length');
     $cari = $this->input->post('search');
 
+    // filter
     $date_start = $this->input->post('date_start');
     $date_end = $this->input->post('date_end');
     $admin = $this->input->post('admin');
     $sales = $this->input->post('sales');
     $status = $this->input->post('status');
     $id_produk = $this->input->post('id_produk');
+    $not_status_produk = $this->input->post('not_status_produk');
 
     $filter = [
       'date' => [
@@ -38,7 +41,8 @@ class Galeri extends CI_Controller
       'admin' => $admin,
       'sales' => $sales,
       'status' => $status,
-      'id_produk' => $id_produk
+      'id_produk' => $id_produk,
+      'not_status_produk' => $not_status_produk,
     ];
 
     if (isset($cari['value'])) {

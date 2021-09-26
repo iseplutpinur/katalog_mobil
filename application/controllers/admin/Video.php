@@ -5,12 +5,13 @@ class Video extends CI_Controller
 {
   public function index()
   {
-    $data['title_page'] = "List Slider";
-    $data['plugins'] = ['datatable'];
-    $data['nav_select'] = 'nav-slider';
-    $data['javascript'] = "admin/slider/list";
+    $data['title_page'] = "List Video";
+    $data['plugins'] = ['datatable', 'select2'];
+    $data['nav_select'] = 'nav-video';
+    $data['javascript'] = "admin/video/list";
+    $data['products'] = $this->db->select('id, title as text')->from('ktm_produk')->where('status <> 2')->get()->result_array();
     $this->load->view('admin/sitemain/header', $data);
-    $this->load->view('admin/slider/list', $data);
+    $this->load->view('admin/video/list', $data);
     $this->load->view('admin/sitemain/footer');
   }
 
@@ -24,12 +25,14 @@ class Video extends CI_Controller
     $length = $this->input->post('length');
     $cari = $this->input->post('search');
 
+    // filter
     $date_start = $this->input->post('date_start');
     $date_end = $this->input->post('date_end');
     $admin = $this->input->post('admin');
     $sales = $this->input->post('sales');
     $status = $this->input->post('status');
     $id_produk = $this->input->post('id_produk');
+    $not_status_produk = $this->input->post('not_status_produk');
 
     $filter = [
       'date' => [
@@ -39,7 +42,8 @@ class Video extends CI_Controller
       'admin' => $admin,
       'sales' => $sales,
       'status' => $status,
-      'id_produk' => $id_produk
+      'id_produk' => $id_produk,
+      'not_status_produk' => $not_status_produk,
     ];
 
     if (isset($cari['value'])) {

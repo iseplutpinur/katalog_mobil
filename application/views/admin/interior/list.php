@@ -1,7 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3 d-flex justify-content-between">
     <h6 class="m-0 font-weight-bold text-primary"><?= $title_page; ?></h6>
-    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNewharga">Add New harga</button>
+    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#formModal" data-url="<?= base_url(); ?>" id="addNew">Add New</button>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -11,7 +11,6 @@
             <th style="max-width: 50px;">No</th>
             <th>Produk</th>
             <th>Title</th>
-            <th>Harga</th>
             <th style="max-width: 100px;">Status</th>
             <th style="max-width: 230px;">Action</th>
           </tr>
@@ -21,7 +20,6 @@
             <th>No</th>
             <th>Produk</th>
             <th>Title</th>
-            <th>Harga</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -58,7 +56,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="formModalLabel">Add New harga</h5>
+        <h5 class="modal-title" id="formModalLabel">Add New</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -68,11 +66,11 @@
           <input type="text" name="id" id="id" class="form-control" value="" hidden="hidden">
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control" required="" placeholder="harga Title">
+            <input type="text" name="title" id="title" class="form-control" required="" placeholder="Title">
           </div>
           <div class="form-group">
-            <label for="harga">Harga</label>
-            <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga">
+            <label for="file">Foto</label>
+            <input type="file" name="file" id="file" class="form-control" placeholder="">
           </div>
           <div class="form-group">
             <label for="id_produk">Produk</label>
@@ -104,36 +102,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalremoveLabel">Delete harga</h5>
+        <h5 class="modal-title" id="modalremoveLabel">Delete data</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin akan menghapus harga ini .?</p>
+        <p>Apakah anda yakin akan menghapus data ini .?</p>
         <input type="hidden" id="id-delete">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" type="button" id="delete-harga" data-dismiss="modal">Delete</button>
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalViewLabel"></h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img id="modalViewImage" src="" class="img-fluid" alt="">
-      </div>
-      <div class="modal-footer">
+        <button class="btn btn-danger" type="button" id="delete" data-dismiss="modal">Delete</button>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
       </div>
     </div>

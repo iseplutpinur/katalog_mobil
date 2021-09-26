@@ -6,9 +6,18 @@ class VideoModel extends CI_Model
   public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
   {
     // select tabel
-    $this->db->select("id, title, url, IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) as status_str, status");
-    $this->db->from("ktm_video");
-    // $this->db->where("status <> 0");
+    $this->db->select("a.id,
+    b.id as id_produk,
+    b.jumbotron_foto as foto_produk,
+    a.title,
+    b.title as nama_produk,
+    a.url,
+    IF(a.status = '0' ,'Nonactive', IF(a.status = '1' , 'Active', 'Unknown')) as status_str,
+    a.status,
+    ifnull(a.updated_at, a.created_at) as tanggal");
+    $this->db->from("ktm_video a");
+    $this->db->join('ktm_produk b', 'b.id = a.id_produk');
+
 
     // order by
     if ($order['order'] != null) {
@@ -18,7 +27,12 @@ class VideoModel extends CI_Model
       $columns = $columns[$order];
 
       $order_colum = $columns['data'];
+      if ($order_colum != 'nama_produk') {
+        $this->db->order_by('b.title', 'asc');
+      }
       $this->db->order_by($order_colum, $dir);
+    } else {
+      $this->db->order_by('b.title', 'asc');
     }
 
     // initial data table
@@ -41,15 +55,20 @@ class VideoModel extends CI_Model
       if ($filter['id_produk'] != '') {
         $this->db->where("id_produk", $filter['id_produk']);
       }
+
+      if ($filter['not_status_produk'] != '') {
+        $this->db->where("b.status <>", $filter['not_status_produk']);
+      }
     }
 
     // pencarian
     if ($cari != null) {
       $this->db->where("(
-                  id LIKE '%$cari%' or
-                  title LIKE '%$cari%' or
-                  IF(status = '0' , 'Nonactive', IF(status = '1' , 'Active', 'Unknown')) LIKE '%$cari%' or
-                  url LIKE '%$cari%'
+                  a.id LIKE '%$cari%' or
+                  a.title LIKE '%$cari%' or
+                  b.title LIKE '%$cari%' or
+                  IF(a.status = '0' , 'Nonactive', IF(a.status = '1' , 'Active', 'Unknown')) LIKE '%$cari%' or
+                  a.url LIKE '%$cari%'
               )");
     }
 
