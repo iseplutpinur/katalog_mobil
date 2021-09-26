@@ -5,13 +5,52 @@ class Navigation extends CI_Controller
 {
   public function index()
   {
-    $data['title_page'] = "List Slider";
-    $data['plugins'] = ['datatable'];
-    $data['nav_select'] = 'nav-slider';
-    $data['javascript'] = "admin/slider/list";
+    $data['title_page'] = "List Navigasi";
+    $data['plugins'] = ['datatable', 'select2'];
+    $data['nav_select'] = 'nav-navigasi';
+    $data['javascript'] = "admin/navigasi/list";
+    $data['products'] = $this->db->select('id, title as text')->from('ktm_produk')->where('status <> 2')->get()->result_array();
     $this->load->view('admin/sitemain/header', $data);
-    $this->load->view('admin/slider/list', $data);
+    $this->load->view('admin/navigasi/list', $data);
     $this->load->view('admin/sitemain/footer');
+  }
+
+  public function datatable()
+  {
+    $order = ['order' => $this->input->post('order'), 'columns' => $this->input->post('columns')];
+    $start = $this->input->post('start');
+    $draw = $this->input->post('draw');
+    $draw = $draw == null ? 1 : $draw;
+    $length = $this->input->post('length');
+    $cari = $this->input->post('search');
+
+    $date_start = $this->input->post('date_start');
+    $date_end = $this->input->post('date_end');
+    $admin = $this->input->post('admin');
+    $sales = $this->input->post('sales');
+    $status = $this->input->post('status');
+
+    $filter = [
+      'date' => [
+        'start' => $date_start,
+        'end' => $date_end,
+      ],
+      'admin' => $admin,
+      'sales' => $sales,
+      'status' => $status,
+    ];
+
+    if (isset($cari['value'])) {
+      $_cari = $cari['value'];
+    } else {
+      $_cari = null;
+    }
+
+    $data = $this->model->getAllData($draw, $length, $start, $_cari, $order, $filter)->result_array();
+    $count = $this->model->getAllData(null, null,    null,   $_cari, $order, $filter)->num_rows();
+
+    echo json_encode(['recordsTotal' => $count, 'recordsFiltered' => $count, 'draw' => $draw, 'search' => $_cari, 'data' => $data]);
+    header('Content-Type: application/json; charset=utf-8');
   }
 
   public function insert()

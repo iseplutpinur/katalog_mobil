@@ -176,6 +176,13 @@
                 </a>
             </li>
 
+            <li class="nav-item" id="nav-depan">
+                <a class="nav-link pb-0" href="<?= base_url() ?>admin/depan">
+                    <i class="fas fa-fw fa-copy"></i>
+                    <span>Halaman Depan</span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider mb-0 mt-2">
 
