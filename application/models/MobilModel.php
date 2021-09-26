@@ -96,7 +96,9 @@ class MobilModel extends CI_Model
     $this->db->from('ktm_produk');
     $this->db->where('status', 1);
     $this->db->order_by('id', 'DESC');
-    $this->db->limit($limit);
+    if ($limit != 0) {
+      $this->db->limit($limit);
+    }
     return $this->db->get()->result_array();
   }
 
@@ -118,14 +120,16 @@ class MobilModel extends CI_Model
     return $this->db->get()->result_array();
   }
 
-  public function getListRecentGaleri(?int $limit = null): ?array
+  public function getListRecentGaleri(?int $limit = null, $view = null): ?array
   {
     $limit = $limit ?? 9;
     $this->db->select('a.id, a.foto, a.title');
     $this->db->from('ktm_galeri a');
     $this->db->join('ktm_produk b', 'b.id = a.id_produk');
-    $this->db->where('b.status', 1);
     $this->db->where('a.status', 1);
+    if ($view != 1) {
+      $this->db->where('b.status', 1);
+    }
     $this->db->order_by('a.id', 'DESC');
     if ($limit != 0) {
       $this->db->limit($limit);
@@ -133,14 +137,16 @@ class MobilModel extends CI_Model
     return $this->db->get()->result_array();
   }
 
-  public function getListRecentVideo(?int $limit = null): ?array
+  public function getListRecentVideo(?int $limit = null, $view = null): ?array
   {
     $limit = $limit ?? 9;
     $this->db->select('a.id, a.url, a.title');
     $this->db->from('ktm_video a');
     $this->db->join('ktm_produk b', 'b.id = a.id_produk');
-    $this->db->where('b.status', 1);
     $this->db->where('a.status', 1);
+    if ($view != 1) {
+      $this->db->where('b.status', 1);
+    }
     $this->db->order_by('a.id', 'DESC');
     if ($limit != 0) {
       $this->db->limit($limit);

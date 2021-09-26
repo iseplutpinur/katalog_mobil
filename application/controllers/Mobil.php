@@ -13,17 +13,18 @@ class Mobil extends CI_Controller
   {
     // input
     $view = $this->input->get('view');
-
     $data['title_page'] = "Home";
-    $data['navs'] = $this->model->getNavigation();
-    $data['sliders'] = $this->model->getSlider();
-
     // get page data
     $data['mobil'] = $this->model->getDisplayProduk($id_mobil, $view);
     if ($data['mobil'] == null) {
       redirect('home');
       return;
     }
+
+    $data['navs'] = $this->model->getNavigation();
+    $data['testimoni'] = $this->model->getListTestimonial();
+    $data['sales'] = $this->model->getListSales();
+    $data['products'] = $this->model->getListRecentProduct();
 
     $this->load->view('front/temp/header', $data);
     $this->load->view('front/produkDetail');

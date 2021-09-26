@@ -180,7 +180,7 @@ function getBgColor()
                     <div class="portfolio-left">
                         <div class="section-title mb-55">
                             <div class="border-left">
-                                <p>video Foto</p>
+                                <p>Video</p>
                             </div>
                             <h3>Informasi Video Presentasi Terbaru serta video Foto Mobil Baru Mitsubishi</h3>
                         </div>
