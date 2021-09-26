@@ -6,9 +6,10 @@ class DaftarHarga extends CI_Controller
   public function index()
   {
     $data['title_page'] = "List Slider";
-    $data['plugins'] = ['datatable'];
+    $data['plugins'] = ['datatable', 'select2'];
     $data['nav_select'] = 'nav-daftarHarga';
     $data['javascript'] = "admin/daftarHarga/list";
+    $data['products'] = $this->db->select('id, title as text')->from('ktm_produk')->where('status <> 2')->get()->result_array();
     $this->load->view('admin/sitemain/header', $data);
     $this->load->view('admin/daftarHarga/list', $data);
     $this->load->view('admin/sitemain/footer');

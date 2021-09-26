@@ -66,14 +66,22 @@
       <div class="modal-body">
         <form id="formModalAction" action="" method="post">
           <input type="text" name="id" id="id" class="form-control" value="" hidden="hidden">
-          <input type="text" name="id_produk" id="id_produk" class="form-control" value="" hidden="hidden">
           <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" class="form-control" required="" placeholder="harga Title">
           </div>
           <div class="form-group">
             <label for="harga">Harga</label>
-            <input type="harga" name="harga" id="harga" class="form-control" placeholder="">
+            <input type="harga" name="harga" id="harga" class="form-control" placeholder="Harga">
+          </div>
+          <div class="form-group">
+            <label for="id_produk">Produk</label>
+            <select name="id_produk" id="id_produk" class="form-control" required>
+              <option value="1">Pilih Produk</option>
+              <?php foreach ($products as $product) : ?>
+                <option value="<?= $product['id'] ?>"><?= $product['text'] ?></option>
+              <?php endforeach; ?>
+            </select>
           </div>
           <div class="form-group">
             <label for="status">Status</label>
@@ -107,6 +115,25 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" type="button" id="delete-harga" data-dismiss="modal">Delete</button>
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalViewLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalViewLabel"></h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img id="modalViewImage" src="" class="img-fluid" alt="">
+      </div>
+      <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Exit</button>
       </div>
     </div>

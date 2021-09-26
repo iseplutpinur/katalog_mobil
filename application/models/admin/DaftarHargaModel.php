@@ -7,9 +7,17 @@ class DaftarHargaModel extends CI_Model
   public function getAllData($draw = null, $show = null, $start = null, $cari = null, $order = null, $filter = null)
   {
     // select tabel
-    $this->db->select("a.id, b.id as id_produk, a.title, b.title as nama_produk, a.harga, IF(a.status = '0' , 'Nonactive', IF(a.status = '1' , 'Active', 'Unknown')) as status_str, a.status");
+    $this->db->select("a.id,
+    b.id as id_produk,
+    b.jumbotron_foto as foto_produk,
+    a.title,
+    b.title as nama_produk,
+    a.harga,
+    IF(a.status = '0' ,'Nonactive', IF(a.status = '1' , 'Active', 'Unknown')) as status_str,
+    a.status");
     $this->db->from("ktm_daftar_harga a");
     $this->db->join('ktm_produk b', 'b.id = a.id_produk');
+
 
     // order by
     if ($order['order'] != null) {
@@ -19,7 +27,12 @@ class DaftarHargaModel extends CI_Model
       $columns = $columns[$order];
 
       $order_colum = $columns['data'];
+      if ($order_colum != 'nama_produk') {
+        $this->db->order_by('b.title', 'asc');
+      }
       $this->db->order_by($order_colum, $dir);
+    } else {
+      $this->db->order_by('b.title', 'asc');
     }
 
     // initial data table

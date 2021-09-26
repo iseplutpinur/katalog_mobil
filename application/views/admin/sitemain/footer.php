@@ -72,6 +72,10 @@
                     <!-- Page level plugins -->
                     <script src="<?= base_url(); ?>assets/vendor/ckeditor5-build-classic/ckeditor.js"></script>
                 <?php endif ?>
+                <?php if ($plugin == 'select2') : ?>
+                    <!-- Page level plugins -->
+                    <script src="<?= base_url(); ?>assets/vendor/select2/js/select2.full.min.js"></script>
+                <?php endif ?>
             <?php endforeach ?>
         <?php endif ?>
     <?php endif ?>

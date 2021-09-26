@@ -2,14 +2,17 @@ let global_dynamic = () => {
 
 }
 $(function () {
+  $('#id_produk').select2();
   function dynamic(date_start = null, date_end = null, admin = null) {
     let filter = new Object();
+    var groupColumn = 1;
     filter.not_status_produk = 2;
     if (date_start != null && date_end != null && admin != null) {
       filter.admin = admin;
       filter.date_start = date_start;
       filter.date_end = date_end;
     }
+
     const table_html = $('#dataTable');
     table_html.dataTable().fnDestroy()
     var tableUser = table_html.DataTable({
@@ -24,8 +27,15 @@ $(function () {
       "lengthChange": true,
       "autoWidth": false,
       "columns": [
-        { "data": null },
-        { "data": "nama_produk" },
+        { "data": "foto_produk" },
+        {
+          "data": "nama_produk", render(data, type, full, meta) {
+            return `${data} <a href="#"
+            data-title="${data}"
+            data-foto="${full.foto_produk}"
+            onclick="view(this)>Lihat</a>"`;
+          }
+        },
         { "data": "title" },
         { "data": "harga" },
         { "data": "status_str" },
@@ -47,10 +57,34 @@ $(function () {
           }
         }
       ],
+      "drawCallback": function (settings) {
+        var api = this.api();
+        var rows = api.rows({ page: 'current' }).nodes();
+        var last = null;
+
+        api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
+          if (last !== group) {
+            const foto = api.column(0).data()[i];
+            $(rows).eq(i).before(
+              `<tr class="group"><td colspan="4">${group}</td><td>
+              <button class="btn btn-success btn-sm"
+              data-foto="${foto}"
+              data-title="${group}"
+              onclick="view(this)">
+                  <i class="fa fa-eye"></i> View
+              </button>
+              </td></tr>`
+            );
+
+            last = group;
+          }
+        });
+      },
       columnDefs: [{
         orderable: false,
         targets: [0, 5]
-      }],
+      },
+      { "visible": false, "targets": groupColumn }],
       order: [
         [1, 'asc']
       ]
@@ -63,6 +97,20 @@ $(function () {
       }).nodes().each(function (cell, i) {
         cell.innerHTML = i + 1 + PageInfo.start;
       });
+    });
+
+    $('#dataTable tbody').on('click', 'tr.group', function (ev) {
+      var currentOrder = tableUser.order()[0];
+      if (ev.target.localName == 'button') {
+        return;
+      }
+
+      if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
+        tableUser.order([groupColumn, 'desc']).draw();
+      }
+      else {
+        tableUser.order([groupColumn, 'asc']).draw();
+      }
     });
   }
   dynamic();
@@ -105,7 +153,8 @@ $(function () {
     $("#title").val('');
     $("#id").val('');
     $("#status").val(1);
-    $("#file").val('');
+    $("#harga").val('');
+    $("#id_produk").val('').trigger('change');
     $("#formModalLabel").text('Add New harga');
   })
 
@@ -149,7 +198,15 @@ function edit(datas) {
   $("#title").val(data.title);
   $("#status").val(data.status);
   $("#harga").val(data.harga);
-  $("#id_produk").val(data.id_produk);
+  $("#id_produk").val(data.id_produk).trigger('change');
   $("#formModal").modal('toggle');
   $("#formModalLabel").text('Edit harga');
+}
+
+function view(datas) {
+  const data = datas.dataset;
+  $("#modalViewImage").attr('src', `<?= base_url() ?>files/produk/${data.foto}`);
+  $("#modalViewImage").attr('alt', data.title);
+  $("#modalViewLabel").text(data.title);
+  $("#modalView").modal("toggle");
 }

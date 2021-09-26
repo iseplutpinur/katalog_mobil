@@ -51,6 +51,11 @@
                     <!-- Custom styles for this page -->
                     <link href="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
                 <?php endif ?>
+                <?php if ($plugin == 'select2') : ?>
+                    <!-- Custom styles for this page -->
+                    <link href="<?= base_url(); ?>assets/vendor/select2/css/select2.min.css" rel="stylesheet">
+                    <link href="<?= base_url(); ?>assets/vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet">
+                <?php endif ?>
             <?php endforeach ?>
         <?php endif ?>
     <?php endif ?>
