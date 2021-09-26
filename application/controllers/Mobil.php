@@ -22,7 +22,7 @@ class Mobil extends CI_Controller
     }
 
     $data['title_page'] = $data['mobil']['produk']['title'];
-
+    $data['attr'] = $this->model->getFrontAttr();
     $data['navs'] = $this->model->getNavigation();
     $data['testimoni'] = $this->model->getListTestimonial();
     $data['sales'] = $this->model->getListSales();

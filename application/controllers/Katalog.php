@@ -11,6 +11,7 @@ class Katalog extends CI_Controller
 
     public function index()
     {
+        $data['attr'] = $this->model->getFrontAttr();
         $data['navs'] = $this->model->getNavigation();
         $data['title_page'] = "Katalog Harga";
         $data['products'] = $this->model->getListRecentProduct();

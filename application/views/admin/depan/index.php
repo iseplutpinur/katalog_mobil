@@ -14,18 +14,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Logo</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-logo">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="light">Light</label>
-                    <input type="file" name="light" id="light" class="form-control" required="" placeholder="light">
+                    <input type="file" name="light" id="light" class="form-control" placeholder="light">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="dark">Dark</label>
-                    <input type="file" name="dark" id="dark" class="form-control" required="" placeholder="dark">
+                    <input type="file" name="dark" id="dark" class="form-control" placeholder="dark">
                   </div>
                 </div>
               </div>
@@ -42,7 +42,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Email</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-email">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -85,7 +85,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Service</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-service">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -128,7 +128,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Call</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-call">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -171,12 +171,12 @@
             <h6 class="m-0 font-weight-bold text-primary">Copyright</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-copyright">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="copyright-value">copyright</label>
-                    <input type="copyright" name="value" id="copyright-value" class="form-control" required="" value="<?= $depan['copyright_value'] ?>" placeholder="copyright">
+                    <label for="copyright-value">Copyright</label>
+                    <textarea type="copyright" name="value" id="copyright-value" class="form-control" required="" placeholder="copyright"><?= $depan['copyright_value'] ?></textarea>
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -202,7 +202,7 @@
             <h6 class="m-0 font-weight-bold text-primary">No Telepon</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-no_telp">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -233,7 +233,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Footer Email</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-foot_email">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -264,7 +264,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Footer Alamat</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-alamat">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -295,18 +295,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Katalog</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-katalog">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="katalog-value">Title</label>
-                    <input type="text" name="value" id="katalog-value" class="form-control" value="<?= $depan['katalog_title'] ?>" required="" placeholder="Title">
+                    <input type="text" name="title" id="katalog-value" class="form-control" value="<?= $depan['katalog_title'] ?>" required="" placeholder="Title">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="detail-value">Detail</label>
-                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['katalog_value'] ?>" required="" placeholder="Detail">
+                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['katalog_value'] ?>" placeholder="Detail">
                   </div>
                 </div>
               </div>
@@ -323,18 +323,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Testimoni</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-testimoni">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="testimoni-value">Title</label>
-                    <input type="text" name="value" id="testimoni-value" class="form-control" value="<?= $depan['testimoni_title'] ?>" required="" placeholder="Testimoni">
+                    <input type="text" name="title" id="testimoni-value" class="form-control" value="<?= $depan['testimoni_title'] ?>" required="" placeholder="Testimoni">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="detail-value">Detail</label>
-                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['testimoni_value'] ?>" required="" placeholder="Detail">
+                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['testimoni_value'] ?>" placeholder="Detail">
                   </div>
                 </div>
               </div>
@@ -351,18 +351,18 @@
             <h6 class="m-0 font-weight-bold text-primary">Kontak</h6>
           </div>
           <div class="card-body">
-            <form action="" id="header-logo">
+            <form action="" id="form-kontak">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="kontak-value">Title</label>
-                    <input type="text" name="value" id="kontak-value" class="form-control" value="<?= $depan['kontak_title'] ?>" required="" placeholder="Kontak">
+                    <input type="text" name="title" id="kontak-value" class="form-control" value="<?= $depan['kontak_title'] ?>" required="" placeholder="Kontak">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="detail-value">Detail</label>
-                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['kontak_value'] ?>" required="" placeholder="Detail">
+                    <input type="text" name="value" id="detail-value" class="form-control" value="<?= $depan['kontak_value'] ?>" placeholder="Detail">
                   </div>
                 </div>
               </div>
@@ -372,8 +372,6 @@
         </div>
       </div>
 
-
     </div>
-
   </div>
 </div>

@@ -6,6 +6,7 @@ class NotFound extends CI_Controller
   public function index()
   {
     $this->load->model('MobilModel', 'model');
+    $data['attr'] = $this->model->getFrontAttr();
     $data['title_page'] = "Produk";
     $data['navs'] = $this->model->getNavigation();
     $this->load->view('front/temp/header', $data);

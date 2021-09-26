@@ -7,15 +7,24 @@
                 <div class="d-md-flex copyright-text">
                     <div class="p-2 flex-grow-1 copyright-text">
                         <div class="copyright-text st-2">
-                            <p>Copyrighted by <a href="#">@Bdevs</a> | All Right Reserved</p>
+                            <?= $attr['copyright_status'] == 1 ? $attr['copyright_value'] : ''; ?>
                         </div>
                     </div>
-                    <div class="p-2 copyright-text">
-                        <i class="fas fa-phone-alt"></i> <span><a class="text-white" href="#">0812-3505-5522</a></span>
-                    </div>
-                    <div class="p-2 copyright-text"><i class="fas fa-phone-alt"></i> <span><a class="text-white" href="#">info@domain.com</a></span></div>
-                    <div class="p-2 copyright-text"><i class="fas fa-map-marker-alt"></i> <span><a class="text-white" href="#">Jl. Letjend S. Parman No 104A Malang, Jawa
-                                Timur 65122</a></span></div>
+                    <?php if ($attr['no_telp_status'] == 1) : ?>
+                        <div class="p-2 copyright-text">
+                            <i class="fas fa-phone-alt"></i> <span><a class="text-white" href="#"><?= $attr['no_telp_value']; ?></a></span>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($attr['foot_email_status'] == 1) : ?>
+                        <div class="p-2 copyright-text">
+                            <i class="fas fa-phone-alt"></i> <span><a class="text-white" href="mailto:<?= $attr['foot_email_value']; ?>"><?= $attr['foot_email_value']; ?></a></span>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($attr['alamat_status'] == 1) : ?>
+                        <div class="p-2 copyright-text">
+                            <i class="fas fa-map-marker-alt"></i> <span><a class="text-white" href="#"><?= $attr['alamat_value']; ?></a></span>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

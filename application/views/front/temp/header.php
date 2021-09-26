@@ -35,33 +35,39 @@
                     <div class="col-lg-9 col-md-8">
                         <div class="grb__cta f-right header-cta st-2">
                             <ul>
-                                <li class="d-none">
-                                    <div class="cta__icon">
-                                        <span><i class="fas fa-phone-alt"></i></span>
-                                    </div>
-                                    <div class="cta__content">
-                                        <p>Call Us:</p>
-                                        <span><a href="tel:(555)674890556">(555) 674 890 556</a></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="cta__icon">
-                                        <span><i class="fas fa-envelope"></i></span>
-                                    </div>
-                                    <div class="cta__content">
-                                        <p>Mail Us:</p>
-                                        <span><a href="mailto:someone@growbiz.com">someone@growbiz.com</a></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="cta__icon">
-                                        <span><i class="fas fa-clock"></i></span>
-                                    </div>
-                                    <div class="cta__content">
-                                        <p>Service Hours</p>
-                                        <span>9:30 AM - 6:30 PM</span>
-                                    </div>
-                                </li>
+                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                    <li class="d-none">
+                                        <div class="cta__icon">
+                                            <span><i class="fas fa-phone-alt"></i></span>
+                                        </div>
+                                        <div class="cta__content">
+                                            <p>Call Us:</p>
+                                            <span><a href="tel:(555)674890556">(555) 674 890 556</a></span>
+                                        </div>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                    <li>
+                                        <div class="cta__icon">
+                                            <span><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <div class="cta__content">
+                                            <p>Mail Us:</p>
+                                            <span><a href="mailto:someone@growbiz.com">someone@growbiz.com</a></span>
+                                        </div>
+                                    </li>
+                                <?php endif ?>
+                                <?php if ($attr['no_telp_status'] == 1) : ?>
+                                    <li>
+                                        <div class="cta__icon">
+                                            <span><i class="fas fa-clock"></i></span>
+                                        </div>
+                                        <div class="cta__content">
+                                            <p>Service Hours</p>
+                                            <span>9:30 AM - 6:30 PM</span>
+                                        </div>
+                                    </li>
+                                <?php endif ?>
                             </ul>
                         </div>
                     </div>
