@@ -164,4 +164,16 @@ class MobilModel extends CI_Model
       'products' => $this->getListRecentProduct(),
     ];
   }
+
+  public function getFrontAttr(): ?array
+  {
+    // get
+    $check = $this->db->select('*')->from('ktm_pengaturan_depan')->where('id', 1)->get();
+    if ($check->num_rows() > 0) {
+      return $check->row_array();
+    } else {
+      $this->db->insert('ktm_pengaturan_depan', ['id' => 1]);
+      return $this->db->select('*')->from('ktm_pengaturan_depan')->where('id', 1)->get()->row_array();
+    }
+  }
 }

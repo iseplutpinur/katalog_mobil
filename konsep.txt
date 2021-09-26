@@ -117,10 +117,10 @@ header:
     logo dark
     logo white
   email:
-    icon
-    title
-    value
-    status
+    email_icon
+    email_title
+    email_value
+    email_status
   service:
     icon
     title

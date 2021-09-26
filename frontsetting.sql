@@ -1,0 +1,43 @@
+CREATE TABLE `komuni39_katalog_mobil`.`ktm_pengaturan_depan`
+( `id` INT NOT NULL AUTO_INCREMENT ,
+`logo_white`  VARCHAR(100) NULL ,
+`logo_dark`  VARCHAR(100) NULL ,
+`email_icon`  VARCHAR(100) NULL ,
+`email_title`  VARCHAR(100) NULL ,
+`email_value`  VARCHAR(100) NULL ,
+`email_status`  INT(1) NULL ,
+`service_icon`  VARCHAR(100) NULL ,
+`service_title`  VARCHAR(100) NULL ,
+`service_value`  VARCHAR(100) NULL ,
+`service_status`  INT(1) NULL ,
+`call_icon`  VARCHAR(100) NULL ,
+`call_title`  VARCHAR(100) NULL ,
+`call_value`  VARCHAR(100) NULL ,
+`call_status`  INT(1) NULL ,
+`copyright_value`  VARCHAR(100) NULL ,
+`copyright_status`  INT(1) NULL ,
+`no_telp_value`  VARCHAR(100) NULL ,
+`no_telp_status`  INT(1) NULL ,
+`foot_email_value`  VARCHAR(100) NULL ,
+`foot_email_status`  INT(1) NULL ,
+`testimoni_title`  VARCHAR(100) NULL ,
+`testimoni_value`  VARCHAR(100) NULL ,
+`testimoni_status`  INT(1) NULL ,
+`kontak_title`  VARCHAR(100) NULL ,
+`kontak_value`  VARCHAR(100) NULL ,
+`kontak_status`  INT(1) NULL ,
+`katalog_title`  VARCHAR(100) NULL ,
+`katalog_value`  VARCHAR(100) NULL ,
+`katalog_status`  INT(1) NULL ,
+PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+CREATE TABLE `komuni39_katalog_mobil`.`ktm_pengaturan_belakang`
+( `id` INT NOT NULL AUTO_INCREMENT ,
+`nav_logo_value`  VARCHAR(100) NULL ,
+`nav_logo_status`  INT(1) NULL ,
+`nav_logo_title`  VARCHAR(100) NULL ,
+`nav_time_status`  INT(1) NULL ,
+`copyright`  VARCHAR(255) NULL ,
+PRIMARY KEY (`id`)
+) ENGINE = InnoDB;

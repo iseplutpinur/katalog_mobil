@@ -4,4 +4,5 @@ $(document).ready(() => {
     columnWidth: '.grid-sizer',
     percentPosition: true
   });
+
 })

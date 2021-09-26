@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 10:55 PM
+-- Generation Time: Sep 27, 2021 at 12:24 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -186,6 +186,69 @@ CREATE TABLE `ktm_navigation` (
 INSERT INTO `ktm_navigation` (`id`, `id_produk`, `sort`, `status`, `created_at`, `updated_at`) VALUES
 (1, 5, 4, 1, '2021-09-26 15:32:25', '2021-09-26 11:51:39'),
 (3, 9, 2, 1, '2021-09-26 16:40:28', '2021-09-26 11:51:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ktm_pengaturan_belakang`
+--
+
+CREATE TABLE `ktm_pengaturan_belakang` (
+  `id` int(11) NOT NULL,
+  `nav_logo_value` varchar(100) DEFAULT NULL,
+  `nav_logo_status` int(1) DEFAULT NULL,
+  `nav_logo_title` varchar(100) DEFAULT NULL,
+  `nav_time_status` int(1) DEFAULT NULL,
+  `copyright` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ktm_pengaturan_depan`
+--
+
+CREATE TABLE `ktm_pengaturan_depan` (
+  `id` int(11) NOT NULL,
+  `logo_white` varchar(100) DEFAULT NULL,
+  `logo_dark` varchar(100) DEFAULT NULL,
+  `email_icon` varchar(100) DEFAULT NULL,
+  `email_title` varchar(100) DEFAULT NULL,
+  `email_value` varchar(100) DEFAULT NULL,
+  `email_status` int(1) DEFAULT NULL,
+  `service_icon` varchar(100) DEFAULT NULL,
+  `service_title` varchar(100) DEFAULT NULL,
+  `service_value` varchar(100) DEFAULT NULL,
+  `service_status` int(1) DEFAULT NULL,
+  `call_icon` varchar(100) DEFAULT NULL,
+  `call_title` varchar(100) DEFAULT NULL,
+  `call_value` varchar(100) DEFAULT NULL,
+  `call_status` int(1) DEFAULT NULL,
+  `copyright_value` varchar(100) DEFAULT NULL,
+  `copyright_status` int(1) DEFAULT NULL,
+  `no_telp_value` varchar(100) DEFAULT NULL,
+  `no_telp_status` int(1) DEFAULT NULL,
+  `foot_email_value` varchar(100) DEFAULT NULL,
+  `foot_email_status` int(1) DEFAULT NULL,
+  `alamat_value` varchar(100) DEFAULT NULL,
+  `alamat_status` int(1) DEFAULT NULL,
+  `testimoni_title` varchar(100) DEFAULT NULL,
+  `testimoni_value` varchar(100) DEFAULT NULL,
+  `testimoni_status` int(1) DEFAULT NULL,
+  `kontak_title` varchar(100) DEFAULT NULL,
+  `kontak_value` varchar(100) DEFAULT NULL,
+  `kontak_status` int(1) DEFAULT NULL,
+  `katalog_title` varchar(100) DEFAULT NULL,
+  `katalog_value` varchar(100) DEFAULT NULL,
+  `katalog_status` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ktm_pengaturan_depan`
+--
+
+INSERT INTO `ktm_pengaturan_depan` (`id`, `logo_white`, `logo_dark`, `email_icon`, `email_title`, `email_value`, `email_status`, `service_icon`, `service_title`, `service_value`, `service_status`, `call_icon`, `call_title`, `call_value`, `call_status`, `copyright_value`, `copyright_status`, `no_telp_value`, `no_telp_status`, `foot_email_value`, `foot_email_status`, `alamat_value`, `alamat_status`, `testimoni_title`, `testimoni_value`, `testimoni_status`, `kontak_title`, `kontak_value`, `kontak_status`, `katalog_title`, `katalog_value`, `katalog_status`) VALUES
+(1, NULL, NULL, 'fas fa-envelope', 'Mail Us:', 'iseplutpinur7@gmail.com', 1, 'fas fa-clock', 'Service Hours', '9:30 AM - 6:30 PM', 1, 'fas fa-phone-alt', 'Call For Estimate', '0812-3505-5522', 1, 'Copyrighted by <a href=\"#\">@Bdevs</a> | All Right Reserved', 1, '0812-3505-5522', 1, 'info@domain.com', 1, 'Jl. Letjend S. Parman No 104A Malang, Jawa\n                                Timur 65122', 1, 'TESTIMONIAL', 'Beberapa tanggapan dari klien kami', 1, 'KONTAK KAMI', NULL, 1, 'KATALOG PROMO', 'Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi', 1);
 
 -- --------------------------------------------------------
 
@@ -540,6 +603,18 @@ ALTER TABLE `ktm_navigation`
   ADD KEY `id_produk` (`id_produk`);
 
 --
+-- Indexes for table `ktm_pengaturan_belakang`
+--
+ALTER TABLE `ktm_pengaturan_belakang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ktm_pengaturan_depan`
+--
+ALTER TABLE `ktm_pengaturan_depan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ktm_produk`
 --
 ALTER TABLE `ktm_produk`
@@ -659,6 +734,18 @@ ALTER TABLE `ktm_kategori`
 --
 ALTER TABLE `ktm_navigation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ktm_pengaturan_belakang`
+--
+ALTER TABLE `ktm_pengaturan_belakang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ktm_pengaturan_depan`
+--
+ALTER TABLE `ktm_pengaturan_depan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ktm_produk`
