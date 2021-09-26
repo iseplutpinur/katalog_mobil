@@ -49,6 +49,7 @@ class MobilModel extends CI_Model
       'galeri' => $galeri,
       'video' => $video,
       'warna' => $warna,
+      'list_produk' => $this->getListRecentProduct()
     ];
   }
 
@@ -72,5 +73,34 @@ class MobilModel extends CI_Model
       ->order_by('a.id')
       ->get()->result_array();
     return $return ?? [];
+  }
+
+  public function getListRecentProduct(?int $limit = null): ?array
+  {
+    $limit = $limit ?? 9;
+    $this->db->select('id,
+    jumbotron_foto as foto,
+    title,
+    promo_harga_mulai as harga_mulai,
+    promo_paket_kredit as paket_kredit');
+    $this->db->from('ktm_produk');
+    $this->db->where('status', 1);
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit($limit);
+    return $this->db->get()->result_array();
+  }
+
+  public function getListRecentGaleri(?int $limit = null): ?array
+  {
+    $limit = $limit ?? 9;
+    $this->db->select('a.id, a.foto, a.title');
+    $this->db->from('ktm_galeri a');
+    $this->db->join('ktm_produk b', 'b.id = a.id_produk');
+    $this->db->where('b.status', 1);
+    $this->db->order_by('a.id', 'DESC');
+    if ($limit != 0) {
+      $this->db->limit($limit);
+    }
+    return $this->db->get()->result_array();
   }
 }

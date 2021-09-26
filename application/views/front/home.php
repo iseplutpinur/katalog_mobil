@@ -31,10 +31,6 @@
             <div class="col-lg-6">
                 <div class="choosing-fl-img p-relative text-center">
                     <img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang052niioiaDm192114gef9cee8.jpg" alt="">
-                    <!-- <div class="choosing-video play_btn">
-                                <a class="grb-video st-3 popup-video"
-                                    href="https://www.youtube.com/watch?v=pNje3bWz7V8"><i class="fas fa-play"></i></a>
-                            </div> -->
                 </div>
             </div>
             <div class="col-lg-6">
@@ -127,105 +123,22 @@
             </div>
         </div>
         <div class="row wow fadeInUp">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <!-- <div class="blog-date st-2">
-                                <i class="fal fa-calendar-alt"></i>
-                                <span>22</span>
-                                <p>Jan 2020</p>
-                            </div> -->
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02ua0iDrM76huiamci04064670c9b.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <!-- <ul class="blog-meta pl-100">
-                                    <li>
-                                        <i class="fal fa-user"></i>
-                                        <span class="author"><a href="<?= base_url() ?>produk/detail/NewXpander">Admin</a></span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-comments"></i>
-                                        <span><a href="blog-details.html">03 Comments</a></span>
-                                    </li>
-                                </ul> -->
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
+            <?php foreach ($products as $product) : ?>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="blog-single mb-30 p-relative p-3 st-2">
+                        <div class="blog-img">
+                            <a href="<?= base_url("mobil/{$product['id']}") ?>"><img src="<?= base_url("files/produk/{$product['foto']}") ?>" alt="<?= $product['title']; ?>"></a>
+                        </div>
+                        <div class="blog-content st-2">
+                            <h4><a href="<?= base_url("mobil/{$product['id']}") ?>"><?= $product['title']; ?> <i class="fas fa-arrow-right"></i></a></h4>
+                            <ul>
+                                <li>Harga mulai <b>Rp <?= $product['harga_mulai'] ?></b></li>
+                                <li>Kredit mulai <b>Rp <?= $product['paket_kredit'] ?></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02ucimaab7s82irM3a040646ac91b.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02uhasimor2byMias5040646810de.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02ua0iDrM76huiamci04064670c9b.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02ucimaab7s82irM3a040646ac91b.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="<?= base_url() ?>produk/detail/NewXpander"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang02uhasimor2byMias5040646810de.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-content st-2">
-                        <h4><a href="<?= base_url() ?>produk/detail/NewXpander">NEW XPANDER <i class="fas fa-arrow-right"></i></a></h4>
-                        <ul>
-                            <li>Harga mulai <b>Rp 232.200.000</b></li>
-                            <li>Kredit mulai <b>Rp 30 Jutaan</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -238,7 +151,7 @@
                 <div class="blog-left">
                     <div class="section-title mb-55 text-center">
                         <div class="border-c-bottom st-2">
-                            <p>Video dan Galeri Foto</p>
+                            <p>Galeri Foto</p>
                         </div>
                         <h4>Informasi Video Presentasi Terbaru serta Galeri Foto Mobil Baru Mitsubishi</h4>
                     </div>
@@ -246,48 +159,15 @@
             </div>
         </div>
         <div class="row wow fadeInUp">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang052niioiaDm192114gef9cee8.jpg" alt=""></a>
+            <?php foreach ($galeris as $galeri) : ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-single mb-30 p-relative st-2">
+                        <div class="blog-img">
+                            <a href="#"><img src="<?= base_url("files/galeri/{$galeri['foto']}") ?>" alt="<?= $galeri['title']; ?>"></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang022nyiAb0Cm172039g87a13e1.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang024yDibMram051832g0d1e136.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang025y3D8aPim051831g7e8524c.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang026obCMi7Am051810ga4bc087.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-single mb-30 p-relative st-2">
-                    <div class="blog-img">
-                        <a href="#"><img src="<?= base_url() ?>assets/growbiz/img/konten/mitsubishimalang028ber3Ctwm172040g75f367e.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

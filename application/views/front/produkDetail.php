@@ -204,7 +204,7 @@
             </div>
             <div class="row wow fadeInUp">
                 <div class="col-lg-12 col-md-12">
-                    <div class="blog-single mb-30">
+                    <div class="blog-single mb-30 p-lg-5 p-md-3">
                         <?= $mobil['produk']['informasi_spesifikasi']; ?>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
             </div>
             <div class="row wow fadeInUp">
                 <div class="col-lg-12 col-md-12">
-                    <div class="blog-single mb-30">
+                    <div class="blog-single mb-30 p-md-5">
                         <?= $mobil['produk']['keterangan_pembelian']; ?>
                     </div>
                 </div>
