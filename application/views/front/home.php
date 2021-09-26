@@ -1,3 +1,27 @@
+<?php
+function getYoutubeEmbedUrl($url)
+{
+    $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+    $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($longUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+
+    if (preg_match($shortUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id;
+}
+
+$bg_counter = 0;
+function getBgColor()
+{
+    global $bg_counter;
+    $bg_counter++;
+    return $bg_counter % 2 == 0 ? '' : 'grey-bg';
+}
+?>
 <!-- hero area start  -->
 <?php if ($sliders != null) : ?>
     <section class="hero-area p-relative">
@@ -112,16 +136,16 @@
 
 <!-- blog area start  -->
 <?php if ($products != null) : ?>
-    <section class="blog-area blog-area-2 pt-120">
+    <section class="blog-area blog-area-2 pt-120 <?= getBgColor() ?>">
         <div class="container">
-            <div class="row wow fadeInUp justify-content-center counter-head">
-                <div class="col-lg-6 col-md-8">
-                    <div class="blog-left">
-                        <div class="section-title mb-55 text-center">
-                            <div class="border-c-bottom st-2">
+            <div class="row wow fadeInUp align-items-center counter-head">
+                <div class="col-md-12">
+                    <div class="portfolio-left">
+                        <div class="section-title mb-55">
+                            <div class="border-left">
                                 <p>Katalog Promo</p>
                             </div>
-                            <h4>Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi</h4>
+                            <h3>Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi</h3>
                         </div>
                     </div>
                 </div>
@@ -151,7 +175,7 @@
 
 <!-- galeri -->
 <?php if ($galeris != null) : ?>
-    <section class="portfolio-area  grey-bg">
+    <section class="portfolio-area <?= getBgColor() ?>">
         <div class="container">
             <div class="row wow fadeInUp align-items-center counter-head">
                 <div class="col-md-12">
@@ -193,9 +217,53 @@
     </section>
 <?php endif; ?>
 
+<!-- video -->
+<?php if ($videos != null) : ?>
+    <section class="portfolio-area <?= getBgColor() ?>">
+        <div class="container">
+            <div class="row wow fadeInUp align-items-center counter-head">
+                <div class="col-md-12">
+                    <div class="portfolio-left">
+                        <div class="section-title mb-55">
+                            <div class="border-left">
+                                <p>video Foto</p>
+                            </div>
+                            <h3>Informasi Video Presentasi Terbaru serta video Foto Mobil Baru Mitsubishi</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-container">
+            <div class="portfolio-inner">
+                <div class="swiper-container portfolio-active">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($videos as $video) : ?>
+                            <div class="swiper-slide">
+                                <div class="single-portfolio">
+                                    <div class="portfolio-img">
+                                        <iframe id="player0" width="400" height="400" src="<?= getYoutubeEmbedUrl($video['url']); ?>" frameborder="0" allowfullscreen iframe-video></iframe>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h5><a href="#"><?= $video['title']; ?></a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="portfolio-nav">
+                        <div class="swiper-button-prev"><i class="far fa-arrow-left"></i></div>
+                        <div class="swiper-button-next"><i class="far fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
 <!-- blog area end -->
 <?php if ($testimoni != null) : ?>
-    <section class="testimonial-area st-3">
+    <section class="testimonial-area st-3 <?= getBgColor() ?>">
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-md-8">
@@ -251,7 +319,7 @@
 
 <!-- team area start  -->
 <?php if ($sales != null) : ?>
-    <section class="team-area grey-bg pt-110 pb-90">
+    <section class="team-area pt-110 pb-90 <?= getBgColor() ?>">
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-lg-12">

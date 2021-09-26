@@ -1,9 +1,9 @@
 <!-- hero area start  -->
 <!-- blog area start  -->
-<section class="blog-area blog-area-2 pt-120">
+<section class="blog-area bg-grey blog-area-2 pt-120">
     <div class="container">
         <div class="row wow fadeInUp justify-content-center counter-head">
-            <div class="col-lg-6 col-md-8">
+            <div class=" col-md-12">
                 <div class="blog-left">
                     <div class="section-title mb-55 text-center">
                         <div class="border-c-bottom st-2">

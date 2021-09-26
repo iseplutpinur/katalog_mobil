@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 03:22 PM
+-- Generation Time: Sep 26, 2021 at 07:59 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -221,6 +221,7 @@ INSERT INTO `ktm_produk` (`id`, `title`, `jumbotron_foto`, `jumbotron_title`, `j
 CREATE TABLE `ktm_sales` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `sebagai` varchar(100) DEFAULT NULL,
   `foto` varchar(50) NOT NULL,
   `alamat` text DEFAULT NULL,
   `no_wa` varchar(20) DEFAULT NULL,
@@ -235,9 +236,9 @@ CREATE TABLE `ktm_sales` (
 -- Dumping data for table `ktm_sales`
 --
 
-INSERT INTO `ktm_sales` (`id`, `title`, `foto`, `alamat`, `no_wa`, `email`, `lainnya`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Testing 123as', '915e1db618c932d79f758f155a99c0d2.jpg', '<p>alamaat 123</p>', '123', '', '<ol><li>lainnya</li><li>wkwkw</li></ol>', 1, '2021-09-26 13:27:31', '2021-09-26 09:35:19'),
-(3, 'Testing 12311', '0b6ab08fbb67e6d783b6951a3ee18a82.jpg', '<ul><li>alamat</li></ul>', '085798132505', 'administrator@gmail.com', '<ol><li>Lainnya</li></ol>', 1, '2021-09-26 14:46:34', NULL);
+INSERT INTO `ktm_sales` (`id`, `title`, `sebagai`, `foto`, `alamat`, `no_wa`, `email`, `lainnya`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Testing 123as', 'Sales', '915e1db618c932d79f758f155a99c0d2.jpg', '<p>alamaat 123</p>', '123', '', '<ol><li>lainnya</li><li>wkwkw</li></ol>', 1, '2021-09-26 13:27:31', '2021-09-26 09:35:19'),
+(3, 'Testing 12311', 'Sales', '0b6ab08fbb67e6d783b6951a3ee18a82.jpg', '<ul><li>alamat</li></ul>', '085798132505', 'administrator@gmail.com', '<ol><li>Lainnya</li></ol>', 1, '2021-09-26 14:46:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,6 +274,7 @@ INSERT INTO `ktm_slider` (`id`, `title`, `detail`, `sub_detail`, `foto`, `status
 CREATE TABLE `ktm_testimoni` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `sebagai` varchar(100) DEFAULT NULL,
   `foto` varchar(50) NOT NULL,
   `details` text DEFAULT NULL,
   `lainnya` text DEFAULT NULL,
@@ -287,8 +289,8 @@ CREATE TABLE `ktm_testimoni` (
 -- Dumping data for table `ktm_testimoni`
 --
 
-INSERT INTO `ktm_testimoni` (`id`, `title`, `foto`, `details`, `lainnya`, `tanggal`, `nilai`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Testing 123', '2aa62bdec2a0d218132988d1ee6f7767.jpg', '<p>det</p>', '<p>det</p>', '2021-09-10', 1, 0, '2021-09-26 14:49:53', '2021-09-26 10:42:48');
+INSERT INTO `ktm_testimoni` (`id`, `title`, `sebagai`, `foto`, `details`, `lainnya`, `tanggal`, `nilai`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'Testing 123', 'Direktur utama', '2aa62bdec2a0d218132988d1ee6f7767.jpg', '<p>det</p>', '<p>det</p>', '2021-09-10', 5, 1, '2021-09-26 14:49:53', '2021-09-26 18:36:00');
 
 -- --------------------------------------------------------
 
@@ -314,7 +316,7 @@ INSERT INTO `ktm_video` (`id`, `id_produk`, `title`, `url`, `status`, `created_a
 (5, 5, 'video 1', 'https://youtu.be/9k-BjDxYEjQ', 1, '2021-09-25 20:55:16', NULL),
 (6, 5, 'video 2', 'https://youtu.be/MxiqLi_roG8', 1, '2021-09-25 20:55:44', NULL),
 (7, 5, 'video 3', 'https://youtu.be/bRg3x8_JIvs', 1, '2021-09-25 20:56:04', NULL),
-(8, 9, 'Testing 123', 'https://demo.sikk-learning.infinit.id/', 1, '2021-09-26 10:25:23', NULL);
+(8, 9, 'Testing 123', 'https://youtu.be/9k-BjDxYEjQ', 1, '2021-09-26 10:25:23', '2021-09-26 19:13:56');
 
 -- --------------------------------------------------------
 

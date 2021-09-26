@@ -115,6 +115,22 @@ class MobilModel extends CI_Model
     $this->db->from('ktm_galeri a');
     $this->db->join('ktm_produk b', 'b.id = a.id_produk');
     $this->db->where('b.status', 1);
+    $this->db->where('a.status', 1);
+    $this->db->order_by('a.id', 'DESC');
+    if ($limit != 0) {
+      $this->db->limit($limit);
+    }
+    return $this->db->get()->result_array();
+  }
+
+  public function getListRecentVideo(?int $limit = null): ?array
+  {
+    $limit = $limit ?? 9;
+    $this->db->select('a.id, a.url, a.title');
+    $this->db->from('ktm_video a');
+    $this->db->join('ktm_produk b', 'b.id = a.id_produk');
+    $this->db->where('b.status', 1);
+    $this->db->where('a.status', 1);
     $this->db->order_by('a.id', 'DESC');
     if ($limit != 0) {
       $this->db->limit($limit);
@@ -126,6 +142,7 @@ class MobilModel extends CI_Model
   {
     return [
       'galeris' => $this->getListRecentGaleri(),
+      'videos' => $this->getListRecentVideo(),
       'testimoni' => $this->getListTestimonial(),
       'sales' => $this->getListSales(),
       'products' => $this->getListRecentProduct(),
