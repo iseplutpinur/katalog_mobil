@@ -14,8 +14,10 @@ class Home extends CI_Controller
         $data['title_page'] = "Home";
         $data['navs'] = $this->model->getNavigation();
         $data['sliders'] = $this->model->getSlider();
-        $data['products'] = $this->model->getListRecentProduct();
-        $data['galeris'] = $this->model->getListRecentGaleri();
+        $get = $this->model->dataFooter();
+        $data = array_merge($data, $get);
+        // var_dump($data);
+        // die;
         $this->load->view('front/temp/header', $data);
         $this->load->view('front/home', $data);
         $this->load->view('front/temp/footer', $data);

@@ -90,6 +90,24 @@ class MobilModel extends CI_Model
     return $this->db->get()->result_array();
   }
 
+  public function getListTestimonial(): ?array
+  {
+    $this->db->select('*');
+    $this->db->from('ktm_testimoni');
+    $this->db->where('status', 1);
+    $this->db->order_by('id', 'DESC');
+    return $this->db->get()->result_array();
+  }
+
+  public function getListSales(): ?array
+  {
+    $this->db->select('*');
+    $this->db->from('ktm_sales');
+    $this->db->where('status', 1);
+    $this->db->order_by('id', 'DESC');
+    return $this->db->get()->result_array();
+  }
+
   public function getListRecentGaleri(?int $limit = null): ?array
   {
     $limit = $limit ?? 9;
@@ -102,5 +120,15 @@ class MobilModel extends CI_Model
       $this->db->limit($limit);
     }
     return $this->db->get()->result_array();
+  }
+
+  public function dataFooter(): array
+  {
+    return [
+      'galeris' => $this->getListRecentGaleri(),
+      'testimoni' => $this->getListTestimonial(),
+      'sales' => $this->getListSales(),
+      'products' => $this->getListRecentProduct(),
+    ];
   }
 }
