@@ -97,6 +97,7 @@ class User extends CI_Controller
 			redirect('user');
 		}
 	}
+
 	public function percobaan()
 	{
 		$data['title_page'] = 'Login';

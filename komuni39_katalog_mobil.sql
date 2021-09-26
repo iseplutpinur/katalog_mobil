@@ -3,19 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 07:00 PM
+-- Generation Time: Sep 26, 2021 at 04:31 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `komuni39_katalog_mobil`
@@ -52,7 +46,9 @@ INSERT INTO `ktm_daftar_harga` (`id`, `id_produk`, `title`, `harga`, `status`, `
 (21, 5, 'ULTIMATE AT', '284.500.000', 1, '2021-09-25 20:47:04', NULL),
 (22, 5, 'BLACK LIMITED MT', '268.700.000', 1, '2021-09-25 20:47:16', NULL),
 (23, 5, 'BLACK LIMITED AT', '278.900.000', 1, '2021-09-25 20:47:26', NULL),
-(26, 10, 'Testing 123', '123', 1, '2021-09-25 23:38:14', NULL);
+(26, 10, 'Testing 123', '123', 1, '2021-09-25 23:38:14', NULL),
+(28, 9, 'All New', '60.000', 1, '2021-09-26 08:18:16', '2021-09-26 04:23:49'),
+(34, 9, 'Old', '150.0000', 1, '2021-09-26 09:23:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,8 +221,8 @@ CREATE TABLE `ktm_slider` (
 --
 
 INSERT INTO `ktm_slider` (`id`, `title`, `foto`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'Xpander Cross', 'b8e25e7c01f21f8a44014ec334a12b09.jpg', 1, '2021-09-25 17:39:41', NULL),
-(9, 'Xpander Cross 2', '27f1511823be0da672472f16a8b8b29f.jpg', 1, '2021-09-25 17:40:09', NULL);
+(8, 'Xpander Cross', '0a19f3e0b4233f4e6831633f4d413781.jpg', 1, '2021-09-25 17:39:41', '2021-09-26 03:08:26'),
+(9, 'Xpander Cross 2', '56f8a3b35ffdcc1c2bac8a4072d50cc6.jpg', 1, '2021-09-25 17:40:09', '2021-09-26 03:08:36');
 
 -- --------------------------------------------------------
 
@@ -536,7 +532,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `ktm_daftar_harga`
 --
 ALTER TABLE `ktm_daftar_harga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `ktm_eksterior`
@@ -680,7 +676,3 @@ ALTER TABLE `ktm_video`
 ALTER TABLE `ktm_warna`
   ADD CONSTRAINT `ktm_warna_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `ktm_produk` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
