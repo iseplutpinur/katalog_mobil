@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.html">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/growbiz/img/favicon.ico">
+    <link rel="shortcut icon" href="<?= base_url(); ?>assets/icon/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
