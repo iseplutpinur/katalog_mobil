@@ -50,6 +50,10 @@ class DashboardModel extends CI_Model
         'title' => 'Jumlah Jumbotron',
         'data' => $this->jumlah_jumbotron(),
         'satuan' => 'Display'
+      ], [
+        'title' => 'Jumlah User',
+        'data' => $this->jumlah_users(),
+        'satuan' => 'Akun'
       ],
     ];
   }
@@ -162,6 +166,15 @@ class DashboardModel extends CI_Model
       ->from('ktm_interior a')
       ->join('ktm_produk b', 'a.id_produk = b.id')
       ->where('b.status <>', 2)
+      ->get()->row_array();
+    return $return['jumlah'];
+  }
+
+  private function jumlah_users(): int
+  {
+    $return = $this->db
+      ->select('count(*) as jumlah')
+      ->from('user a')
       ->get()->row_array();
     return $return['jumlah'];
   }
