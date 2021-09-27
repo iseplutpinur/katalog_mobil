@@ -5,6 +5,8 @@ class Dashboard extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['title_page'] = "Dashboard";
     $data['plugins'] = ['datatable'];
     $data['javascript'] = "admin/dashboard/index";

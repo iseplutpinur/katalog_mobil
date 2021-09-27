@@ -5,6 +5,8 @@ class Produk extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['title_page'] = "List Produk";
     $data['plugins'] = ['datatable'];
@@ -17,6 +19,8 @@ class Produk extends CI_Controller
 
   public function new($id = null)
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['title_page'] = $id == null ? "New Produk" : "Edit Produk";
     $data['plugins'] = ['datatable', 'ckeditor'];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2021 at 01:48 AM
+-- Generation Time: Sep 27, 2021 at 02:54 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -202,6 +202,13 @@ CREATE TABLE `ktm_pengaturan_belakang` (
   `copyright` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ktm_pengaturan_belakang`
+--
+
+INSERT INTO `ktm_pengaturan_belakang` (`id`, `nav_logo_value`, `nav_logo_status`, `nav_logo_title`, `nav_time_status`, `copyright`) VALUES
+(1, 'fas fa-car', NULL, 'KATALOG MOBIL', 1, 'Copyright © Isep Lutpi Nur 2021');
+
 -- --------------------------------------------------------
 
 --
@@ -254,7 +261,7 @@ CREATE TABLE `ktm_pengaturan_depan` (
 --
 
 INSERT INTO `ktm_pengaturan_depan` (`id`, `logo_white`, `logo_dark`, `email_icon`, `email_title`, `email_value`, `email_status`, `service_icon`, `service_title`, `service_value`, `service_status`, `call_icon`, `call_title`, `call_value`, `call_status`, `copyright_value`, `copyright_status`, `no_telp_value`, `no_telp_status`, `foot_email_value`, `foot_email_status`, `alamat_value`, `alamat_status`, `galeri_title`, `galeri_value`, `galeri_status`, `video_title`, `video_value`, `video_status`, `testimoni_title`, `testimoni_value`, `testimoni_status`, `kontak_title`, `kontak_value`, `kontak_status`, `katalog_title`, `katalog_value`, `katalog_status`) VALUES
-(1, NULL, NULL, 'fas fa-envelope', 'Mail Us:', 'iseplutpinur7@gmail.com', 1, 'fas fa-clock', 'Service Hours', '9:30 AM - 6:30 PM', 1, 'fas fa-phone-alt', 'Call For Estimate', '0857-9813-2505', 1, 'Copyrighted by <a href=\"#\">@Bdevs</a> | All Right Reserved', 1, '0812-3505-5522q', 1, 'info@domain.com1', 1, 'Jl. Letjend S. Parman No 104A Malang, Jawa            Timur 65122a', 1, 'FOTO GALERI', 'Informasi Foto Presentasi Terbaru', 1, 'Videoa', 'Informasi Video Presentasi Terbarus', NULL, 'TESTIMONIAL', 'Beberapa tanggapan dari klien kami', 1, '<p></p>', 'KONTAK KAMI', 1, 'KATALOG PROMO', 'Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi', 1);
+(1, 'white.png', 'dark.png', 'fas fa-envelope', 'Mail Us:', 'iseplutpinur7@gmail.com', 1, 'fas fa-clock', 'Service Hours', '9:30 AM - 6:30 PM', 1, 'fas fa-phone-alt', 'Call For Estimate', '0857-9813-2505', 1, 'Copyrighted by <a href=\"#\">@Bdevs</a> | All Right Reserved', 1, '0812-3505-5522q', 1, 'info@domain.com1', 1, 'Jl. Letjend S. Parman No 104A Malang, Jawa            Timur 65122a', 1, 'FOTO GALERI', 'Informasi Foto Presentasi Terbaru', 1, 'Videoa', 'Informasi Video Presentasi Terbarus', NULL, 'TESTIMONIAL', 'Beberapa tanggapan dari klien kami', 1, '<p></p>', 'KONTAK KAMI', 1, 'KATALOG PROMO', 'Informasi Program Promo September 2021 Pembelian Mobil Baru Mitsubishi', 1);
 
 -- --------------------------------------------------------
 
@@ -444,7 +451,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_create`) VALUES
-(8, 'Administrator', 'administrator@gmail.com', 'me_face.jpg', '$2y$10$nPFxTwUG13DH0ylEDfPyi.yY77qDmQSj/SwyebDkpJeclGqCyiIkS', 1, 1, 1589434654);
+(8, 'Administrator', 'administrator@gmail.com', 'me_face.jpg', '$2y$10$bKYQyk0/ATmtwWFavtD/zOlSNbMNg/w4Bc/KY8kzjgBfjSN7B551a', 1, 1, 1589434654);
 
 -- --------------------------------------------------------
 
@@ -745,7 +752,7 @@ ALTER TABLE `ktm_navigation`
 -- AUTO_INCREMENT for table `ktm_pengaturan_belakang`
 --
 ALTER TABLE `ktm_pengaturan_belakang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ktm_pengaturan_depan`

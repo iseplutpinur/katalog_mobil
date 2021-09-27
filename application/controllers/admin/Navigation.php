@@ -5,6 +5,8 @@ class Navigation extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['title_page'] = "List Navigasi";
     $data['plugins'] = ['datatable', 'select2'];
     $data['nav_select'] = 'nav-navigasi';

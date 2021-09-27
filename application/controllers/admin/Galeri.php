@@ -5,6 +5,8 @@ class Galeri extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['title_page'] = "List Galeri";
     $data['plugins'] = ['datatable', 'select2'];
     $data['products'] = $this->db->select('id, title as text')->from('ktm_produk')->where('status <> 2')->get()->result_array();

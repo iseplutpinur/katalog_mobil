@@ -8,7 +8,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Isep Lutpi Nur <?= date('Y'); ?></span>
+                <span><?= $apps['copyright']; ?></span>
             </div>
         </div>
         <!-- End of Footer -->
@@ -48,7 +48,9 @@
     <script src="<?= base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
-    <script src="<?= base_url(); ?>assets/js/clock.js"></script>
+    <?php if ($apps['nav_time_status'] == 1) : ?>
+        <script src="<?= base_url(); ?>assets/js/clock.js"></script>
+    <?php endif; ?>
     <!-- Custom scripts for all pages-->
     <!-- sweetalert -->
     <script src="<?= base_url(); ?>assets/vendor/sweetalert2/sweetalert2.min.js"></script>

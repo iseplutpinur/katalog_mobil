@@ -5,6 +5,8 @@ class Depan extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['title_page'] = "Pengaturan Halaman Depan";
     $data['plugins'] = ['datatable', 'mansonry'];
     $data['nav_select'] = 'nav-depan';

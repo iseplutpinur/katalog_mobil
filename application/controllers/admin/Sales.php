@@ -5,6 +5,8 @@ class Sales extends CI_Controller
 {
   public function index()
   {
+    $this->load->model("admin/AplikasiModel", 'aplikasi');
+    $data['apps'] = $this->aplikasi->getBackAttr();
     $data['title_page'] = "List sales";
     $data['plugins'] = ['datatable', 'ckeditor'];
     $data['nav_select'] = 'nav-sales';

@@ -70,8 +70,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <i class="fas fa-car"></i>
-                <div class="sidebar-brand-text mx-3">KATALOG MOBIL</div>
+                <i class="<?= $apps['nav_logo_value'] ?>"></i>
+                <div class="sidebar-brand-text mx-3"><?= $apps['nav_logo_title'] ?></div>
             </a>
 
             <!-- meniapkan sub-sub menu-->
