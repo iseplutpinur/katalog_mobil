@@ -5,7 +5,52 @@ class DepanModel extends CI_Model
 {
   public function insert_logo()
   {
-    return true;
+
+    // insert logo white
+    $white = true;
+    $logo_white = '';
+    $config['upload_path']          = './files/front/';
+    $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|PNG|JPEG';
+    $config['file_name']            = 'white';
+    $config['overwrite']            = true;
+    $config['max_size']             = 8024;
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if ($this->upload->do_upload('light')) {
+      $logo_white = $this->upload->data("file_name");
+    } else {
+      $white = false;
+    }
+
+    $dark = true;
+    $logo_dark = '';
+    $config['upload_path']          = './files/front/';
+    $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|PNG|JPEG';
+    $config['file_name']            = 'dark';
+    $config['overwrite']            = true;
+    $config['max_size']             = 8024;
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if ($this->upload->do_upload('dark')) {
+      $logo_dark = $this->upload->data("file_name");
+    } else {
+      $dark = false;
+    }
+
+    $data = [];
+    if ($logo_white != '') {
+      $data['logo_white'] = $logo_white;
+    }
+    if ($logo_dark != '') {
+      $data['logo_dark'] = $logo_dark;
+    }
+
+    if (!empty($data)) {
+      $this->db->where('id', 1);
+      $this->db->update('ktm_pengaturan_depan', $data);
+    }
+
+    return $white && $dark;
   }
 
   public function insert_email($icon, $title, $value, $status)

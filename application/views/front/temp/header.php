@@ -96,8 +96,8 @@
                 <div class="row">
                     <div class="col-xl-2 col-lg-3 col-8">
                         <div class="logo">
-                            <a class="logo-text-white" href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-orange.png" alt=""></a>
-                            <a class="logo-text-black" href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo-text-black.png" alt=""></a>
+                            <a class="logo-text-white" href="<?= base_url() ?>home"><img src="<?= base_url("files/front/{$attr['logo_white']}") ?>" alt=""></a>
+                            <a class="logo-text-black" href="<?= base_url() ?>home"><img src="<?= base_url("files/front/{$attr['logo_dark']}") ?>" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-9 col-4">
