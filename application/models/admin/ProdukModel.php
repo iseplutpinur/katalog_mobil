@@ -70,7 +70,8 @@ class ProdukModel extends CI_Model
         ->get()->row_array();
     }
 
-    $check = $this->db->select("*")->from("ktm_produk")->where('status', 2)->get();
+    $id_user = $this->session->userdata('id');
+    $check = $this->db->select("*")->from("ktm_produk")->where('status', 2)->where('id_user', $id_user)->get();
     if ($check->num_rows() > 0) {
       return $check->row_array();
     } else {
