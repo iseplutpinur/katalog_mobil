@@ -17,13 +17,13 @@ class Home_model extends CI_Model
                     "ip" => $ip
                 ]);
 
-                $cek_visited = $this->db->select("*")->from("visited")->get();
-                if($cek_visited->num_rows() > 0){
-                    $this->db->query(`UPDATE SET
-                                        jumlah = ((SELECT jumlah FROM visited)+1)
-                                        `);
+                $cek_visited = $this->db->select("*")->from("visited")->where("tanggal", $tgl)->get();
+                if($cek_visited->num_rows() != 0){
+                    $this->db->query("UPDATE visited SET jumlah = (SELECT SUM(jumlah) FROM visited WHERE tanggal = '$tgl')+1");
                 }else{
                     $this->db->insert("visited", ["jumlah" => 1]);
+                    var_dump($this->db->last_query());
+                    die;
                 }
             }
         }
