@@ -28,4 +28,18 @@ class Home_model extends CI_Model
             }
         }
     }
+
+    public function jumlahVisited()
+    {
+        $hari = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal = DATE(NOW())")->row_array();
+        $minggu = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal BETWEEN DATE_ADD(NOW(), INTERVAL -7 DAY) AND DATE(NOW())")->row_array();
+        $bulan = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal BETWEEN DATE_ADD(NOW(), INTERVAL -30 DAY) AND DATE(NOW())")->row_array();
+        $result = [
+            "hari" => $hari['jumlah'],
+            "minggu" => $minggu['jumlah'],
+            "bulan" => $bulan['jumlah'],
+        ];
+        
+        return $result;
+    }
 }

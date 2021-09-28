@@ -22,6 +22,7 @@ class Home extends CI_Controller
 
         $ip = $this->get_client_ip();
         $this->homes->visited($ip);
+        $data['visited'] = $this->homes->jumlahVisited();
 
 
         $this->load->view('front/temp/header', $data);
