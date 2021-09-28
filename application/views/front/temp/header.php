@@ -145,7 +145,9 @@
             <div class="side-info-content">
                 <div class="offset-widget offset-logo mb-30 pb-20">
                     <div class="row align-items-center">
-                        <div class="col-9"><a href="<?= base_url() ?>home"><img src="<?= base_url() ?>assets/growbiz/img/logo/logo.png" alt="Logo"></a>
+                        <div class="col-9">
+                            <a class="logo-text-white" href="<?= base_url() ?>home"><img src="<?= base_url("files/front/{$attr['logo_white']}") ?>" alt="logo"></a>
+                            <a class="logo-text-black" href="<?= base_url() ?>home"><img src="<?= base_url("files/front/{$attr['logo_dark']}") ?>" alt="logo"></a></a>
                         </div>
                         <div class="col-3 text-end"><button class="side-info-close"><i class="fal fa-times"></i></button>
                         </div>
