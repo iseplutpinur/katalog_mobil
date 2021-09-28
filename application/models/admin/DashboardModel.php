@@ -5,6 +5,7 @@ class DashboardModel extends CI_Model
 {
   public function getDataDashboard(): array
   {
+    $kunjungan = $this->jumlahVisited();
     return [
       [
         'title' => 'Jumlah slider',
@@ -54,6 +55,22 @@ class DashboardModel extends CI_Model
         'title' => 'Jumlah User',
         'data' => $this->jumlah_users(),
         'satuan' => 'Akun'
+      ],[
+        'title' => 'Kunjungan Hari ini',
+        'data' => $kunjungan['hari'],
+        'satuan' => 'Pengunjung'
+      ],[
+        'title' => 'Kunjungan Minggu ini',
+        'data' => $kunjungan['minggu'],
+        'satuan' => 'Pengunjung'
+      ],[
+        'title' => 'Kunjungan Bulan ini',
+        'data' => $kunjungan['bulan'],
+        'satuan' => 'Pengunjung'
+      ],[
+        'title' => 'Total Kunjungan',
+        'data' => $kunjungan['total'],
+        'satuan' => 'Pengunjung'
       ],
     ];
   }
@@ -177,5 +194,21 @@ class DashboardModel extends CI_Model
       ->from('user a')
       ->get()->row_array();
     return $return['jumlah'];
+  }
+  
+  public function jumlahVisited()
+  {
+      $total = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited")->row_array();
+      $hari = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal = DATE(NOW())")->row_array();
+      $minggu = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal BETWEEN DATE_ADD(NOW(), INTERVAL -7 DAY) AND DATE(NOW())")->row_array();
+      $bulan = $this->db->query("SELECT SUM(jumlah) AS jumlah FROM visited WHERE tanggal BETWEEN DATE_ADD(NOW(), INTERVAL -30 DAY) AND DATE(NOW())")->row_array();
+      $result = [
+          "total" => $total['jumlah'],
+          "hari" => $hari['jumlah'],
+          "minggu" => $minggu['jumlah'],
+          "bulan" => $bulan['jumlah'],
+      ];
+      
+      return $result;
   }
 }
