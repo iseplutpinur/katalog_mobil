@@ -317,33 +317,33 @@ function getBgColor()
 <!-- team area end  -->
 
 <div class="counter-board-area" data-background="assets/img/bg/counter-board-bg.jpg">
-            <div class="container">
-                <div class="row wow fadeInUp align-items-center counter-head text-center">
-                    <div class="counter">
-                        <div class="section-title mb-60">
-                            <h2 class="white-color ">Statistik Kunjungan</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row wow fadeInUp counter-board-content">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="counter-board-single mb-40">
-                            <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['hari'] ?>">00</span></div>
-                            <p>Hari Ini</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="counter-board-single mb-40">
-                            <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['minggu'] ?>">00</span></div>
-                            <p>Minggu Ini</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="counter-board-single mb-40">
-                            <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['bulan'] ?>">00</span></div>
-                            <p>Total Kunjungan</p>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row wow fadeInUp align-items-center counter-head text-center">
+            <div class="counter">
+                <div class="section-title mb-60">
+                    <h2 class="white-color ">Statistik Kunjungan</h2>
                 </div>
             </div>
         </div>
+        <div class="row wow fadeInUp counter-board-content">
+            <div class="col-md-4 col-sm-12">
+                <div class="counter-board-single mb-40">
+                    <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['hari'] ?>">00</span></div>
+                    <p>Hari Ini</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="counter-board-single mb-40">
+                    <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['minggu'] ?>">00</span></div>
+                    <p>Minggu Ini</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="counter-board-single mb-40">
+                    <div class="counter-board-number"><span class="odometer" data-count="<?= $visited['total'] ?>">00</span></div>
+                    <p>Total Kunjungan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

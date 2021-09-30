@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 27, 2021 at 11:56 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.21
+-- Host: localhost
+-- Generation Time: Sep 30, 2021 at 06:27 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -564,6 +564,44 @@ CREATE TABLE `user_token` (
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visited`
+--
+
+CREATE TABLE `visited` (
+  `id` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tanggal` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `visited`
+--
+
+INSERT INTO `visited` (`id`, `jumlah`, `tanggal`) VALUES
+(1, 1, '2021-09-30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visited_ip`
+--
+
+CREATE TABLE `visited_ip` (
+  `id` int(11) NOT NULL,
+  `ip` varchar(25) NOT NULL,
+  `tanggal` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `visited_ip`
+--
+
+INSERT INTO `visited_ip` (`id`, `ip`, `tanggal`) VALUES
+(1, '::1', '2021-09-30');
+
 --
 -- Indexes for dumped tables
 --
@@ -703,6 +741,18 @@ ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `visited`
+--
+ALTER TABLE `visited`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `visited_ip`
+--
+ALTER TABLE `visited_ip`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -831,6 +881,18 @@ ALTER TABLE `user_sub_menu`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `visited`
+--
+ALTER TABLE `visited`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `visited_ip`
+--
+ALTER TABLE `visited_ip`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
